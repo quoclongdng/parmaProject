@@ -22,6 +22,8 @@
                 <p>Mô tả</p>
                 <div class="attachment-block clearfix">
                   <img class="attachment-img" src="../dist/img/photo1.png" alt="Ảnh">
+                  <img class="attachment-img" src="../dist/img/photo1.png" alt="Ảnh">
+                  <img class="attachment-img" src="../dist/img/photo1.png" alt="Ảnh">
                 </div>
                 <div>
                     <em>keyword: <span>asd,asd,ád</span></em>

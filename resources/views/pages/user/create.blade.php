@@ -79,7 +79,7 @@
                       </div>
                     </div>
 
-                <div class="card-footer">
+                <div class="form-group">
                     <button type="submit" class="btn btn-primary">Thêm Mới Người Dùng</button>
                 </div>
                 </div>

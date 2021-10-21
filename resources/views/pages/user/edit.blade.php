@@ -27,6 +27,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Nhập lại mật khẩu</label>
+                        <input type="password" class="form-control" placeholder="********" ></input>
+                    </div>
+
+                    <div class="form-group">
                       <label>Họ</label>
                       <input type="text" class="form-control" placeholder="Nhập Họ">
                     </div>

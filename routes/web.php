@@ -21,6 +21,7 @@ Route::get('/product-category/create', function () {
     return view('pages.productCategory.create');
 });
 
+
 Route::get('/product-category/edit', function () {
     return view('pages.productCategory.edit');
 });
@@ -43,4 +44,11 @@ Route::get('/news-category/create', function () {
 
 Route::get('/news-category/edit', function () {
     return view('pages.newsCategory.edit');
+
+Route::get('/bill/create', function () {
+    return view('pages.bill.create');
+});
+
+Route::get('/bill/update', function () {
+    return view('pages.bill.update');
 });

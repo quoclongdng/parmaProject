@@ -21,6 +21,30 @@ Route::get('/product-category/create', function () {
     return view('pages.productCategory.create');
 });
 
+
+Route::get('/product-category/edit', function () {
+    return view('pages.productCategory.edit');
+});
+
+Route::get('/product/create', function () {
+    return view('pages.product.create');
+});
+
+Route::get('/product/index', function () {
+    return view('pages.product.index');
+});
+Route::get('/product/edit', function () {
+    return view('pages.product.edit');
+});
+
+
+Route::get('/news-category/create', function () {
+    return view('pages.newsCategory.create');
+});
+
+Route::get('/news-category/edit', function () {
+    return view('pages.newsCategory.edit');
+
 Route::get('/bill/create', function () {
     return view('pages.bill.create');
 });

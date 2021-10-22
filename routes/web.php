@@ -17,9 +17,23 @@ Route::get('/', function () {
     return view('master');
 });
 
-Route::get('/product-category/create', function () {
-    return view('pages.productCategory.create');
+Route::group([], function(){
+
+    // Route::get('/product-category/create', function () {
+    //     return view('pages.productCategory.create');
+    // });
+
+    Route::get('/product-category/create', [\App\Http\Controllers\ProductCategoryController::class, 'create']);
+    Route::post('/product-category/create', [\App\Http\Controllers\ProductCategoryController::class, 'store']);
+    Route::get('/product-category/edit/{id}', [\App\Http\Controllers\ProductCategoryController::class, 'edit']);
+    Route::post('/product-category/update', [\App\Http\Controllers\ProductCategoryController::class, 'update']);
+    Route::get('/product-category/delete/{id}', [\App\Http\Controllers\ProductCategoryController::class, 'destroy']);
+
+
 });
+
+
+
 
 Route::get('/user',function(){
     return view('pages.user.index');
@@ -44,7 +58,7 @@ Route::get('/news/create',function(){
 
 Route::get('/news/edit/{id}',function($id){
     return view('pages.news.edit');
-=======
+});
 
 Route::get('/customer/create', function () {
     return view('pages.customer.create');
@@ -60,11 +74,9 @@ Route::get('/bill-details/create', function () {
 
 Route::get('/bill-details/update', function () {
     return view('pages.billDetails.update');
-
-
-Route::get('/product-category/edit', function () {
-    return view('pages.productCategory.edit');
 });
+
+
 
 Route::get('/product/create', function () {
     return view('pages.product.create');
@@ -73,6 +85,7 @@ Route::get('/product/create', function () {
 Route::get('/product/index', function () {
     return view('pages.product.index');
 });
+
 Route::get('/product/edit', function () {
     return view('pages.product.edit');
 });
@@ -84,6 +97,7 @@ Route::get('/news-category/create', function () {
 
 Route::get('/news-category/edit', function () {
     return view('pages.newsCategory.edit');
+});
 
 Route::get('/bill/create', function () {
     return view('pages.bill.create');

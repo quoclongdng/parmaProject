@@ -11,28 +11,27 @@
                 <div class="card-header">
                   <h3 class="card-title">Thêm Mới Danh Mục</h3>
                 </div>
-                <!-- /.card-header -->
-                <!-- form start -->
-                <form>
+                <form method="post" action="/product-category/create">
+                  @csrf
                   <div class="card-body">
                     <div class="form-group">
                       <label>Tên Danh Mục</label>
-                      <input type="text" class="form-control" placeholder="Nhập vào tên danh mục">
+                      <input name="name" type="text" class="form-control" placeholder="Nhập vào tên danh mục">
                     </div>
                     <div class="form-group">
                         <label>Slug</label>
-                        <input type="text" class="form-control" placeholder="Nhập vào slug danh mục">
+                        <input name="slug" type="text" class="form-control" placeholder="Nhập vào slug danh mục">
                     </div>
                     <div class="form-group">
                         <label>Tình Trạng</label>
-                        <select class="form-control">
-                            <option>Hoạt động</option>
-                            <option>Tạm dừng</option>
+                        <select name="is_open" class="form-control">
+                            <option value=1>Hoạt động</option>
+                            <option value=0>Tạm dừng</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Slug</label>
-                        <textarea class="form-control" rows="3" placeholder="Nhập vào mô tả..."></textarea>
+                        <textarea name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả..."></textarea>
                     </div>
                     <div class="form-group">
                       <label>Upload Avatar</label>
@@ -75,18 +74,20 @@
                       </tr>
                     </thead>
                     <tbody>
+                        @foreach ($data as $key => $value)
                         <tr data-widget="expandable-table" aria-expanded="false">
-                            <td>1</td>
-                            <td>example</td>
-                            <td>example</td>
-                            <td>example</td>
-                            <td>example</td>
-                            <td>example</td>
+                            <td>{{ $key + 1 }}</td>
+                            <td>{{ $value->name }}</td>
+                            <td>{{ $value->slug }}</td>
+                            <td>{{ $value->is_open == 1 ? "Hoạt động" : "Tạm dừng" }}</td>
+                            <td>{{ $value->avatar }}</td>
+                            <td>{{ $value->created_at }}</td>
                             <td class="text-center text-nowrap">
-                                <button class="btn btn-info">Edit</button>
-                                <button class="btn btn-danger">Delete</button>
+                                <a class="btn btn-info" href="/product-category/edit/{{$value->id}}">Edit</a>
+                                <a class="btn btn-danger" href="/product-category/delete/{{$value->id}}">Delete</a>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                   </table>
                 </div>

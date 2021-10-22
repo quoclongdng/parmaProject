@@ -5,3 +5,8 @@
 <script src="/assets/dist/js/adminlte.min.js"></script>
 @toastr_js
 @toastr_render
+@if(count($errors) > 0)
+    @foreach ($errors->all() as $error)
+        toastr.error("{{ $error }}");
+    @endforeach
+@endif

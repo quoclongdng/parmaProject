@@ -20,3 +20,11 @@ Route::get('/', function () {
 Route::get('/product-category/create', function () {
     return view('pages.productCategory.create');
 });
+
+Route::get('/bill/create', function () {
+    return view('pages.bill.create');
+});
+
+Route::get('/bill/update', function () {
+    return view('pages.bill.update');
+});

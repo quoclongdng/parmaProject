@@ -22,6 +22,22 @@ Route::get('/product-category/create', function () {
 });
 
 
+Route::get('/customer/create', function () {
+    return view('pages.customer.create');
+});
+
+Route::get('/customer/update', function () {
+    return view('pages.customer.update');
+});
+
+Route::get('/bill-details/create', function () {
+    return view('pages.billDetails.create');
+});
+
+Route::get('/bill-details/update', function () {
+    return view('pages.billDetails.update');
+
+
 Route::get('/product-category/edit', function () {
     return view('pages.productCategory.edit');
 });

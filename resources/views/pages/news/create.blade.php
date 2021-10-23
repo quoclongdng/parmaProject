@@ -13,26 +13,38 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form>
+                <form method="POST" action="/news/create">
+                    @csrf
                   <div class="card-body">
                     <div class="form-group">
                       <label>Tiều đề</label>
-                      <input type="text" class="form-control" placeholder="Nhập tiêu đề">
+                      <input name="name" type="text" class="form-control" placeholder="Nhập tiêu đề">
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <input type="text" class="form-control" placeholder="Nhập Mô tả">
+                        <input name="description" type="text" class="form-control" placeholder="Nhập Mô tả">
                     </div>
                     <div class="form-group">
                         <label>Nội dung</label>
-                        <textarea  cols="30" rows="10" class="form-control"></textarea>
+                        <textarea name="content" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Tình trạng</label>
+                        <select name="is_open" class="form-control">
+                          <option value=1>Open </option>
+                          <option value=0> Close</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Danh mục</label>
-                        <select class="form-control">
-                          <option>example1</option>
-                          <option>example2</option>
+                        <select name="newcategory_id" class="form-control">
+                          <option value="1">danh muc 1</option>
+                          <option value="2"> dnah muc 2</option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input name="user_id" name="description" type="text" class="form-control" placeholder="Nhập user id">
                     </div>
                     <div class="form-group">
                         <label>Keyword:</label>
@@ -42,7 +54,7 @@
                       <label>Upload Ảnh</label>
                       <div class="input-group">
                         <div class="custom-file">
-                          <input type="file" class="form-control-file" multiple>
+                          <input name="avatar" type="text" class="form-control-file" multiple>
                         </div>
                       </div>
                     </div>

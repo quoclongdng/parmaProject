@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\News;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class NewsController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $data = News::all();
+        $data= User::all();
 
-
-        return view('pages.news.index', compact('data'));
+        return view('pages.user.index',compact("data"));
     }
 
     /**
@@ -27,7 +26,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('pages.news.create');
+        return view('pages.user.create');
     }
 
     /**
@@ -38,68 +37,68 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+    $data = $request->all();
 
-        News::create($data);
+        User::create($data);
 
         toastr()->success('Đã thêm mới dữ liệu thành công');
 
-        return redirect('/news/create');
+        return redirect('/user/create');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\News  $news
+     * @param  \App\Models\Bill  $bill
      * @return \Illuminate\Http\Response
      */
-    public function show(News $news)
+    public function show()
     {
-        //
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\News  $id
+     * @param  \App\Models\Bill  $bill
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $data = News::find($id);
+          $data = User::find($id);
 
-        return view('pages.news.edit', compact('data'));
+        return view('pages.user.edit', compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\News  $news
+     * @param  \App\Models\Bill  $bill
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
-        $data = News::find($request->id);
+         $data = User::find($request->id);
 
         $data->update($request->all());
 
         toastr()->success('Đã cập nhật dữ liệu thành công');
 
-        return redirect('/news');
+        return redirect('/user');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\News  $news
+     * @param  \App\Models\Bill  $bill
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $data = News::find($id);
+        $data = User::find($id);
         $data->delete();
 
-        return redirect('/news');
+        return redirect('/user');
     }
 }

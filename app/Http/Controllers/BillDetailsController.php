@@ -24,7 +24,11 @@ class BillDetailsController extends Controller
      */
     public function create()
     {
-        //
+        $data = BillDetails::all();
+
+        toastr()->info('Đã load data...');
+
+        return view('pages.billDetails.create', compact('data'));
     }
 
     /**
@@ -35,7 +39,13 @@ class BillDetailsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        BillDetails::create($data);
+
+        toastr()->success('Đã thêm mới dữ liệu thành công');
+
+        return redirect('/bill-details/create');
     }
 
     /**
@@ -55,9 +65,11 @@ class BillDetailsController extends Controller
      * @param  \App\Models\BillDetails  $billDetails
      * @return \Illuminate\Http\Response
      */
-    public function edit(BillDetails $billDetails)
+    public function edit($id)
     {
-        //
+        $data = BillDetails::find($id);
+
+        return view('pages.billDetails.edit', compact('data'));
     }
 
     /**
@@ -67,9 +79,15 @@ class BillDetailsController extends Controller
      * @param  \App\Models\BillDetails  $billDetails
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BillDetails $billDetails)
+    public function update(Request $request)
     {
-        //
+        $data = BillDetails::find($request->id);
+
+        $data->update($request->all());
+
+        toastr()->success('Đã cập nhật dữ liệu thành công');
+
+        return redirect('/bill-details/create');
     }
 
     /**
@@ -78,8 +96,12 @@ class BillDetailsController extends Controller
      * @param  \App\Models\BillDetails  $billDetails
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BillDetails $billDetails)
+    public function destroy($id)
     {
-        //
+        $data = BillDetails::find($id);
+
+        $data->delete();
+
+        return redirect('/bill-details/create');
     }
 }

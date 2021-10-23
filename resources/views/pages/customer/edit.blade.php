@@ -13,23 +13,29 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form>
+                <form method="post" action="/customer/update">
+                  @csrf
+                  <input type="hidden" name="id" value="{{$data->id}}">
                   <div class="card-body">
                     <div class="form-group">
                       <label>Tên Khách Hàng</label>
-                      <input type="text" class="form-control" placeholder="Nhập vào tên khách hàng">
+                      <input name ="name" type="text" class="form-control" placeholder="Nhập vào tên khách hàng" value="{{$data->name}}">
                     </div>
                     <div class="form-group">
                         <label>Điện thoại</label>
-                        <input type="text" class="form-control" placeholder="Nhập vào số điện thoại">
+                        <input name ="phone" type="text" class="form-control" placeholder="Nhập vào số điện thoại" value="{{$data->phone}}">
                     </div>
                     <div class="form-group">
                         <label>Địa Chỉ</label>
-                        <input type="text" class="form-control" placeholder="Nhập vào địa chỉ">
+                        <input name ="address" type="text" class="form-control" placeholder="Nhập vào địa chỉ" value="{{$data->address}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input name="email" type="text" class="form-control" placeholder="Nhập vào email" value="{{$data->email}}">
                     </div>
                     <div class="form-group">
                         <label>Mô Tả</label>
-                        <textarea class="form-control" rows="3" placeholder="Nhập vào mô tả..."></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Nhập vào mô tả...">{{$data->description}}</textarea>
                     </div>
                   </div>
                   <!-- /.card-body -->

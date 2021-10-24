@@ -1,12 +1,11 @@
 <?php
-use App\Models\ProductDetail;
-use App\Models\BillDetails;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('master');
+    return view('login');
 });
+
 
 Route::group([], function () {
 
@@ -16,8 +15,7 @@ Route::group([], function () {
     Route::post('/product-category/update', [\App\Http\Controllers\ProductCategoryController::class, 'update']);
     Route::get('/product-category/delete/{id}', [\App\Http\Controllers\ProductCategoryController::class, 'destroy']);
 
-
-     // product
+    // product
     Route::get('/product', [\App\Http\Controllers\ProductController::class,'index']);
     Route::get('/product/create', [\App\Http\Controllers\ProductController::class,'create']);
     Route::post('/product/create', [\App\Http\Controllers\ProductController::class,'store']);
@@ -32,12 +30,14 @@ Route::group([], function () {
     Route::post('/news-category/update', [\App\Http\Controllers\NewsCategoryController::class,'update']);
     Route::get('/news-category/delete/{id}', [\App\Http\Controllers\NewsCategoryController::class,'destroy']);
 
+    // customer
     Route::get('/customer/create', [\App\Http\Controllers\CustomerController::class, 'create']);
     Route::post('/customer/create', [\App\Http\Controllers\CustomerController::class, 'store']);
     Route::get('/customer/edit/{id}', [\App\Http\Controllers\CustomerController::class, 'edit']);
     Route::post('/customer/update', [\App\Http\Controllers\CustomerController::class, 'update']);
     Route::get('/customer/delete/{id}', [\App\Http\Controllers\CustomerController::class, 'destroy']);
 
+    // bill detail
     Route::get('/bill-details/create', [\App\Http\Controllers\BillDetailsController::class, 'create']);
     Route::post('/bill-details/create', [\App\Http\Controllers\BillDetailsController::class, 'store']);
     Route::get('/bill-details/edit/{id}', [\App\Http\Controllers\BillDetailsController::class, 'edit']);

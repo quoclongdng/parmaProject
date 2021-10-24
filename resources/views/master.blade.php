@@ -50,6 +50,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </div>
 
   @include('partials.bottom')
+  @include('partials.footer')
+  @yield('js')
 </div>
 </body>
 </html>

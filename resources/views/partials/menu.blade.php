@@ -61,6 +61,4 @@
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
-    @include('partials.footer')
-    @yield('js')
 </div>

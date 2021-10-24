@@ -23,12 +23,12 @@
 
                     <div class="form-group">
                         <label>Mô Tả</label>
-                        <textarea name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả"></textarea>
+                        <textarea id="text-description" name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label>Nội Dung</label>
-                        <textarea name="content" class="form-control" rows="3" placeholder="Nhập vào nội dung"></textarea>
+                        <textarea id="text-content" name="content" class="form-control" rows="3" placeholder="Nhập vào nội dung"></textarea>
                     </div>
 
                      <div class="form-group">
@@ -41,17 +41,12 @@
                         <div class="input-group">
                             <input id="thumbnail" name="hinhAnh" class="form-control" type="text" name="filepath">
                             <span class="input-group-append">
-                                <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                                <a data-input="thumbnail" data-preview="holder" class="btn btn-primary uploadimage">
                                     Chọn Hình Ảnh
                                 </a>
                             </span>
                         </div>
                         <img id="holder" style="margin-top:15px;max-height:100px;">
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                        <script src="/vendor/laravel-filemanager/js/lfm.js"></script>
-                        <script>
-                             $('#lfm').filemanager('image');
-                        </script>
                     </div>
                     <div class="form-group">
                         <label>Product-Category_ID</label>

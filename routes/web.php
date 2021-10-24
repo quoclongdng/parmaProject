@@ -1,5 +1,6 @@
 <?php
-
+use App\Models\ProductDetail;
+use App\Models\BillDetails;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,8 +31,27 @@ Route::group([], function(){
     Route::get('/product-category/delete/{id}', [\App\Http\Controllers\ProductCategoryController::class, 'destroy']);
 
 
-});
+    // Route::get('/bill/create', function () {
+    //     return view('pages.bill.create');
+    // });
 
+    // Route::get('/bill/update', function () {
+    //     return view('pages.bill.update');
+    // });
+
+    Route::get('/bill/create', [\App\Http\Controllers\BillController::class, 'create']);
+    Route::post('/bill/create', [\App\Http\Controllers\BillController::class, 'store']);
+    Route::get('/bill/update/{id}', [\App\Http\Controllers\BillController::class, 'edit']);
+    Route::post('/bill/update', [\App\Http\Controllers\BillController::class, 'update']);
+    Route::get('/bill/delete/{id}', [\App\Http\Controllers\BillController::class, 'destroy']);
+
+    // productDetails
+    Route::get('/productDetail/create', [\App\Http\Controllers\ProductDetailController::class, 'create']);
+    Route::post('/productDetail/create', [\App\Http\Controllers\ProductDetailController::class, 'store']);
+    Route::get('/productDetail/update/{id}', [\App\Http\Controllers\ProductDetailController::class, 'edit']);
+    Route::post('/productDetail/update', [\App\Http\Controllers\ProductDetailController::class, 'update']);
+    Route::get('/productDetail/delete/{id}', [\App\Http\Controllers\ProductDetailController::class, 'destroy']);
+});
 
 
 
@@ -99,10 +119,4 @@ Route::get('/news-category/edit', function () {
     return view('pages.newsCategory.edit');
 });
 
-Route::get('/bill/create', function () {
-    return view('pages.bill.create');
-});
 
-Route::get('/bill/update', function () {
-    return view('pages.bill.update');
-});

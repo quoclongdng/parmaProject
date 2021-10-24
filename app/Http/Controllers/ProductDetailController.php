@@ -24,7 +24,9 @@ class ProductDetailController extends Controller
      */
     public function create()
     {
-        //
+        $data = ProductDetail::all();
+        toastr()->info('Đã load data...');
+        return view('pages.productDetail.create', compact('data'));
     }
 
     /**
@@ -35,7 +37,13 @@ class ProductDetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        ProductDetail::create($data);
+
+        toastr()->success('Đã thêm mới dữ liệu thành công');
+
+        return redirect('/productDetail/create');
     }
 
     /**
@@ -55,9 +63,11 @@ class ProductDetailController extends Controller
      * @param  \App\Models\ProductDetail  $productDetail
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProductDetail $productDetail)
+    public function edit($id)
     {
-        //
+        $data = ProductDetail::find($id);
+
+        return view('pages.productDetail.update', compact('data'));
     }
 
     /**
@@ -67,9 +77,15 @@ class ProductDetailController extends Controller
      * @param  \App\Models\ProductDetail  $productDetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProductDetail $productDetail)
+    public function update(Request $request)
     {
-        //
+        $data = ProductDetail::find($request->id);
+
+        $data->update($request->all());
+
+        toastr()->success('Đã cập nhật dữ liệu thành công');
+
+        return redirect('/productDetail/create');
     }
 
     /**
@@ -78,8 +94,11 @@ class ProductDetailController extends Controller
      * @param  \App\Models\ProductDetail  $productDetail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductDetail $productDetail)
+    public function destroy($id)
     {
-        //
+        $data = ProductDetail::find($id);
+        $data->delete();
+
+        return redirect('/productDetail/create');
     }
 }

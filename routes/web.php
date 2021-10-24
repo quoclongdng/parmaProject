@@ -17,6 +17,21 @@ Route::group([], function () {
     Route::get('/product-category/delete/{id}', [\App\Http\Controllers\ProductCategoryController::class, 'destroy']);
 
 
+     // product
+    Route::get('/product', [\App\Http\Controllers\ProductController::class,'index']);
+    Route::get('/product/create', [\App\Http\Controllers\ProductController::class,'create']);
+    Route::post('/product/create', [\App\Http\Controllers\ProductController::class,'store']);
+    Route::get('/product/edit/{id}', [\App\Http\Controllers\ProductController::class,'edit']);
+    Route::post('/product/update', [\App\Http\Controllers\ProductController::class,'update']);
+    Route::get('/product/delete/{id}', [\App\Http\Controllers\ProductController::class,'destroy']);
+
+    // newCategory
+    Route::get('/news-category/create', [\App\Http\Controllers\NewsCategoryController::class,'create']);
+    Route::post('/news-category/create', [\App\Http\Controllers\NewsCategoryController::class,'store']);
+    Route::get('/news-category/edit/{id}', [\App\Http\Controllers\NewsCategoryController::class,'edit']);
+    Route::post('/news-category/update', [\App\Http\Controllers\NewsCategoryController::class,'update']);
+    Route::get('/news-category/delete/{id}', [\App\Http\Controllers\NewsCategoryController::class,'destroy']);
+
     Route::get('/customer/create', [\App\Http\Controllers\CustomerController::class, 'create']);
     Route::post('/customer/create', [\App\Http\Controllers\CustomerController::class, 'store']);
     Route::get('/customer/edit/{id}', [\App\Http\Controllers\CustomerController::class, 'edit']);
@@ -61,61 +76,3 @@ Route::group([], function () {
 
 
 
-Route::get('/user', function () {
-    return view('pages.user.index');
-});
-
-Route::get('/user/create', function () {
-    return view('pages.user.create');
-});
-
-Route::get('/user/edit/{id}', function ($id) {
-    return view('pages.user.edit');
-});
-
-// [NEWS]
-Route::get('/news', function () {
-    return view('pages.news.index');
-});
-
-Route::get('/news/create', function () {
-    return view('pages.news.create');
-});
-
-Route::get('/news/edit/{id}', function ($id) {
-    return view('pages.news.edit');
-});
-
-
-
-
-// Route::get('/bill-details/create', function () {
-//     return view('pages.billDetails.create');
-// });
-
-// Route::get('/bill-details/update', function () {
-//     return view('pages.billDetails.update');
-// });
-
-
-
-Route::get('/product/create', function () {
-    return view('pages.product.create');
-});
-
-Route::get('/product/index', function () {
-    return view('pages.product.index');
-});
-
-Route::get('/product/edit', function () {
-    return view('pages.product.edit');
-});
-
-
-Route::get('/news-category/create', function () {
-    return view('pages.newsCategory.create');
-});
-
-Route::get('/news-category/edit', function () {
-    return view('pages.newsCategory.edit');
-});

@@ -36,6 +36,7 @@
                         <label>Mô Tả</label>
                         <textarea class="form-control" rows="3" placeholder="Nhập vào mô tả">{{$data->description}}</textarea>
                     </div>
+
                     <div class="form-group">
                       <label>Upload Avatar</label>
                       <div class="input-group">

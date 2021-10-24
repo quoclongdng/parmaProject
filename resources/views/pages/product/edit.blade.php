@@ -13,44 +13,46 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form>
+            <form method="post" action="/product/update">
+                @csrf
+                <input type="hidden" name="id" value="{{$data->id}}">
                 <div class="card-body">
                     <div class="form-group">
                         <label>Tên Sản Phẩm</label>
-                        <input type="text" class="form-control" placeholder="Nhập vào tên sản phẩm">
+                        <input name="name" type="text" class="form-control" placeholder="Nhập vào tên sản phẩm" value="{{$data->name}}">
                      </div>
 
                     <div class="form-group">
                         <label>Mô Tả</label>
-                        <textarea class="form-control" rows="3" placeholder="Nhập vào mô tả"></textarea>
+                        <textarea name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả">{{$data->description}}</textarea>
                     </div>
 
                     <div class="form-group">
                         <label>Nội Dung</label>
-                        <textarea class="form-control" rows="3" placeholder="Nhập vào nội dung"></textarea>
+                        <textarea name="content" class="form-control" rows="3" placeholder="Nhập vào nội dung">{{$data->content}}</textarea>
                     </div>
 
                      <div class="form-group">
                         <label>Giá Tiền</label>
-                        <input type="text" class="form-control" placeholder="Nhập vào giá sản phẩm">
+                        <input name="price" type="text" class="form-control" placeholder="Nhập vào giá sản phẩm" value="{{$data->price}}">
                     </div>
 
                     <div class="form-group">
                         <label>Upload Avatar</label>
-                            <div class="input-group">
-                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input">
-                                    <label class="custom-file-label">Choose file</label>
-                                </div>
-                                <div class="input-group-append">
+                            {{-- <div class="input-group">
+                                 <div class="custom-file"> --}}
+                                    <input name="avatar" type="text" >
+                                    {{-- <label class="custom-file-label">Choose file</label> --}}
+                                {{-- </div> --}}
+                                {{-- <div class="input-group-append">
                                     <span class="input-group-text">Upload</span>
                                  </div>
-                            </div>
+                            </div> --}}
                     </div>
 
                     <div class="form-group">
                         <label>Product-Category_ID</label>
-                        <input type="text" class="form-control" placeholder="Nhập vào ID danh mục sản phẩm">
+                        <input name="productcategory_id" type="text" class="form-control" placeholder="Nhập vào ID danh mục sản phẩm" value="{{$data->productcategory_id}}">
                     </div>
 
                 </div>

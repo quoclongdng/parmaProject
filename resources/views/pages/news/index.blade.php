@@ -6,60 +6,34 @@
 
 @section('content')
     <div class="row">
+        @foreach ($data as $key=>$value)
+
+
         <div class="col-md-12">
             <div class="card card-widget">
               <div class="card-header">
                 <div class="user-block">
-                  <span class="username"><a href="#">Người đăng</a></span>
+                  <span class="username"><em>Nguoi dang: </em><a href="#">{{ $value->user_id }}</a></span>
                 </div>
 
                 <div class="card-tools">
-                    <p>Ngày đăng</p>
+                    <em>{{ $value->created_at }}</em>
                 </div>
               </div>
               <div class="card-body" style="display: block;">
-                <h4><a href="">Tiêu đề</a> </h4>
-                <p>Mô tả</p>
+                <h4><a href="">{{ $value->name }}</a> </h4>
+                <p>{{ $value->description }}</p>
                 <div class="attachment-block clearfix">
-                  <img class="attachment-img" src="../dist/img/photo1.png" alt="Ảnh">
-                  <img class="attachment-img" src="../dist/img/photo1.png" alt="Ảnh">
-                  <img class="attachment-img" src="../dist/img/photo1.png" alt="Ảnh">
-                </div>
+                  <img class="attachment-img" src="{{ $value->avatar }}" alt="Ảnh">
+                 </div>
                 <div>
-                    <em>keyword: <span>asd,asd,ád</span></em>
+                    <em>keyword: <span>{{ $value->keyword }}</span></em>
                 </div>
-                <button type="button" class="btn btn-default">Sửa</button>
-                <button type="button" class="btn btn-danger">Xoá</button>
+                <a  href="/news/edit/{{ $value->id }}" class="btn btn-default">Sửa</a>
+                <a href="/news/delete/{{ $value->id }}" class="btn btn-danger">Xoá</a>
               </div>
-              <!-- /.card-body -->
-
             </div>
         </div>
-        <div class="col-md-12">
-            <div class="card card-widget">
-              <div class="card-header">
-                <div class="user-block">
-                  <span class="username"><a href="#">Người đăng</a></span>
-                </div>
-                <div class="card-tools">
-                    <p>Ngày đăng</p>
-                </div>
-              </div>
-              <div class="card-body" style="display: block;">
-                <h4><a href="">Tiêu đề</a> </h4>
-                <p>Mô tả</p>
-                <div class="attachment-block clearfix">
-                  <img class="attachment-img" src="../dist/img/photo1.png" alt="Ảnh">
-                </div>
-                <div>
-                    <em>keyword: <span>asd,asd,ád</span></em>
-                </div>
-                <button type="button" class="btn btn-default">Sửa</button>
-                <button type="button" class="btn btn-danger">Xoá</button>
-              </div>
-              <!-- /.card-body -->
-
-            </div>
-        </div>
+        @endforeach
     </div>
 @endsection

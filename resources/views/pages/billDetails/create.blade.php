@@ -13,23 +13,24 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form>
+                <form method="post" action="/bill-details/create">
+                  @csrf
                   <div class="card-body">
                     <div class="form-group">
                       <label>Mã Hóa Đơn</label>
-                      <input type="text" class="form-control" placeholder="Nhập vào mã hóa đơn">
+                      <input name="bill_id" type="text" class="form-control" placeholder="Nhập vào mã hóa đơn">
                     </div>
                     <div class="form-group">
                         <label>Mã Sản Phẩm</label>
-                        <input type="text" class="form-control" placeholder="Nhập vào mã sản phẩm">
+                        <input name="product_id" type="text" class="form-control" placeholder="Nhập vào mã sản phẩm">
                     </div>
                     <div class="form-group">
                         <label>Giá</label>
-                        <input type="text" class="form-control" placeholder="Nhập vào giá">
+                        <input name="price"type="text" class="form-control" placeholder="Nhập vào giá">
                     </div>
                     <div class="form-group">
                         <label>Số Lượng</label>
-                        <input type="text" class="form-control" placeholder="Nhập vào số lượng">
+                        <input name="quantity" type="text" class="form-control" placeholder="Nhập vào số lượng">
                     </div>
                   </div>
                   <!-- /.card-body -->
@@ -59,17 +60,19 @@
                       </tr>
                     </thead>
                     <tbody>
+                        @foreach ($data as $key => $value)
                         <tr data-widget="expandable-table" aria-expanded="false">
-                            <td>1</td>
-                            <td>example</td>
-                            <td>example</td>
-                            <td>example</td>
-                            <td>example</td>
+                            <td>{{$key + 1}}</td>
+                            <td>{{$value->bill_id}}</td>
+                            <td>{{$value->product_id}}</td>
+                            <td>{{$value->price}}</td>
+                            <td>{{$value->quantity}}</td>
                             <td class="text-center text-nowrap">
-                                <button class="btn btn-info">Sửa</button>
-                                <button class="btn btn-danger">Xóa</button>
+                                <a class="btn btn-info" href="/bill-details/edit/{{$value->id}}">Sửa</a>
+                                <a class="btn btn-danger" href="/bill-details/delete/{{$value->id}}">Xóa</a>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                   </table>
                 </div>

@@ -24,7 +24,11 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        $data = Customer::all();
+
+        toastr()->info('Đã load data...');
+
+        return view('pages.customer.create', compact('data'));
     }
 
     /**
@@ -35,7 +39,13 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        Customer::create($data);
+
+        toastr()->success('Đã thêm mới dữ liệu thành công');
+
+        return redirect('/customer/create');
     }
 
     /**
@@ -55,9 +65,11 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Customer $customer)
+    public function edit($id)
     {
-        //
+        $data = Customer::find($id);
+
+        return view('pages.customer.edit', compact('data'));
     }
 
     /**
@@ -67,9 +79,15 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    public function update(Request $request)
     {
-        //
+        $data = Customer::find($request->id);
+
+        $data->update($request->all());
+
+        toastr()->success('Đã cập nhật dữ liệu thành công');
+
+        return redirect('/customer/create');
     }
 
     /**
@@ -78,8 +96,12 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
+    public function destroy($id)
     {
-        //
+        $data = Customer::find($id);
+
+        $data->delete();
+
+        return redirect('/customer/create');
     }
 }

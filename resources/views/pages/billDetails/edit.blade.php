@@ -13,23 +13,25 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form>
+                <form method="post" action="/bill-details/update">
+                  @csrf
+                  <input type="hidden" name="id" value="{{$data->id}}">
                   <div class="card-body">
                     <div class="form-group">
                       <label>Mã Hóa Đơn</label>
-                      <input type="text" class="form-control" placeholder="Nhập vào tên khách hàng">
+                      <input name="bill_id" type="text" class="form-control" placeholder="Nhập vào tên khách hàng" value="{{$data->bill_id}}">
                     </div>
                     <div class="form-group">
                         <label>Mã Sản Phẩm</label>
-                        <input type="text" class="form-control" placeholder="Nhập vào số điện thoại">
+                        <input name="product_id" type="text" class="form-control" placeholder="Nhập vào số điện thoại" value="{{$data->product_id}}">
                     </div>
                     <div class="form-group">
                         <label>Giá</label>
-                        <input type="text" class="form-control" placeholder="Nhập vào giá">
+                        <input name="price" type="text" class="form-control" placeholder="Nhập vào giá" value="{{$data->price}}">
                     </div>
                     <div class="form-group">
                         <label>Số Lượng</label>
-                        <input type="text" class="form-control" placeholder="Nhập vào số lượng">
+                        <input name="quantity" type="text" class="form-control" placeholder="Nhập vào số lượng" value="{{$data->quantity}}">
                     </div>
                   </div>
                   <!-- /.card-body -->

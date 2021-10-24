@@ -14,7 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $data= User::all();
+      
+        return view('pages.user.index',compact("data"));
     }
 
     /**
@@ -24,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.user.create');
     }
 
     /**
@@ -35,7 +37,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $data = $request->all();
+
+        User::create($data);
+
+        toastr()->success('Đã thêm mới dữ liệu thành công');
+
+        return redirect('/user/create');
+
     }
 
     /**
@@ -46,7 +56,7 @@ class UserController extends Controller
      */
     public function show()
     {
-        //
+
     }
 
     /**
@@ -57,7 +67,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $data = User::find($id);
+
+        return view('pages.user.edit', compact('data'));
+
     }
 
     /**
@@ -69,7 +83,14 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
-        //
+
+        $data = User::find($request->id);
+
+        $data->update($request->all());
+
+        toastr()->success('Đã cập nhật dữ liệu thành công');
+
+        return redirect('/user');
     }
 
     /**
@@ -80,6 +101,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $data = User::find($id);
+        $data->delete();
+
+        return redirect('/user');
     }
 }

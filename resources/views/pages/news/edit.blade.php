@@ -13,36 +13,38 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form>
+                <form method="POST" action="/news/update">
+                    @csrf
                   <div class="card-body">
+                      <input type="text" name="id" hidden value="{{ $data->id }}">
                     <div class="form-group">
                       <label>Tiều đề</label>
-                      <input type="text" class="form-control" placeholder="Nhập tiêu đề">
+                      <input value="{{ $data->name }}" name="name" type="text" class="form-control" placeholder="Nhập tiêu đề">
                     </div>
                     <div class="form-group">
-                        <label>Description</label>
-                        <input type="text" class="form-control" placeholder="Nhập Mô tả">
+                        <label>Mô tả</label>
+                        <input value="{{ $data->description }}" name="description" type="text" class="form-control" placeholder="Nhập Mô tả">
                     </div>
                     <div class="form-group">
                         <label>Nội dung</label>
-                        <textarea  cols="30" rows="10" class="form-control"></textarea>
+                        <textarea name="content" cols="30" rows="10" class="form-control">{{ $data->content }}</textarea>
                     </div>
                     <div class="form-group">
                         <label>Danh mục</label>
-                        <select class="form-control">
-                          <option>example1</option>
-                          <option>example2</option>
+                        <select name="newcategory_id" class="form-control">
+                          <option value="1" {{ $data->newcategory_id=="1"?"selected":"" }}>example1</option>
+                          <option value="2" {{ $data->newcategory_id=="2"?"selected":"" }}>example2</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Keyword:</label>
-                        <input type="text" class="form-control" placeholder="cách nhau bởi dấu ','">
+                        <input name="keyword" value="{{ $data->keyword }}" type="text" class="form-control" placeholder="cách nhau bởi dấu ','">
                     </div>
                     <div class="form-group">
                       <label>Upload Ảnh</label>
                       <div class="input-group">
                         <div class="custom-file">
-                          <input type="file" class="form-control-file" multiple>
+                          <input type="text" name="avatar" value="{{ $data->avatar }}" class="form-control-file" multiple>
                         </div>
                       </div>
                     </div>

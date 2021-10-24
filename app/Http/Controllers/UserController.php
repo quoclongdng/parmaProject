@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index()
     {
         $data= User::all();
-
+      
         return view('pages.user.index',compact("data"));
     }
 
@@ -37,13 +37,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-    $data = $request->all();
+
+        $data = $request->all();
 
         User::create($data);
 
         toastr()->success('Đã thêm mới dữ liệu thành công');
 
         return redirect('/user/create');
+
     }
 
     /**
@@ -65,9 +67,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-          $data = User::find($id);
+
+        $data = User::find($id);
 
         return view('pages.user.edit', compact('data'));
+
     }
 
     /**
@@ -79,7 +83,8 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
-         $data = User::find($request->id);
+
+        $data = User::find($request->id);
 
         $data->update($request->all());
 
@@ -96,6 +101,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+
         $data = User::find($id);
         $data->delete();
 

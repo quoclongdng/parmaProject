@@ -16,10 +16,10 @@ class CreateBillsTable extends Migration
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
             $table->string('hash');
-            $table->integer('user_id');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('comment');
             $table->integer('type');
-            $table->integer('customer_id');
+            $table->foreignId('customer_id')->constrained('customers');
             $table->timestamps();
         });
     }

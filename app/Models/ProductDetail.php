@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class ProductDetail extends Model
 {
     use HasFactory;
-    protected $table = '';
+    protected $table = 'bill_details';
     protected $fillable = ['product_id',
-    'mfg_date',
-    'exp_date',
-    'price',
+        'mfg_date',
+        'exp_date',
+        'price',
     ];
 }

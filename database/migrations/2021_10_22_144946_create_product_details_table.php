@@ -15,7 +15,7 @@ class CreateProductDetailsTable extends Migration
     {
         Schema::create('product_details', function (Blueprint $table) {
             $table->id();
-            $table->integer('product_id');
+            $table->foreignId('product_id')->constrained('products');
             $table->datetime('mfg_date');
             $table->datetime('exp_date');
             $table->double('price');

@@ -13,25 +13,27 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form>
+                    <form method="post" action="/news-category/update">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$data->id}}">
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Tên Danh Mục Tin Tức</label>
-                                <input type="text" class="form-control" placeholder="Nhập vào tên danh mục ">
+                                <input name="name" type="text" class="form-control" placeholder="Nhập vào tên danh mục" value="{{$data->name}}">
                              </div>
 
                              <div class="form-group">
                                 <label>Slug</label>
-                                <input type="text" class="form-control" placeholder="Nhập vào slug tin tức">
+                                <input name="slug" type="text" class="form-control" placeholder="Nhập vào slug tin tức" value="{{$data->slug}}">
                              </div>
 
-                            <div class="form-group">
+                             <div class="form-group">
                                 <label>Tình Trạng</label>
                                 <select class="form-control">
-                                    <option>Hoạt động</option>
-                                    <option>Tạm dừng</option>
+                                    <option value=1 {{$data->is_open == 1 ? 'selected' : ''}}>Hoạt động</option>
+                                    <option value=0 {{$data->is_open == 0 ? 'selected' : ''}}>Tạm dừng</option>
                                 </select>
-                             </div>
+                            </div>
 
                             <!-- /.card-body -->
                              <div class="card-footer">

@@ -14,23 +14,24 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form>
+                    <form method="post" action="/news-category/create">
+                        @csrf
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Tên Danh Mục Tin Tức</label>
-                                <input type="text" class="form-control" placeholder="Nhập vào tên tin tức">
+                                <input name="name" type="text" class="form-control" placeholder="Nhập vào tên tin tức">
                              </div>
 
                              <div class="form-group">
                                 <label>Slug</label>
-                                <input type="text" class="form-control" placeholder="Nhập vào slug tin tức">
+                                <input name="slug" type="text" class="form-control" placeholder="Nhập vào slug tin tức">
                              </div>
 
                             <div class="form-group">
                                 <label>Tình Trạng</label>
-                                <select class="form-control">
-                                    <option>Hoạt động</option>
-                                    <option>Tạm dừng</option>
+                                <select name="is_open" class="form-control">
+                                    <option value=1>Hoạt động</option>
+                                    <option value=0>Tạm dừng</option>
                                 </select>
                              </div>
 
@@ -62,16 +63,18 @@
                       </tr>
                     </thead>
                     <tbody>
+                        @foreach ($data as $key => $value)
                         <tr data-widget="expandable-table" aria-expanded="false">
-                            <td>1</td>
-                            <td>example</td>
-                            <td>example</td>
-                            <td>example</td>
+                            <td>{{ $key + 1 }}</td>
+                            <td>{{ $value->name }}</td>
+                            <td>{{ $value->is_open == 1 ? "Hoạt động" : "Tạm dừng" }}</td>
+                            <td>{{ $value->created_at }}</td>
                             <td class="text-center text-nowrap">
-                                <button class="btn btn-info">Edit</button>
-                                <button class="btn btn-danger">Delete</button>
+                                <a class="btn btn-info" href="/news-category/edit/{{$value->id}}">Edit</a>
+                                <a class="btn btn-danger" href="/news-category/delete/{{$value->id}}">Delete</a>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                   </table>
                 </div>

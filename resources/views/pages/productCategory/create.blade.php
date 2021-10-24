@@ -11,6 +11,7 @@
                 <div class="card-header">
                   <h3 class="card-title">Thêm Mới Danh Mục</h3>
                 </div>
+
                 <form method="post" action="/product-category/create">
                   @csrf
                   <div class="card-body">

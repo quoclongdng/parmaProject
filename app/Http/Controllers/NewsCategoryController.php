@@ -24,7 +24,11 @@ class NewsCategoryController extends Controller
      */
     public function create()
     {
-        //
+        $data = NewsCategory::all();
+
+        toastr()->info('Đã load data...');
+
+        return view('pages.newsCategory.create', compact('data'));
     }
 
     /**
@@ -35,7 +39,13 @@ class NewsCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        NewsCategory::create($data);
+
+        toastr()->success('Đã thêm mới dữ liệu thành công');
+
+        return redirect('/news-category/create');
     }
 
     /**
@@ -55,9 +65,13 @@ class NewsCategoryController extends Controller
      * @param  \App\Models\NewsCategory  $newsCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(NewsCategory $newsCategory)
+    public function edit($id)
     {
-        //
+        $data = NewsCategory::find($id);
+
+        return view('pages.newsCategory.edit', compact('data'));
+
+
     }
 
     /**
@@ -67,10 +81,17 @@ class NewsCategoryController extends Controller
      * @param  \App\Models\NewsCategory  $newsCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, NewsCategory $newsCategory)
+    public function update(Request $request)
     {
-        //
+        $data = NewsCategory::find($request->id);
+
+        $data->update($request->all());
+
+        toastr()->success('Đã cập nhật dữ liệu thành công');
+
+        return redirect('/news-category/create');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -78,8 +99,14 @@ class NewsCategoryController extends Controller
      * @param  \App\Models\NewsCategory  $newsCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(NewsCategory $newsCategory)
+    public function destroy($id)
     {
-        //
+        $data = NewsCategory::find($id);
+
+        $data->delete();
+
+        toastr()->success('Đã xóa dữ liệu thành công');
+
+        return redirect('/news-category/create');
     }
 }

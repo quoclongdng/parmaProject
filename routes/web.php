@@ -30,8 +30,27 @@ Route::group([], function(){
     Route::get('/product-category/delete/{id}', [\App\Http\Controllers\ProductCategoryController::class, 'destroy']);
 
 
-});
 
+        // product
+    Route::get('/product', [\App\Http\Controllers\ProductController::class,'index']);
+    Route::get('/product/create', [\App\Http\Controllers\ProductController::class,'create']);
+    Route::post('/product/create', [\App\Http\Controllers\ProductController::class,'store']);
+    Route::get('/product/edit/{id}', [\App\Http\Controllers\ProductController::class,'edit']);
+    Route::post('/product/update', [\App\Http\Controllers\ProductController::class,'update']);
+    Route::get('/product/delete/{id}', [\App\Http\Controllers\ProductController::class,'destroy']);
+
+        // newCategory
+    Route::get('/news-category/create', [\App\Http\Controllers\NewsCategoryController::class,'create']);
+    Route::post('/news-category/create', [\App\Http\Controllers\NewsCategoryController::class,'store']);
+    Route::get('/news-category/edit/{id}', [\App\Http\Controllers\NewsCategoryController::class,'edit']);
+    Route::post('/news-category/update', [\App\Http\Controllers\NewsCategoryController::class,'update']);
+    Route::get('/news-category/delete/{id}', [\App\Http\Controllers\NewsCategoryController::class,'destroy']);
+
+
+
+
+
+});
 
 
 
@@ -78,26 +97,6 @@ Route::get('/bill-details/update', function () {
 
 
 
-Route::get('/product/create', function () {
-    return view('pages.product.create');
-});
-
-Route::get('/product/index', function () {
-    return view('pages.product.index');
-});
-
-Route::get('/product/edit', function () {
-    return view('pages.product.edit');
-});
-
-
-Route::get('/news-category/create', function () {
-    return view('pages.newsCategory.create');
-});
-
-Route::get('/news-category/edit', function () {
-    return view('pages.newsCategory.edit');
-});
 
 Route::get('/bill/create', function () {
     return view('pages.bill.create');

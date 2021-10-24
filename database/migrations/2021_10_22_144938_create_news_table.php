@@ -21,8 +21,8 @@ class CreateNewsTable extends Migration
             $table->string('keyword')->nullable();
             $table->text('content');
             $table->integer('is_open');
-            $table->integer('user_id');
-            $table->integer('newcategory_id');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('newcategory_id')->constrained('news_categories');
             $table->timestamps();
         });
     }

@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->text('content')->nullable();
             $table->string('avatar');
-            $table->integer('productcategory_id');
+            $table->foreignId('productcategory_id')->constrained('product_categories');
             $table->double('price');
             $table->timestamps();
         });

@@ -3,16 +3,6 @@ use App\Models\ProductDetail;
 use App\Models\BillDetails;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('master');
@@ -20,9 +10,6 @@ Route::get('/', function () {
 
 Route::group([], function(){
 
-    // Route::get('/product-category/create', function () {
-    //     return view('pages.productCategory.create');
-    // });
 
     Route::get('/product-category/create', [\App\Http\Controllers\ProductCategoryController::class, 'create']);
     Route::post('/product-category/create', [\App\Http\Controllers\ProductCategoryController::class, 'store']);
@@ -30,14 +17,21 @@ Route::group([], function(){
     Route::post('/product-category/update', [\App\Http\Controllers\ProductCategoryController::class, 'update']);
     Route::get('/product-category/delete/{id}', [\App\Http\Controllers\ProductCategoryController::class, 'destroy']);
 
+    // [NEWS]
+    Route::get('/news',[\App\Http\Controllers\NewsController::class, 'index']);
+    Route::get('/news/create',[\App\Http\Controllers\NewsController::class, 'create']);
+    Route::post('/news/create',[\App\Http\Controllers\NewsController::class, 'store']);
+    Route::get('/news/edit/{id}',[\App\Http\Controllers\NewsController::class, 'edit']);
+    Route::post('/news/update',[\App\Http\Controllers\NewsController::class, 'update']);
+    Route::get('/news/delete/{id}',[\App\Http\Controllers\NewsController::class, 'destroy']);
 
-    // Route::get('/bill/create', function () {
-    //     return view('pages.bill.create');
-    // });
-
-    // Route::get('/bill/update', function () {
-    //     return view('pages.bill.update');
-    // });
+    // [USER]
+    Route::get('/user',[\App\Http\Controllers\UserController::class, 'index']);
+    Route::get('/user/create',[\App\Http\Controllers\UserController::class, 'create']);
+    Route::post('/user/create',[\App\Http\Controllers\UserController::class, 'store']);
+    Route::get('/user/edit/{id}',[\App\Http\Controllers\UserController::class, 'edit']);
+    Route::post('/user/update',[\App\Http\Controllers\UserController::class, 'update']);
+    Route::get('/user/delete/{id}',[\App\Http\Controllers\UserController::class, 'destroy']);
 
     Route::get('/bill/create', [\App\Http\Controllers\BillController::class, 'create']);
     Route::post('/bill/create', [\App\Http\Controllers\BillController::class, 'store']);
@@ -118,5 +112,3 @@ Route::get('/news-category/create', function () {
 Route::get('/news-category/edit', function () {
     return view('pages.newsCategory.edit');
 });
-
-

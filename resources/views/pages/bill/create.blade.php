@@ -14,25 +14,30 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form>
+                <form method="post" action="/bill/create">
+                    @csrf
                     <div class="card-body">
                         <div class="form-group">
                             <label>Mã Hóa Đơn</label>
-                            <input type="text" class="form-control" placeholder="Nhập vào Mã Hóa Đơn ">
+                            <input name="hash" type="text" class="form-control" placeholder="Nhập vào Mã Hóa Đơn ">
                          </div>
                          <div class="form-group">
-                            <label>Mã id</label>
-                            <input type="text" class="form-control" placeholder="Nhập vào Mã id ">
+                            <label>Mã id người dùng</label>
+                            <input name="user_id" type="text" class="form-control" placeholder="Nhập vào Mã id ">
+                         </div>
+                         <div class="form-group">
+                            <label>Mã id khách hàng</label>
+                            <input name="customer_id" type="text" class="form-control" placeholder="Nhập vào Mã id khách hàng ">
                          </div>
                          <div class="form-group">
                             <label>Ghi chú</label>
-                            <input type="text" class="form-control" placeholder="Nhập vào Ghi chú ">
+                            <input name="comment" type="text" class="form-control" placeholder="Nhập vào Ghi chú ">
                          </div>
                         <div class="form-group">
                             <label>Thể loại</label>
-                            <select class="form-control">
-                                <option>Nhập</option>
-                                <option>Bán</option>
+                            <select name="type" class="form-control">
+                                <option value=1>Nhập</option>
+                                <option value=0 >Bán</option>
                             </select>
                          </div>
 
@@ -58,23 +63,27 @@
                   <tr>
                     <th class="text-center">#</th>
                     <th class="text-center">Mã Hóa Đơn</th>
-                    <th class="text-center">Mã id</th>
+                    <th class="text-center">Mã id người dùng</th>
+                    <th class="text-center">Mã id khách hàng</th>
                     <th class="text-center">Ghi chú</th>
                     <th class="text-center">Thể loại</th>
                   </tr>
                 </thead>
                 <tbody>
+                    @foreach ($data as $key => $value)
                     <tr data-widget="expandable-table" aria-expanded="false">
-                        <td>1</td>
-                        <td>example</td>
-                        <td>example</td>
-                        <td>example</td>
-                        <td>example</td>
+                        <td>{{ $key + 1 }}</td>
+                        <td>{{ $value->hash }}</td>
+                        <td>{{ $value->user_id }}</td>
+                        <td>{{ $value->customer_id }}</td>
+                        <td>{{ $value->comment }}</td>
+                        <td>{{ $value->type == 1 ? "Nhập" : "Bán" }}</td>
                         <td class="text-center text-nowrap">
-                            <button class="btn btn-info">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
+                            <a class="btn btn-info" href="/bill/update/{{$value->id}}">Edit</a>
+                            <a class="btn btn-danger" href="/bill/delete/{{$value->id}}">Delete</a>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
               </table>
             </div>

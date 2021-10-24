@@ -13,23 +13,28 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form>
+                <form method="post" action="/customer/create">
+                  @csrf
                   <div class="card-body">
                     <div class="form-group">
                       <label>Tên Khách Hàng</label>
-                      <input type="text" class="form-control" placeholder="Nhập vào tên khách hàng">
+                      <input name="name" type="text" class="form-control" placeholder="Nhập vào tên khách hàng">
                     </div>
                     <div class="form-group">
                         <label>Điện thoại</label>
-                        <input type="text" class="form-control" placeholder="Nhập vào số điện thoại">
+                        <input name="phone" type="text" class="form-control" placeholder="Nhập vào số điện thoại">
                     </div>
                     <div class="form-group">
                         <label>Địa Chỉ</label>
-                        <input type="text" class="form-control" placeholder="Nhập vào địa chỉ">
+                        <input name="address" type="text" class="form-control" placeholder="Nhập vào địa chỉ">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input name="email" type="text" class="form-control" placeholder="Nhập vào email">
                     </div>
                     <div class="form-group">
                         <label>Mô Tả</label>
-                        <textarea class="form-control" rows="3" placeholder="Nhập vào mô tả..."></textarea>
+                        <textarea name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả..."></textarea>
                     </div>
                   </div>
                   <!-- /.card-body -->
@@ -54,23 +59,27 @@
                         <th class="text-center">Tên Khách Hàng</th>
                         <th class="text-center">Điện Thoại</th>
                         <th class="text-center">Địa Chỉ</th>
+                        <th class="text-center">Email</th>
                         <th class="text-center">Mô Tả</th>
                         <th class="text-center">Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                        <tr data-widget="expandable-table" aria-expanded="false">
-                            <td>1</td>
-                            <td>example</td>
-                            <td>example</td>
-                            <td>example</td>
-                            <td>example</td>
-                            <td class="text-center text-nowrap">
-                                <button class="btn btn-info">Sửa</button>
-                                <button class="btn btn-danger">Xóa</button>
-                            </td>
-                        </tr>
-                    </tbody>
+                        @foreach ($data as $key => $value)
+                            <tr data-widget="expandable-table" aria-expanded="false">
+                                <td>{{$key + 1}}</td>
+                                <td>{{$value->name}}</td>
+                                <td>{{$value->phone}}</td>
+                                <td>{{$value->address}}</td>
+                                <td>{{$value->email}}</td>
+                                <td>{{$value->description}}</td>
+                                <td class="text-center text-nowrap">
+                                    <a class="btn btn-info" href="/customer/edit/{{$value->id}}">Sửa</a>
+                                    <a class="btn btn-danger" href="/customer/delete/{{$value->id}}">Xóa</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        @endforeach
                   </table>
                 </div>
                 <!-- /.card-body -->

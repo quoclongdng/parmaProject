@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class CustomerController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $data= User::all();
+
+        return view('pages.user.index',compact("data"));
     }
 
     /**
@@ -24,11 +26,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $data = Customer::all();
-
-        toastr()->info('Đã load data...');
-
-        return view('pages.customer.create', compact('data'));
+        return view('pages.user.create');
     }
 
     /**
@@ -39,69 +37,68 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+    $data = $request->all();
 
-        Customer::create($data);
+        User::create($data);
 
         toastr()->success('Đã thêm mới dữ liệu thành công');
 
-        return redirect('/customer/create');
+        return redirect('/user/create');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Bill  $bill
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
+    public function show()
     {
-        //
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Bill  $bill
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $data = Customer::find($id);
+          $data = User::find($id);
 
-        return view('pages.customer.edit', compact('data'));
+        return view('pages.user.edit', compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Bill  $bill
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
-        $data = Customer::find($request->id);
+         $data = User::find($request->id);
 
         $data->update($request->all());
 
         toastr()->success('Đã cập nhật dữ liệu thành công');
 
-        return redirect('/customer/create');
+        return redirect('/user');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Bill  $bill
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $data = Customer::find($id);
-
+        $data = User::find($id);
         $data->delete();
 
-        return redirect('/customer/create');
+        return redirect('/user');
     }
 }

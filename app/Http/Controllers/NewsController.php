@@ -14,7 +14,10 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $data = News::all();
+
+
+        return view('pages.news.index', compact('data'));
     }
 
     /**
@@ -24,7 +27,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.news.create');
     }
 
     /**
@@ -35,7 +38,13 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        News::create($data);
+
+        toastr()->success('Đã thêm mới dữ liệu thành công');
+
+        return redirect('/news/create');
     }
 
     /**
@@ -52,12 +61,14 @@ class NewsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\News  $news
+     * @param  \App\Models\News  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $news)
+    public function edit($id)
     {
-        //
+        $data = News::find($id);
+
+        return view('pages.news.edit', compact('data'));
     }
 
     /**
@@ -67,9 +78,15 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $news)
+    public function update(Request $request)
     {
-        //
+        $data = News::find($request->id);
+
+        $data->update($request->all());
+
+        toastr()->success('Đã cập nhật dữ liệu thành công');
+
+        return redirect('/news');
     }
 
     /**
@@ -78,8 +95,11 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy($id)
     {
-        //
+        $data = News::find($id);
+        $data->delete();
+
+        return redirect('/news');
     }
 }

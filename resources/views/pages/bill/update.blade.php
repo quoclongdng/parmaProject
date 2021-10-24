@@ -13,32 +13,37 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form>
+                <form method="post" action="/bill/update">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$data->id}}">
                     <div class="card-body">
                         <div class="form-group">
                             <label>Mã Hóa Đơn</label>
-                            <input type="text" class="form-control" placeholder="Nhập vào Mã Hóa Đơn ">
+                            <input value="{{$data->hash}}" name="hash" type="text" class="form-control" placeholder="Nhập vào Mã Hóa Đơn ">
                          </div>
                          <div class="form-group">
-                            <label>Mã id</label>
-                            <input type="text" class="form-control" placeholder="Nhập vào Mã id ">
+                            <label>Mã id người dùng</label>
+                            <input value="{{$data->user_id}}" name="user_id" type="text" class="form-control" placeholder="Nhập vào Mã id người dùng">
+                         </div>
+                         <div class="form-group">
+                            <label>Mã id khách hàng</label>
+                            <input value="{{$data->customer_id}}" name="customer_id" type="text" class="form-control" placeholder="Nhập vào Mã id khách hàng ">
                          </div>
                          <div class="form-group">
                             <label>Ghi chú</label>
-                            <input type="text" class="form-control" placeholder="Nhập vào Ghi chú ">
+                            <input value="{{$data->comment}}" name="comment" type="text" class="form-control" placeholder="Nhập vào Ghi chú ">
                          </div>
                         <div class="form-group">
                             <label>Thể loại</label>
                             <select class="form-control">
-                                <option>Nhập</option>
-                                <option>Bán</option>
+                                <option value=1 {{$data->type == 1 ? 'selected' : ''}}>Nhập</option>
+                                <option value=0 {{$data->type == 0 ? 'selected' : ''}}>Bán</option>
                             </select>
                          </div>
 
                         <!-- /.card-body -->
                          <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Lưu</button>
-                            <button type="submit" class="btn btn-primary">Trở lại</button>
                         </div>
                     </div>
                 </form>

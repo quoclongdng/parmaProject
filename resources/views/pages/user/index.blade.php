@@ -27,19 +27,22 @@
                       </tr>
                     </thead>
                     <tbody>
+                        @foreach ($data as $key => $value)
                         <tr data-widget="expandable-table" aria-expanded="false">
-                            <td>1</td>
-                            <td>example</td>
-                            <td>example</td>
-                            <td>example</td>
-                            <td>example</td>
-                            <td>example</td>
-                            <td>example</td>
+                            <td>{{ $key + 1 }}</td>
+                            <td>{{ $value->first_name }} {{ $value->last_name }}</td>
+                            <td>{{ $value->email }}</td>
+                            <td>{{ $value->address }}</td>
+                            <td>{{ $value->phone }}</td>
+                            <td>{{ $value->avatar }}</td>
+                            <td>{{ $value->is_admin  }}</td>
+                            <td>{{ $value->is_master  }}</td>
                             <td class="text-center text-nowrap">
-                                <button class="btn btn-info">Edit</button>
-                                <button class="btn btn-danger">Delete</button>
+                                <a class="btn btn-info" href="/user/edit/{{ $value->id }}">Edit</a>
+                                <a class="btn btn-danger" href="/user/delete/{{ $value->id }}">Delete</a>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                   </table>
                 </div>

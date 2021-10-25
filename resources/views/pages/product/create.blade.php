@@ -39,7 +39,7 @@
                     <div class="form-group">
                         <label>Upload Avatar</label>
                         <div class="input-group">
-                            <input id="thumbnail" name="hinhAnh" class="form-control" type="text" name="filepath">
+                            <input id="thumbnail" name="avatar" class="form-control" type="text" name="filepath">
                             <span class="input-group-append">
                                 <a data-input="thumbnail" data-preview="holder" class="btn btn-primary uploadimage">
                                     Chọn Hình Ảnh
@@ -49,8 +49,12 @@
                         <img id="holder" style="margin-top:15px;max-height:100px;">
                     </div>
                     <div class="form-group">
-                        <label>Product-Category_ID</label>
-                        <input name="productcategory_id" type="text" class="form-control" placeholder="Nhập vào ID danh mục sản phẩm">
+                        <label>Danh Mục Sản Phẩm</label>
+                        <select name="productcategory_id" class="custom-select">
+                            @foreach ($product_category as $key => $value)
+                                <option value={{$value->id}}> {{ $value->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                 </div>

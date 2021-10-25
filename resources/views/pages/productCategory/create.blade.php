@@ -20,10 +20,6 @@
                       <input name="name" type="text" class="form-control" placeholder="Nhập vào tên danh mục">
                     </div>
                     <div class="form-group">
-                        <label>Slug</label>
-                        <input name="slug" type="text" class="form-control" placeholder="Nhập vào slug danh mục">
-                    </div>
-                    <div class="form-group">
                         <label>Tình Trạng</label>
                         <select name="is_open" class="form-control">
                             <option value=1>Hoạt động</option>
@@ -37,14 +33,14 @@
                     <div class="form-group">
                       <label>Upload Avatar</label>
                       <div class="input-group">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input">
-                          <label class="custom-file-label">Choose file</label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
-                        </div>
-                      </div>
+                        <input id="thumbnail" name="avatar" class="form-control" type="text" name="filepath">
+                        <span class="input-group-append">
+                            <a data-input="thumbnail" data-preview="holder" class="btn btn-primary uploadimage">
+                                Chọn Hình Ảnh
+                            </a>
+                        </span>
+                    </div>
+                    <img id="holder" style="margin-top:15px;max-height:100px;">
                     </div>
                   </div>
                   <!-- /.card-body -->

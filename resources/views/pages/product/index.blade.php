@@ -32,9 +32,9 @@
                         <tr data-widget="expandable-table" aria-expanded="false">
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $value->name }}</td>
-                            <td>{{ $value->description }}</td>
-                            <td>{{ $value->content }}</td>
-                            <td>{{ $value->avatar }}</td>
+                            <td>{!! $value->description !!}</td>
+                            <td>{!! $value->content !!}</td>
+                            <td><img src="{{ $value->avatar }}" class="img-fluid mb-2" style="max-width: 400px;" alt="black sample"></td>
                             <td>{{ $value->productcategory_id }}</td>
                             <td>{{ $value->price }}</td>
                             <td>{{ $value->created_at }}</td>

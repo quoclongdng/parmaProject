@@ -9,18 +9,6 @@
       </div>
     </div>
 
-    <!-- SidebarSearch Form -->
-    <div class="form-inline">
-      <div class="input-group" data-widget="sidebar-search">
-        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-sidebar">
-            <i class="fas fa-search fa-fw"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -31,33 +19,32 @@
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Starter Pages
-              <i class="right fas fa-angle-left"></i>
             </p>
           </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="#" class="nav-link active">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Active Page</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Inactive Page</p>
-              </a>
-            </li>
-          </ul>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-th"></i>
-            <p>
-              Simple Link
-              <span class="right badge badge-danger">New</span>
-            </p>
-          </a>
-        </li>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-amazon-pay"></i>
+              <p>
+                Danh Mục Sản Phẩm
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a href="/product-category/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh mục sản phẩm</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/product-category/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tạo mới danh mục</p>
+                </a>
+              </li>
+            </ul>
+          </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

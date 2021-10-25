@@ -13,7 +13,7 @@ class CreateProductCategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,20 @@ class CreateProductCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'          => 'required|max:50|min:6|unique:product_categories,name',
+            'is_open'       => 'required|boolean',
+            'description'   => 'max:1000',
+            'avatar'        => 'required',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'Danh mục sản phẩm',
+            'is_open' => 'Tình trạng',
+            'description' => 'Mô tả',
+            'avatar' => 'Hình ảnh',
         ];
     }
 }

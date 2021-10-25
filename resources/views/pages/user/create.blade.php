@@ -44,7 +44,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Nhập lại Mật Khẩu</label>
-                        <input type="password" class="form-control" placeholder="**********">
+                        <input name="re-password" type="password" class="form-control" placeholder="**********">
                       </div>
                     </div>
                   </div>

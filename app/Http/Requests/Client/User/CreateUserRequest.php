@@ -13,7 +13,7 @@ class CreateUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,25 @@ class CreateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'first_name' => 'required|max:20',
+            'last_name'  => 'required|max:20',
+            'email'      => 'required|email|unique:users,email',
+            'password'   => 'required|min:8|max:30',
+            're-password'=> 'required|min:8|max:30,same:password',
+            'address'    => 'required|max:50',
+            'avatar'     => 'required',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'first_name' => 'Tên người dùng',
+            'last_name' => 'Họ người dùng',
+            'email' => 'Email',
+            'password' => 'Mật Khẩu',
+            'address' => 'Địa chỉ',
+            'avatar' => 'Hình ảnh',
         ];
     }
 }

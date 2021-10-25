@@ -26,11 +26,11 @@
                     </div>
                     <div class="form-group">
                         <label>Giá</label>
-                        <input name="price"type="text" class="form-control" placeholder="Nhập vào giá">
+                        <input name="price" type="number" class="form-control" placeholder="Nhập vào giá">
                     </div>
                     <div class="form-group">
                         <label>Số Lượng</label>
-                        <input name="quantity" type="text" class="form-control" placeholder="Nhập vào số lượng">
+                        <input name="quantity" type="number" class="form-control" placeholder="Nhập vào số lượng">
                     </div>
                   </div>
                   <!-- /.card-body -->

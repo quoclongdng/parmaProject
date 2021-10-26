@@ -75,24 +75,19 @@
                         </select>
                     </div>
                   <div class="form-group">
-                      <label>Upload Avatar</label>
-                      <div class="input-group">
-                        {{-- <div class="custom-file"> --}}
-                          <input type="text" name="avatar" class="">
-                          {{-- <label class="custom-file-label">Choose file</label> --}}
-                        {{-- </div> --}}
-                        {{-- <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
-                        </div> --}}
-                      </div>
+                    <div class="input-group">
+	                    <input id="thumbnail" name="avatar" class="form-control" type="text">
+                        <span class="input-group-append">
+                            <a data-input="thumbnail" data-preview="holder" class="btn btn-primary uploadimage">
+                            Chọn Hình Ảnh
+                            </a>
+                        </span>
+                    </div>
+                    <img id="holder" name="avatar" style="margin-top:15px;max-height:100px;">
                     </div>
                     <div class="form-group">
-                    <label class="col-form-label">Token</label>
-                    <input name="token" type="text" class="form-control" placeholder="Nhập token">
-                  </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Thêm Mới Người Dùng</button>
-                </div>
+                        <button type="submit" class="btn btn-primary">Thêm Mới Người Dùng</button>
+                    </div>
                 </div>
 
                 </form>

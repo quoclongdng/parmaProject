@@ -23,31 +23,42 @@
                     </div>
                     <div class="form-group">
                         <label>Mô tả</label>
-                        <input value="{{ $data->description }}" name="description" type="text" class="form-control" placeholder="Nhập Mô tả">
+                        <textarea id="text-description" name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả">{{ $data->description }}</textarea>
                     </div>
                     <div class="form-group">
                         <label>Nội dung</label>
-                        <textarea name="content" cols="30" rows="10" class="form-control">{{ $data->content }}</textarea>
+                        <textarea id="text-content" name="content" class="form-control" rows="3" placeholder="Nhập vào nội dung">{{ $data->content }}</textarea>
                     </div>
                     <div class="form-group">
                         <label>Danh mục</label>
                         <select name="newcategory_id" class="form-control">
-                          <option value="1" {{ $data->newcategory_id=="1"?"selected":"" }}>example1</option>
-                          <option value="2" {{ $data->newcategory_id=="2"?"selected":"" }}>example2</option>
+                            @foreach ($newsCategory as $key=>$value)
+                            <option value="{{ $value->id }}" {{ $data->newcategory_id==$value->id?"selected":"" }}>{{ $value->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tình trạng</label>
+                        <select name="is_open" class="form-control">
+
+                            <option value=1 {{ $data->is_open==1?"selected":"" }}>Open</option>
+                            <option value=0 {{ $data->is_open==0?"selected":"" }}>Close</option>
+
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Keyword:</label>
                         <input name="keyword" value="{{ $data->keyword }}" type="text" class="form-control" placeholder="cách nhau bởi dấu ','">
                     </div>
-                    <div class="form-group">
-                      <label>Upload Ảnh</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input type="text" name="avatar" value="{{ $data->avatar }}" class="form-control-file" multiple>
-                        </div>
-                      </div>
+                    <div class="input-group">
+                        <input id="thumbnail" name="avatar" class="form-control" type="text" >
+                        <span class="input-group-append">
+                            <a data-input="thumbnail" data-preview="holder" class="btn btn-primary uploadimage">
+                                Chọn Hình Ảnh
+                            </a>
+                        </span>
                     </div>
+                    <img id="holder" src="{{ $data->avatar }}" style="margin-top:15px;max-height:100px;">
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">

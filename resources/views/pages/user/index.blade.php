@@ -34,7 +34,7 @@
                             <td>{{ $value->email }}</td>
                             <td>{{ $value->address }}</td>
                             <td>{{ $value->phone }}</td>
-                            <td>{{ $value->avatar }}</td>
+                            <td><img src="{{ $value->avatar }}" class="mw-100" alt="{{ $value->first_name }} {{ $value->last_name }}"></td>
                             <td>{{ $value->is_admin  }}</td>
                             <td>{{ $value->is_master  }}</td>
                             <td class="text-center text-nowrap">

@@ -23,8 +23,8 @@
               <div class="card-body" style="display: block;">
                 <h4><a href="">{{ $value->name }}</a> </h4>
                 <p>{{ $value->description }}</p>
-                <div class="attachment-block clearfix">
-                  <img class="attachment-img" src="{{ $value->avatar }}" alt="Ảnh">
+                <div class="attachment-block clearfix ">
+                  <img class="attachment-img" style="max-width:100%;" src="{{ $value->avatar }}" class="mw-100" alt="Ảnh">
                  </div>
                 <div>
                     <em>keyword: <span>{{ $value->keyword }}</span></em>

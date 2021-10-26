@@ -13,7 +13,7 @@ class UpdateNewsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,28 @@ class UpdateNewsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'id'=>'required|exists:news,id',
+            'name'=>'required|max:50|min:6|unique:news,name',
+            'avatar'=>'required',
+            'description'=>'required|max:1000|min:20',
+            'keyword'=>'required',
+            'content'=>'required|min:100',
+            'is_open'=>'required',
+            'newcategory_id'=>'required'
         ];
+    }
+
+    public function attribute(){
+        return [
+            'name' => 'Tên tin tức',
+            'avatar' => 'Hình ảnh',
+            'description' => 'Mô tả',
+            'keyword' => 'Từ khóa',
+            'content' => 'Nội dụng',
+            'is_open' => 'Tình trạng',
+            'user_id' => 'Mã người dùng',
+            'newcategory_id' => 'Mã tin tức'
+        ];
+
     }
 }

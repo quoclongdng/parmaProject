@@ -60,7 +60,7 @@
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>Loại Tài Khoản</label>
-                        <select name="is_admin" class="form-control">
+                        <select name="is_admin" id="is_admin" class="form-control">
                           <option value=1>Admin</option>
                           <option value=0>User</option>
                         </select>
@@ -69,9 +69,9 @@
                   </div>
                     <div class="form-group">
                         <label>Master Admin</label>
-                        <select name="is_master" class="form-control">
-                            <option value=0>false</option>
-                            <option value=1>true</option>
+                        <select name="is_master" id="is_master" class="form-control">
+                            <option id="a" value=0>false</option>
+                            <option  id="b" value=1>true</option>
                         </select>
                     </div>
                   <div class="form-group">
@@ -94,7 +94,7 @@
               </div>
             </div>
         </div>
-
-
     </div>
+
+
 @endsection

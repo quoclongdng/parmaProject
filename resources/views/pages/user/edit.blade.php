@@ -81,7 +81,8 @@
                             </div>
                             <img id="holder" src="{{ $data->avatar }}" style="margin-top:15px;max-height:100px;">
                         </div>
-                        <button type="submit" class="btn btn-warning btn-lg">Lưu</button>
+                        <a href="/user" class="btn btn-danger">Huỷ</a>
+                        <button type="submit" class="btn btn-warning btn-lg float-right">Lưu</button>
 
                   </div>
 

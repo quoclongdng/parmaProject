@@ -27,12 +27,12 @@ class UpdateUserRequest extends FormRequest
             'id'         => 'required|exists:user,id',
             'first_name' => 'required|max:20',
             'last_name'  => 'required|max:20',
-            'email'      => 'required|email|unique:users,email',
+            'email'      => 'required|email|exists:users,email',
             'password'   => 'required|min:8|max:30',
             're-password'=> 'required|min:8|max:30,same:password',
             'address'    => 'required|max:50',
             'avatar'     => 'required',
-            'phone'      => 'required',
+            'phone'      => 'required|numeric|min:10',
             'is_admin'   => 'required|boolean',
             'is_master'  => 'required|boolean'
         ];

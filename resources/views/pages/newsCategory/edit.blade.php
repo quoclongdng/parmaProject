@@ -23,11 +23,6 @@
                              </div>
 
                              <div class="form-group">
-                                <label>Slug</label>
-                                <input name="slug" type="text" class="form-control" placeholder="Nhập vào slug tin tức" value="{{$data->slug}}">
-                             </div>
-
-                             <div class="form-group">
                                 <label>Tình Trạng</label>
                                 <select class="form-control">
                                     <option value=1 {{$data->is_open == 1 ? 'selected' : ''}}>Hoạt động</option>

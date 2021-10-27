@@ -22,11 +22,6 @@
                                 <input name="name" type="text" class="form-control" placeholder="Nhập vào tên tin tức">
                              </div>
 
-                             <div class="form-group">
-                                <label>Slug</label>
-                                <input name="slug" type="text" class="form-control" placeholder="Nhập vào slug tin tức">
-                             </div>
-
                             <div class="form-group">
                                 <label>Tình Trạng</label>
                                 <select name="is_open" class="form-control">

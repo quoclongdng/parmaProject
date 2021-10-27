@@ -24,12 +24,12 @@
 
                     <div class="form-group">
                         <label>Mô Tả</label>
-                        <textarea name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả">{{$data->description}}</textarea>
+                        <textarea id="text-content" name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả">{{$data->description}}</textarea>
                     </div>
 
                     <div class="form-group">
                         <label>Nội Dung</label>
-                        <textarea name="content" class="form-control" rows="3" placeholder="Nhập vào nội dung">{{$data->content}}</textarea>
+                        <textarea id="text-content" name="content" class="form-control" rows="3" placeholder="Nhập vào nội dung">{{$data->content}}</textarea>
                     </div>
 
                      <div class="form-group">
@@ -39,19 +39,19 @@
 
                     <div class="form-group">
                         <label>Upload Avatar</label>
-                            {{-- <div class="input-group">
-                                 <div class="custom-file"> --}}
-                                    <input name="avatar" type="text" >
-                                    {{-- <label class="custom-file-label">Choose file</label> --}}
-                                {{-- </div> --}}
-                                {{-- <div class="input-group-append">
-                                    <span class="input-group-text">Upload</span>
-                                 </div>
-                            </div> --}}
+                        <div class="input-group">
+                            <input id="thumbnail" name="avatar" class="form-control" type="text" name="filepath">
+                            <span class="input-group-append">
+                                <a data-input="thumbnail" data-preview="holder" class="btn btn-primary uploadimage">
+                                    Chọn Hình Ảnh
+                                </a>
+                            </span>
+                        </div>
+                        <img id="holder" style="margin-top:15px;max-height:100px;">
                     </div>
 
                     <div class="form-group">
-                        <label>Product-Category_ID</label>
+                        <label>Mã Danh Mục Sản Phẩm</label>
                         <input name="productcategory_id" type="text" class="form-control" placeholder="Nhập vào ID danh mục sản phẩm" value="{{$data->productcategory_id}}">
                     </div>
 

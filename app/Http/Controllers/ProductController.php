@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Client\Product\CreateProductRequest;
+use App\Http\Requests\Client\Product\UpdateProductRequest;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -40,9 +43,11 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateProductRequest $request)
     {
         $data = $request->all();
+
+        $data['slug'] =Str::slug($request->name);
 
         Product::create($data);
 
@@ -83,7 +88,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(UpdateProductRequest $request)
     {
         $data = Product::find($request->id);
 

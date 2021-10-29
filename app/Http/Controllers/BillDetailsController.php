@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Client\BillDetails\CreateBillDetailsRequest;
+use App\Http\Requests\Client\BillDetails\UpdateBillDetailsRequest;
+use App\Models\Bill;
 use App\Models\BillDetails;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class BillDetailsController extends Controller
@@ -24,11 +28,14 @@ class BillDetailsController extends Controller
      */
     public function create()
     {
+        $bill = Bill::all();
+
+        $product = Product::all();
+
         $data = BillDetails::all();
 
         toastr()->info('Đã load data...');
-
-        return view('pages.billDetails.create', compact('data'));
+        return view('pages.billDetails.create', compact(['data', 'bill', 'product']));
     }
 
     /**
@@ -37,7 +44,7 @@ class BillDetailsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateBillDetailsRequest $request)
     {
         $data = $request->all();
 
@@ -67,9 +74,13 @@ class BillDetailsController extends Controller
      */
     public function edit($id)
     {
+        $bill = Bill::all();
+
+        $product_details = Product::all();
+
         $data = BillDetails::find($id);
 
-        return view('pages.billDetails.edit', compact('data'));
+        return view('pages.billDetails.edit', compact(['data', 'bill', 'product']));
     }
 
     /**
@@ -79,7 +90,7 @@ class BillDetailsController extends Controller
      * @param  \App\Models\BillDetails  $billDetails
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(UpdateBillDetailsRequest $request)
     {
         $data = BillDetails::find($request->id);
 

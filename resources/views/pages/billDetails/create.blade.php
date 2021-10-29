@@ -18,11 +18,21 @@
                   <div class="card-body">
                     <div class="form-group">
                       <label>Mã Hóa Đơn</label>
-                      <input name="bill_id" type="text" class="form-control" placeholder="Nhập vào mã hóa đơn">
+                      <select name="bill_id" class="custom-select">
+                        @foreach ($bill as $key => $value)
+                            <option value='{{$value->id}}'> {{ $value->hash }}</option>
+                        @endforeach
+                    </select>
                     </div>
+
                     <div class="form-group">
                         <label>Mã Sản Phẩm</label>
-                        <input name="product_id" type="text" class="form-control" placeholder="Nhập vào mã sản phẩm">
+                        <select name="product_id" class="custom-select">
+
+                            @foreach ($product as $key => $value)
+                                <option value={{$value->id}}> {{$value->id}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Giá</label>
@@ -82,3 +92,5 @@
         </div>
     </div>
 @endsection
+
+

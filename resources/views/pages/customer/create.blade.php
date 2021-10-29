@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group">
                         <label>Mô Tả</label>
-                        <textarea name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả..."></textarea>
+                        <textarea id="text-description" name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả..."></textarea>
                     </div>
                   </div>
                   <!-- /.card-body -->
@@ -72,7 +72,7 @@
                                 <td>{{$value->phone}}</td>
                                 <td>{{$value->address}}</td>
                                 <td>{{$value->email}}</td>
-                                <td>{{$value->description}}</td>
+                                <td>{!!$value->description!!}</td>
                                 <td class="text-center text-nowrap">
                                     <a class="btn btn-info" href="/customer/edit/{{$value->id}}">Sửa</a>
                                     <a class="btn btn-danger" href="/customer/delete/{{$value->id}}">Xóa</a>

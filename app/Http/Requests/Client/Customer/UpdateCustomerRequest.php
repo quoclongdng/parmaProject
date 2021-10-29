@@ -13,7 +13,7 @@ class UpdateCustomerRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,23 @@ class UpdateCustomerRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'id'            => 'required|exists:customers,id',
+            'name'          => 'required|max:50|min:6|unique:customers,name,' . $this->id,
+            'phone'         => 'required',
+            'address'       => 'required|max:50',
+            'email'         => 'email|exists:customers,email',
+            'description'   => 'max:1000',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'Tên khách hàng',
+            'phone' => 'Số điện thoại',
+            'address' => 'Địa chỉ',
+            'email' => 'Email',
+            'description' => 'Mô tả',
         ];
     }
 }

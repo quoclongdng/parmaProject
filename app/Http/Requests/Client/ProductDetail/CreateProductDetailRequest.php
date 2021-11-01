@@ -13,7 +13,7 @@ class CreateProductDetailRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,20 @@ class CreateProductDetailRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'product_id'       =>'required||unique:product_details,product_id',
+            'mfg_date'         =>'required',
+            'exp_date'         =>'require',
+            'price'            =>'require',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'product_id' => 'Mã sản phẩm',
+            'mfg_date' => 'Ngày sản xuất',
+            'exp_date' => 'Ngày hết hạn',
+            'price' => 'Giá',
         ];
     }
 }

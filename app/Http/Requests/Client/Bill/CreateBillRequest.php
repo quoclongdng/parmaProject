@@ -13,7 +13,7 @@ class CreateBillRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,20 @@ class CreateBillRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'hash'      =>'required|unique:bills,hash',
+            'user_id'   =>'required',
+            'comment'   =>'max:1000',
+            'type'      =>'require',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'hash' => 'Mã hóa đơn',
+            'user_id' => 'Mã người dùng',
+            'comment' => 'Bình luận',
+            'type' => 'Thể loại',
         ];
     }
 }

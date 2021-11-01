@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Client\ProductDetail\CreateProductDetailRequest;
+use App\Http\Requests\Client\ProductDetail\UpdateProductDetailRequest;
 use App\Models\ProductDetail;
 use Illuminate\Http\Request;
 
@@ -35,7 +37,7 @@ class ProductDetailController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateProductDetailRequest $request)
     {
         $data = $request->all();
 
@@ -77,7 +79,7 @@ class ProductDetailController extends Controller
      * @param  \App\Models\ProductDetail  $productDetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(UpdateProductDetailRequest $request)
     {
         $data = ProductDetail::find($request->id);
 

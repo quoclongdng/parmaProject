@@ -21,7 +21,7 @@
                         <th class="text-center">Mô Tả</th>
                         <th class="text-center">Nội Dung</th>
                         <th class="text-center">Ảnh</th>
-                        <th class="text-center">Product-Category_ID</th>
+                        <th class="text-center">Mã Danh Mục Sản Phẩm</th>
                         <th class="text-center">Giá</th>
                         <th class="text-center">Ngày Tạo</th>
                         <th class="text-center">Action</th>
@@ -34,7 +34,7 @@
                             <td>{{ $value->name }}</td>
                             <td>{!! $value->description !!}</td>
                             <td>{!! $value->content !!}</td>
-                            <td><img src="{{ $value->avatar }}" class="img-fluid mb-2" style="max-width: 400px;" alt="black sample"></td>
+                            <td><img src="{{ $value->avatar }}" class="img-fluid mb-2" style="max-width: 200px;" alt="black sample"></td>
                             <td>{{ $value->productcategory_id }}</td>
                             <td>{{ $value->price }}</td>
                             <td>{{ $value->created_at }}</td>

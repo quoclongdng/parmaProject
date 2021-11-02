@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Client\NewsCategory\CreateNewsCategoryRequest;
+use App\Http\Requests\Client\NewsCategory\UpdateNewsCategoryRequest;
 use App\Models\NewsCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class NewsCategoryController extends Controller
 {
@@ -37,9 +40,11 @@ class NewsCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateNewsCategoryRequest $request)
     {
         $data = $request->all();
+
+        $data['slug'] =Str::slug($request->name);
 
         NewsCategory::create($data);
 
@@ -81,7 +86,7 @@ class NewsCategoryController extends Controller
      * @param  \App\Models\NewsCategory  $newsCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(UpdateNewsCategoryRequest $request)
     {
         $data = NewsCategory::find($request->id);
 

@@ -49,7 +49,7 @@
                         <img id="holder" style="margin-top:15px;max-height:100px;">
                     </div>
                     <div class="form-group">
-                        <label>Danh Mục Sản Phẩm</label>
+                        <label>Mã Danh Mục Sản Phẩm</label>
                         <select name="productcategory_id" class="custom-select">
                             @foreach ($product_category as $key => $value)
                                 <option value={{$value->id}}> {{ $value->name }}</option>

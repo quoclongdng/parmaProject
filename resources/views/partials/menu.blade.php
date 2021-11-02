@@ -22,9 +22,63 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
+
+            {{-- User --}}
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-user"></i>
+                <p>
+                    Danh Sách Người Dùng
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+                </a>
+                <ul class="nav nav-treeview" style="display: none;">
+                <li class="nav-item">
+                    <a href="/user" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Danh Sách Người Dùng</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/user/create" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Tạo mới người dùng</p>
+                    </a>
+                </li>
+                </ul>
+            </li>
+
+
+            {{-- Customer --}}
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-user-secret"></i>
+                <p>
+                    Danh Sách Khách Hàng
+                    <i class=" fas fa-angle-left right"></i>
+                </p>
+                </a>
+                <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                        <a href="/customer/create" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                        <p>Danh sách Khách Hàng</p>
+                        </a>
+                    </li>
+                <li class="nav-item">
+                    <a href="/customer/create" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                    <p>Tạo mới khách hàng</p>
+                    </a>
+                </li>
+                </ul>
+            </li>
+
+
+        {{-- Product-Category --}}
+            <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-amazon-pay"></i>
+              <i class="nav-icon fas fa-list-alt"></i>
               <p>
                 Danh Mục Sản Phẩm
                 <i class="fas fa-angle-left right"></i>
@@ -41,6 +95,161 @@
                 <a href="/product-category/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tạo mới danh mục</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          {{-- Product --}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fab fa-product-hunt"></i>
+              <p>
+                Danh Sách Sản Phẩm
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a href="/product" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh sách sản phẩm</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/product/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tạo mới danh sách</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+          {{-- Product-Detail --}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-folder"></i>
+              <p>
+                Chi Tiết Sản Phẩm
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a href="/productDetail/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Chi Tiết Sản Phẩm</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/productDetail/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tạo mới Hóa Đơn </p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+
+          {{-- News --}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon far fa-newspaper"></i>
+              <p>
+                Danh Sách Tin Tức
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a href="/news" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh sách tin tức</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/news/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tạo mới tin tức</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          {{-- News-Category --}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th-list"></i>
+              <p>
+                Danh Mục Tin Tức
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a href="/news-category/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh Mục Tin Tức</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/news-category/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tạo mới danh mục</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+          {{-- Bill --}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-file-invoice-dollar"></i>
+              <p>
+                Danh Mục Hóa Đơn
+                <i class=" fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a href="/bill/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Hóa Đơn Nhập Xuất</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/bill/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tạo mới hóa đơn</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+          {{-- Bill-Detail --}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-receipt"></i>
+              <p>
+                Chi Tiết Hóa Đơn
+                <i class=" fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a href="/bill-details/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Chi Tiết Hóa Đơn</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/bill-details/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tạo mới hóa đơn</p>
                 </a>
               </li>
             </ul>

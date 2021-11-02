@@ -27,7 +27,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Slug</label>
+                        <label>Mô Tả</label>
                         <textarea name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả..."></textarea>
                     </div>
                     <div class="form-group">
@@ -77,7 +77,7 @@
                             <td>{{ $value->name }}</td>
                             <td>{{ $value->slug }}</td>
                             <td>{{ $value->is_open == 1 ? "Hoạt động" : "Tạm dừng" }}</td>
-                            <td>{{ $value->avatar }}</td>
+                            <td><img src="{{ $value->avatar }}" class="img-fluid mb-2" style="max-width: 200px;" alt="black sample"></td>
                             <td>{{ $value->created_at }}</td>
                             <td class="text-center text-nowrap">
                                 <a class="btn btn-info" href="/product-category/edit/{{$value->id}}">Edit</a>

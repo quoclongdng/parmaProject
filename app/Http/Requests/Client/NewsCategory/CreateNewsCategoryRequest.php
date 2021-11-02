@@ -13,7 +13,7 @@ class CreateNewsCategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,19 @@ class CreateNewsCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'      => 'required|max:50|min:6|unique:news_categories,name',
+            'is_open'   => 'required|boolean',
+
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'name'      => 'Tin tức sản phẩm',
+            'is_open'   => 'Tình trạng',
+
+        ];
+    }
+
 }

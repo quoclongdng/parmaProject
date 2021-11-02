@@ -13,7 +13,7 @@ class UpdateProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,28 @@ class UpdateProductRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'id'                 => 'required |exists:products,id',
+            'name'               => 'required|max:50|min:6|unique:products,name,' . $this->id,
+            'description'        => 'required | max:1000',
+            'content'            => 'required | max:250 | min:6',
+            'avatar'             => 'required',
+            'productcategory_id' => 'required',
+            'price'              => 'required',
+
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'name'                  => 'Tên sản phẩm',
+            'description'           => 'Mô tả',
+            'content'               => 'Nội dụng',
+            'avatar'                => 'Hình ảnh',
+            'productcategory_id'    => 'Mã danh mục sản phẩm',
+            'price'                 => 'Giá',
+
+        ];
+    }
+
 }

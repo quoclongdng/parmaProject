@@ -24,20 +24,19 @@ class CreateBillRequest extends FormRequest
     public function rules()
     {
         return [
-            'hash'      =>'required|unique:bills,hash',
-            'user_id'   =>'required',
+            'user_id'       => '',
+            'customer_id'   =>'required',
             'comment'   =>'max:1000',
-            'type'      =>'require',
+            'type'      =>'required',
         ];
     }
 
     public function attributes()
     {
         return [
-            'hash' => 'Mã hóa đơn',
-            'user_id' => 'Mã người dùng',
-            'comment' => 'Bình luận',
-            'type' => 'Thể loại',
+            'customer_id'   => 'Mã người dùng',
+            'comment'   => 'Bình luận',
+            'type'      => 'Thể loại',
         ];
     }
 }

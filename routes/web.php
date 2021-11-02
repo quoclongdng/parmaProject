@@ -7,8 +7,10 @@ Route::get('/', function () {
     return view('login');
 });
 
+Route::post('/login', [\App\Http\Controllers\UserController::class, 'login']);
 
-Route::group([], function () {
+Route::group(['middleware' => 'checklogin'], function () {
+// Route::group([], function () {
 
     Route::get('/product-category/create', [\App\Http\Controllers\ProductCategoryController::class, 'create']);
     Route::post('/product-category/create', [\App\Http\Controllers\ProductCategoryController::class, 'store']);
@@ -39,7 +41,7 @@ Route::group([], function () {
     Route::get('/customer/delete/{id}', [\App\Http\Controllers\CustomerController::class, 'destroy']);
 
     // bill detail
-    Route::get('/bill-details/create', [\App\Http\Controllers\BillDetailsController::class, 'create']);
+    Route::get('/bill-details/create/{hash}', [\App\Http\Controllers\BillDetailsController::class, 'create']);
     Route::post('/bill-details/create', [\App\Http\Controllers\BillDetailsController::class, 'store']);
     Route::get('/bill-details/edit/{id}', [\App\Http\Controllers\BillDetailsController::class, 'edit']);
     Route::post('/bill-details/update', [\App\Http\Controllers\BillDetailsController::class, 'update']);

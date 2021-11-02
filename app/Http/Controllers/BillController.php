@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Client\Bill\CreateBillRequest;
 use App\Http\Requests\Client\Bill\UpdateBillRequest;
 use App\Models\Bill;
+use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 class BillController extends Controller
 {
     /**
@@ -28,7 +31,9 @@ class BillController extends Controller
     {
         $bill = Bill::all();
 
-        return view('pages.bill.create', compact('bill'));
+        $customer = Customer::all();
+
+        return view('pages.bill.create', compact('bill', 'customer'));
 
     }
 
@@ -40,10 +45,17 @@ class BillController extends Controller
      */
     public function store(CreateBillRequest $request)
     {
+        $user = Auth::guard('user')->user();
+
         $data = $request->all();
+        $data['hash']   = Str::uuid();
+        $data['user_id']    = $user->id;
+
         Bill::create($data);
+
         toastr()->success('Đã thêm mới dữ liệu thành công');
-        return redirect('/bill/create');
+
+        return redirect('/bill-details/create/' . $data['hash']);
     }
 
     /**

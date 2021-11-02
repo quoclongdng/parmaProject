@@ -17,23 +17,11 @@
                 <form method="post" action="/bill/create">
                     @csrf
                     <div class="card-body">
-                        <div class="form-group">
-                            <label>Mã Hóa Đơn</label>
-                            <input name="hash" type="number" class="form-control" placeholder="Nhập vào Mã Hóa Đơn ">
-                         </div>
                          <div class="form-group">
-                            <label>Mã id người dùng</label>
-                            <select name="user_id" class="custom-select">
-                                @foreach ($bill as $key => $value)
-                                    <option value={{$value->id}}> {{ $value->name }}</option>
-                                @endforeach
-                            </select>
-                         </div>
-                         <div class="form-group">
-                            <label>Mã id khách hàng</label>
+                            <label>Thông Tin Khách Hàng</label>
                             <select name="customer_id" class="custom-select">
-                                @foreach ($bill as $key => $value)
-                                    <option value={{$value->id}}> {{ $value->name }}</option>
+                                @foreach ($customer as $key => $value)
+                                    <option value={{$value->id}}> {{ $value->name}}</option>
                                 @endforeach
                             </select>
                          </div>
@@ -45,7 +33,7 @@
                             <label>Thể loại</label>
                             <select name="type" class="form-control">
                                 <option value=1>Nhập</option>
-                                <option value=0 >Bán</option>
+                                <option value=0>Bán</option>
                             </select>
                          </div>
 

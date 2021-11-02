@@ -17,26 +17,17 @@
                   @csrf
                   <div class="card-body">
                     <div class="form-group">
-                      <label>Mã Hóa Đơn</label>
-                      <select name="bill_id" class="custom-select">
-                        @foreach ($bill as $key => $value)
-                            <option value='{{$value->id}}'> {{ $value->hash }}</option>
-                        @endforeach
+                      <input type="hidden" name="bill_id" id="" value="{{ $bill->id }}">
                     </select>
                     </div>
 
                     <div class="form-group">
                         <label>Mã Sản Phẩm</label>
                         <select name="product_id" class="custom-select">
-
                             @foreach ($product as $key => $value)
-                                <option value={{$value->id}}> {{$value->id}}</option>
+                                <option value={{$value->id}}> {{$value->name}}</option>
                             @endforeach
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Giá</label>
-                        <input name="price" type="number" class="form-control" placeholder="Nhập vào giá">
                     </div>
                     <div class="form-group">
                         <label>Số Lượng</label>

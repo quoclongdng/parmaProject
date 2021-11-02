@@ -24,10 +24,11 @@ class CreateProductDetailRequest extends FormRequest
     public function rules()
     {
         return [
-            'product_id'       =>'required||unique:product_details,product_id',
-            'mfg_date'         =>'required',
-            'exp_date'         =>'require',
-            'price'            =>'require',
+            'product_id'       =>   'required|exists:products,id',
+            'mfg_date'         =>   'required',
+            'exp_date'         =>   'required',
+            'price'            =>   'required',
+            'qty'              =>   'required|integer|min:1',
         ];
     }
 

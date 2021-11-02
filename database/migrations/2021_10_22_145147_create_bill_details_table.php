@@ -16,7 +16,7 @@ class CreateBillDetailsTable extends Migration
         Schema::create('bill_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('bill_id')->constrained('bills');
-            $table->foreignId('productdetail_id')->constrained('product_details');
+            $table->foreignId('product_id')->constrained('products');
             $table->double('price');
             $table->double('quantity');
             $table->timestamps();

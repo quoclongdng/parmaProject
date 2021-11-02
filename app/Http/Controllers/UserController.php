@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Client\User\CreateUserRequest;
+use App\Http\Requests\User\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -46,6 +48,21 @@ class UserController extends Controller
 
         return redirect('/user/create');
 
+    }
+
+    public function login(LoginRequest $request)
+    {
+        $data = $request->only(['email', 'password']);
+
+        $user = Auth::guard('user')->attempt($data);
+
+        if($user){
+            return redirect('/news');
+
+        } else {
+            toastr()->error('Tài khoản hoặc mật khẩu không chính xác');
+            return redirect('/');
+        }
     }
 
     /**

@@ -24,10 +24,9 @@ class CreateBillDetailsRequest extends FormRequest
     public function rules()
     {
         return [
-            'bill_id' => 'required',
-            'product_id' => 'required',
-            'price' => 'required',
-            'quantity' => 'required',
+            'bill_id'       => 'required',
+            'product_id'    => 'required',
+            'quantity'      => 'required',
         ];
     }
 
@@ -36,7 +35,6 @@ class CreateBillDetailsRequest extends FormRequest
         return [
             'bill_id' => 'Mã hóa đơn chi tiết',
             'product_id' => 'Mã sản phẩm',
-            'price' => 'Giá',
             'quantity' => 'Số lượng',
         ];
     }

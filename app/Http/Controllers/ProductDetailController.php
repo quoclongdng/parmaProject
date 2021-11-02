@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Client\ProductDetail\CreateProductDetailRequest;
 use App\Http\Requests\Client\ProductDetail\UpdateProductDetailRequest;
+use App\Models\Product;
 use App\Models\ProductDetail;
 use Illuminate\Http\Request;
 
@@ -26,9 +27,13 @@ class ProductDetailController extends Controller
      */
     public function create()
     {
-        $data = ProductDetail::all();
+        $data = ProductDetail::paginate(10);
+
+        $product = Product::all();
+
         toastr()->info('Đã load data...');
-        return view('pages.productDetail.create', compact('data'));
+
+        return view('pages.productDetail.create', compact('data', 'product'));
     }
 
     /**
@@ -41,7 +46,9 @@ class ProductDetailController extends Controller
     {
         $data = $request->all();
 
-        ProductDetail::create($data);
+        for($i = 0; $i < $request->qty; $i++){
+            ProductDetail::create($data);
+        }
 
         toastr()->success('Đã thêm mới dữ liệu thành công');
 
@@ -99,6 +106,7 @@ class ProductDetailController extends Controller
     public function destroy($id)
     {
         $data = ProductDetail::find($id);
+
         $data->delete();
 
         return redirect('/productDetail/create');

@@ -19,7 +19,11 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label>Mã sản phẩm</label>
-                            <input name="product_id" type="text" class="form-control" placeholder="Nhập vào mã sản phẩm ">
+                            <select name="product_id" class="custom-select">
+                                @foreach ($product as $key => $value)
+                                    <option value={{$value->id}}> {{ $value->name}}</option>
+                                @endforeach
+                            </select>
                          </div>
                          <div class="form-group">
                             <label>Ngày sản xuất</label>
@@ -32,6 +36,10 @@
                          <div class="form-group">
                             <label>Giá</label>
                             <input name="price" type="number" class="form-control" placeholder="Nhập vào giá sản phẩm ">
+                         </div>
+                         <div class="form-group">
+                            <label>Số Lượng</label>
+                            <input name="qty" type="number" class="form-control" placeholder="Nhập vào số lượng nhập">
                          </div>
 
                         <!-- /.card-body -->
@@ -69,7 +77,7 @@
                         <td>{{ $value->product_id }}</td>
                         <td>{{ $value->mfg_date }}</td>
                         <td>{{ $value->exp_date }}</td>
-                        <td>{{ $value->price }}</td>
+                        <td>{{ number_format($value->price, 0, ',', '.') }}</td>
                         <td class="text-center text-nowrap">
                             <a class="btn btn-info" href="/productDetail/update/{{$value->id}}">Edit</a>
                             <a class="btn btn-danger" href="/productDetail/delete/{{$value->id}}">Delete</a>
@@ -78,8 +86,10 @@
                     @endforeach
                     @endif
                 </tbody>
-              </table>
-            </div>
+            </table>
+            <br>
+            {{ $data->links() }}
+        </div>
             <!-- /.card-body -->
           </div>
     </div>

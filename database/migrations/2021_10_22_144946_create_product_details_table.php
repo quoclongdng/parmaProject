@@ -19,6 +19,7 @@ class CreateProductDetailsTable extends Migration
             $table->datetime('mfg_date');
             $table->datetime('exp_date');
             $table->double('price');
+            $table->integer('is_sell')->default(0)->comment('0: Chưa bán, 1: Đã bán, 2: Đã hết hạn');
             $table->timestamps();
         });
     }

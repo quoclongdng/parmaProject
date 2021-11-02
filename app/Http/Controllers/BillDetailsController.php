@@ -26,16 +26,25 @@ class BillDetailsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($hash)
     {
-        $bill = Bill::all();
+        $bill = Bill::where('hash', $hash)->first();
 
-        $product = Product::all();
+        if($bill) {
 
-        $data = BillDetails::all();
+            $product = Product::all();
 
-        toastr()->info('Đã load data...');
-        return view('pages.billDetails.create', compact(['data', 'bill', 'product']));
+            $data = BillDetails::all();
+
+            toastr()->info('Đã load data...');
+
+            return view('pages.billDetails.create', compact('data', 'bill', 'product'));
+
+        } else {
+            toastr()->error('Hoá đơn không tồn tại...');
+            return redirect('/bill/create');
+        }
+
     }
 
     /**
@@ -48,11 +57,15 @@ class BillDetailsController extends Controller
     {
         $data = $request->all();
 
+        $product = Product::find($request->product_id);
+
+        $data['price']  = $product->price;
+
         BillDetails::create($data);
 
         toastr()->success('Đã thêm mới dữ liệu thành công');
 
-        return redirect('/bill-details/create');
+        return redirect()->back();
     }
 
     /**

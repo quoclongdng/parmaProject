@@ -24,7 +24,21 @@ class UpdateBillDetailsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'id'            => 'required|exists:bill_details,id',
+            'bill_id'       => 'required',
+            'product_id'    => 'required',
+            'price'         => 'required',
+            'quantity'      => 'required',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'bill_id' => 'Mã hóa đơn chi tiết',
+            'product_id' => 'Mã sản phẩm',
+            'price' => 'Giá',
+            'quantity' => 'Số lượng',
         ];
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,19 +17,19 @@ Route::group([], function () {
     Route::get('/product-category/delete/{id}', [\App\Http\Controllers\ProductCategoryController::class, 'destroy']);
 
     // product
-    Route::get('/product', [\App\Http\Controllers\ProductController::class,'index']);
-    Route::get('/product/create', [\App\Http\Controllers\ProductController::class,'create']);
-    Route::post('/product/create', [\App\Http\Controllers\ProductController::class,'store']);
-    Route::get('/product/edit/{id}', [\App\Http\Controllers\ProductController::class,'edit']);
-    Route::post('/product/update', [\App\Http\Controllers\ProductController::class,'update']);
-    Route::get('/product/delete/{id}', [\App\Http\Controllers\ProductController::class,'destroy']);
+    Route::get('/product', [\App\Http\Controllers\ProductController::class, 'index']);
+    Route::get('/product/create', [\App\Http\Controllers\ProductController::class, 'create']);
+    Route::post('/product/create', [\App\Http\Controllers\ProductController::class, 'store']);
+    Route::get('/product/edit/{id}', [\App\Http\Controllers\ProductController::class, 'edit']);
+    Route::post('/product/update', [\App\Http\Controllers\ProductController::class, 'update']);
+    Route::get('/product/delete/{id}', [\App\Http\Controllers\ProductController::class, 'destroy']);
 
     // newCategory
-    Route::get('/news-category/create', [\App\Http\Controllers\NewsCategoryController::class,'create']);
-    Route::post('/news-category/create', [\App\Http\Controllers\NewsCategoryController::class,'store']);
-    Route::get('/news-category/edit/{id}', [\App\Http\Controllers\NewsCategoryController::class,'edit']);
-    Route::post('/news-category/update', [\App\Http\Controllers\NewsCategoryController::class,'update']);
-    Route::get('/news-category/delete/{id}', [\App\Http\Controllers\NewsCategoryController::class,'destroy']);
+    Route::get('/news-category/create', [\App\Http\Controllers\NewsCategoryController::class, 'create']);
+    Route::post('/news-category/create', [\App\Http\Controllers\NewsCategoryController::class, 'store']);
+    Route::get('/news-category/edit/{id}', [\App\Http\Controllers\NewsCategoryController::class, 'edit']);
+    Route::post('/news-category/update', [\App\Http\Controllers\NewsCategoryController::class, 'update']);
+    Route::get('/news-category/delete/{id}', [\App\Http\Controllers\NewsCategoryController::class, 'destroy']);
 
     // customer
     Route::get('/customer/create', [\App\Http\Controllers\CustomerController::class, 'create']);
@@ -45,20 +46,20 @@ Route::group([], function () {
     Route::get('/bill-details/delete/{id}', [\App\Http\Controllers\BillDetailsController::class, 'destroy']);
 
     // [NEWS]
-    Route::get('/news',[\App\Http\Controllers\NewsController::class, 'index']);
-    Route::get('/news/create',[\App\Http\Controllers\NewsController::class, 'create']);
-    Route::post('/news/create',[\App\Http\Controllers\NewsController::class, 'store']);
-    Route::get('/news/edit/{id}',[\App\Http\Controllers\NewsController::class, 'edit']);
-    Route::post('/news/update',[\App\Http\Controllers\NewsController::class, 'update']);
-    Route::get('/news/delete/{id}',[\App\Http\Controllers\NewsController::class, 'destroy']);
+    Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index']);
+    Route::get('/news/create', [\App\Http\Controllers\NewsController::class, 'create']);
+    Route::post('/news/create', [\App\Http\Controllers\NewsController::class, 'store']);
+    Route::get('/news/edit/{id}', [\App\Http\Controllers\NewsController::class, 'edit']);
+    Route::post('/news/update', [\App\Http\Controllers\NewsController::class, 'update']);
+    Route::get('/news/delete/{id}', [\App\Http\Controllers\NewsController::class, 'destroy']);
 
     // [USER]
-    Route::get('/user',[\App\Http\Controllers\UserController::class, 'index']);
-    Route::get('/user/create',[\App\Http\Controllers\UserController::class, 'create']);
-    Route::post('/user/create',[\App\Http\Controllers\UserController::class, 'store']);
-    Route::get('/user/edit/{id}',[\App\Http\Controllers\UserController::class, 'edit']);
-    Route::post('/user/update',[\App\Http\Controllers\UserController::class, 'update']);
-    Route::get('/user/delete/{id}',[\App\Http\Controllers\UserController::class, 'destroy']);
+    Route::get('/user', [\App\Http\Controllers\UserController::class, 'index']);
+    Route::get('/user/create', [\App\Http\Controllers\UserController::class, 'create']);
+    Route::post('/user/create', [\App\Http\Controllers\UserController::class, 'store']);
+    Route::get('/user/edit/{id}', [\App\Http\Controllers\UserController::class, 'edit']);
+    Route::post('/user/update', [\App\Http\Controllers\UserController::class, 'update']);
+    Route::get('/user/delete/{id}', [\App\Http\Controllers\UserController::class, 'destroy']);
 
     Route::get('/bill/create', [\App\Http\Controllers\BillController::class, 'create']);
     Route::post('/bill/create', [\App\Http\Controllers\BillController::class, 'store']);
@@ -73,6 +74,3 @@ Route::group([], function () {
     Route::post('/productDetail/update', [\App\Http\Controllers\ProductDetailController::class, 'update']);
     Route::get('/productDetail/delete/{id}', [\App\Http\Controllers\ProductDetailController::class, 'destroy']);
 });
-
-
-

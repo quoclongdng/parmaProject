@@ -15,7 +15,7 @@
                 <!-- form start -->
                 <form method="post" action="/customer/update">
                   @csrf
-                  <input type="hidden" name="id" value="{{$data->id}}">
+                  <input hidden name="id" value="{{$data->id}}">
                   <div class="card-body">
                     <div class="form-group">
                       <label>Tên Khách Hàng</label>
@@ -31,16 +31,15 @@
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input name="email" type="text" class="form-control" placeholder="Nhập vào email" value="{{$data->email}}">
+                        <input name="email" type="text" class="form-control" disabled placeholder="Nhập vào email" value="{{$data->email}}"></input>
                     </div>
                     <div class="form-group">
                         <label>Mô Tả</label>
-                        <textarea class="form-control" rows="3" placeholder="Nhập vào mô tả...">{{$data->description}}</textarea>
+                        <textarea id="text-description" name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả...">{{$data->description}}</textarea>
                     </div>
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
-                    <a href="#" class="btn btn-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hủy bỏ</font></font></a>
                     <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input type="submit" value="Lưu thay đổi" class="btn btn-success float-right"></font></font>
                   </div>
                 </form>

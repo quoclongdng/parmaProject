@@ -13,7 +13,7 @@ class UpdateUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,32 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'id'         => 'required|exists:user,id',
+            'first_name' => 'required|max:20',
+            'last_name'  => 'required|max:20',
+            'email'      => 'required|email|exists:users,email',
+            'password'   => 'required|min:8|max:30',
+            're-password'=> 'required|min:8|max:30,same:password',
+            'address'    => 'required|max:50',
+            'avatar'     => 'required',
+            'phone'      => 'required|numeric|min:10',
+            'is_admin'   => 'required|boolean',
+            'is_master'  => 'required|boolean'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'first_name' => 'Tên người dùng',
+            'last_name' => 'Họ người dùng',
+            'email' => 'Email',
+            'password' => 'Mật Khẩu',
+            'address' => 'Địa chỉ',
+            'avatar' => 'Hình ảnh',
+            'phone' =>'Số điện thoại',
+            'is_admin'=>'Tài khoản Admin',
+            'is_master'=>'Master Admin'
         ];
     }
 }

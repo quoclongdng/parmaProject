@@ -11,8 +11,6 @@
                 <div class="card-header">
                   <h3 class="card-title">Thêm Mới Tin Tức</h3>
                 </div>
-                <!-- /.card-header -->
-                <!-- form start -->
                 <form method="POST" action="/news/create">
                     @csrf
                   <div class="card-body">
@@ -21,12 +19,12 @@
                       <input name="name" type="text" class="form-control" placeholder="Nhập tiêu đề">
                     </div>
                     <div class="form-group">
-                        <label>Description</label>
-                        <input name="description" type="text" class="form-control" placeholder="Nhập Mô tả">
+                        <label>Mô tả</label>
+                        <textarea id="text-description" name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Nội dung</label>
-                        <textarea name="content" cols="30" rows="10" class="form-control"></textarea>
+                        <textarea id="text-content" name="content" class="form-control" rows="3" placeholder="Nhập vào nội dung"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Tình trạng</label>
@@ -38,26 +36,28 @@
                     <div class="form-group">
                         <label>Danh mục</label>
                         <select name="newcategory_id" class="form-control">
-                          <option value="1">danh muc 1</option>
-                          <option value="2"> dnah muc 2</option>
+                          @foreach ($newsCategory as $key=>$value)
+                              <option value="{{ $value->id }}">{{ $value->name }}</option>
+                          @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Description</label>
+                        <label>User_id</label>
                         <input name="user_id" name="description" type="text" class="form-control" placeholder="Nhập user id">
                     </div>
                     <div class="form-group">
                         <label>Keyword:</label>
-                        <input type="text" class="form-control" placeholder="cách nhau bởi dấu ','">
+                        <input name="keyword" type="text" class="form-control" placeholder="cách nhau bởi dấu ','">
                     </div>
-                    <div class="form-group">
-                      <label>Upload Ảnh</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input name="avatar" type="text" class="form-control-file" multiple>
-                        </div>
-                      </div>
+                    <div class="input-group">
+                        <input id="thumbnail" name="avatar" class="form-control" type="text" >
+                        <span class="input-group-append">
+                            <a data-input="thumbnail" data-preview="holder" class="btn btn-primary uploadimage">
+                                Chọn Hình Ảnh
+                            </a>
+                        </span>
                     </div>
+                    <img id="holder"  style="margin-top:15px;max-height:100px;">
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">

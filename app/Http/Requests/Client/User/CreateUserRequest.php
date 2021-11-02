@@ -31,6 +31,9 @@ class CreateUserRequest extends FormRequest
             're-password'=> 'required|min:8|max:30,same:password',
             'address'    => 'required|max:50',
             'avatar'     => 'required',
+            'phone'      => 'required|numeric',
+            'is_admin'   => 'required|boolean',
+            'is_master'  => 'required|boolean'
         ];
     }
 
@@ -43,6 +46,10 @@ class CreateUserRequest extends FormRequest
             'password' => 'Mật Khẩu',
             'address' => 'Địa chỉ',
             'avatar' => 'Hình ảnh',
+            're-password'=>'Nhập lại mật khẩu',
+            'phone'=>'Số điện thoại',
+            'is_admin'=>'Tài khoản Admin',
+            'is_master'=>'Master Admin'
         ];
     }
 }

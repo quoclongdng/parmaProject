@@ -19,7 +19,7 @@
                         <input type="text" name="id" value="{{ $data->id }}" hidden>
                         <div class="form-group">
                             <label>Email</label>
-                            <input name="email" value="{{ $data->email }}" type="text" class="form-control" placeholder="Nhập email" ></input>
+                            <input name="email" value="{{ $data->email }}" disabled type="text" class="form-control" placeholder="Nhập email" ></input>
                         </div>
 
                         <div class="form-group">
@@ -71,17 +71,18 @@
 
                         <div class="form-group">
                         <label>Upload Avatar</label>
-                        <div class="input-group">
-                            {{-- <div class="custom-file"> --}}
-                                <input type="text" class="">
-                                {{-- <label class="custom-file-label">Choose file</label> --}}
-                            {{-- </div> --}}
-                            {{-- <div class="input-group-append"> --}}
-                                {{-- <span class="input-group-text">Upload</span> --}}
-                            {{-- </div> --}}
+                       <div class="input-group">
+                            <input id="thumbnail" name="avatar" class="form-control" type="text">
+                                <span class="input-group-append">
+                                    <a data-input="thumbnail" data-preview="holder" class="btn btn-primary uploadimage">
+                                        Chọn Hình Ảnh
+                                    </a>
+                                </span>
+                            </div>
+                            <img id="holder" src="{{ $data->avatar }}" style="margin-top:15px;max-height:100px;">
                         </div>
-                        </div>
-                        <button type="submit" class="btn btn-warning btn-lg">Lưu</button>
+                        <a href="/user" class="btn btn-danger">Huỷ</a>
+                        <button type="submit" class="btn btn-warning btn-lg float-right">Lưu</button>
 
                   </div>
 

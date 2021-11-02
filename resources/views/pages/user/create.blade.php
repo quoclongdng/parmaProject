@@ -60,7 +60,7 @@
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>Loại Tài Khoản</label>
-                        <select name="is_admin" class="form-control">
+                        <select name="is_admin" id="is_admin" class="form-control">
                           <option value=1>Admin</option>
                           <option value=0>User</option>
                         </select>
@@ -69,37 +69,32 @@
                   </div>
                     <div class="form-group">
                         <label>Master Admin</label>
-                        <select name="is_master" class="form-control">
-                            <option value=0>false</option>
-                            <option value=1>true</option>
+                        <select name="is_master" id="is_master" class="form-control">
+                            <option id="a" value=0>false</option>
+                            <option  id="b" value=1>true</option>
                         </select>
                     </div>
                   <div class="form-group">
-                      <label>Upload Avatar</label>
-                      <div class="input-group">
-                        {{-- <div class="custom-file"> --}}
-                          <input type="text" name="avatar" class="">
-                          {{-- <label class="custom-file-label">Choose file</label> --}}
-                        {{-- </div> --}}
-                        {{-- <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
-                        </div> --}}
-                      </div>
+                    <div class="input-group">
+	                    <input id="thumbnail" name="avatar" class="form-control" type="text">
+                        <span class="input-group-append">
+                            <a data-input="thumbnail" data-preview="holder" class="btn btn-primary uploadimage">
+                            Chọn Hình Ảnh
+                            </a>
+                        </span>
+                    </div>
+                    <img id="holder" name="avatar" style="margin-top:15px;max-height:100px;">
                     </div>
                     <div class="form-group">
-                    <label class="col-form-label">Token</label>
-                    <input name="token" type="text" class="form-control" placeholder="Nhập token">
-                  </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Thêm Mới Người Dùng</button>
-                </div>
+                        <button type="submit" class="btn btn-primary">Thêm Mới Người Dùng</button>
+                    </div>
                 </div>
 
                 </form>
               </div>
             </div>
         </div>
-
-
     </div>
+
+
 @endsection

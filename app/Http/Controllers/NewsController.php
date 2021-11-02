@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Http\Requests\Client\News\CreateNewsRequest;
+use App\Http\Requests\Client\News\UpdateNewsRequest;
 use App\Models\News;
 use Illuminate\Http\Request;
+use App\Models\NewsCategory;
 
 class NewsController extends Controller
 {
@@ -27,7 +31,9 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('pages.news.create');
+        $newsCategory = NewsCategory::all();
+        // dd($newsCategory);
+        return view('pages.news.create',compact('newsCategory'));
     }
 
     /**
@@ -36,7 +42,7 @@ class NewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateNewsRequest $request)
     {
         $data = $request->all();
 
@@ -66,9 +72,10 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
+        $newsCategory = NewsCategory::all();
         $data = News::find($id);
 
-        return view('pages.news.edit', compact('data'));
+        return view('pages.news.edit', compact(['data','newsCategory']));
     }
 
     /**
@@ -78,7 +85,7 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(UpdateNewsRequest $request)
     {
         $data = News::find($request->id);
 

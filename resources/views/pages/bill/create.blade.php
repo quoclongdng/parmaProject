@@ -19,19 +19,27 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label>Mã Hóa Đơn</label>
-                            <input name="hash" type="text" class="form-control" placeholder="Nhập vào Mã Hóa Đơn ">
+                            <input name="hash" type="number" class="form-control" placeholder="Nhập vào Mã Hóa Đơn ">
                          </div>
                          <div class="form-group">
                             <label>Mã id người dùng</label>
-                            <input name="user_id" type="text" class="form-control" placeholder="Nhập vào Mã id ">
+                            <select name="user_id" class="custom-select">
+                                @foreach ($bill as $key => $value)
+                                    <option value={{$value->id}}> {{ $value->name }}</option>
+                                @endforeach
+                            </select>
                          </div>
                          <div class="form-group">
                             <label>Mã id khách hàng</label>
-                            <input name="customer_id" type="text" class="form-control" placeholder="Nhập vào Mã id khách hàng ">
+                            <select name="customer_id" class="custom-select">
+                                @foreach ($bill as $key => $value)
+                                    <option value={{$value->id}}> {{ $value->name }}</option>
+                                @endforeach
+                            </select>
                          </div>
                          <div class="form-group">
                             <label>Ghi chú</label>
-                            <input name="comment" type="text" class="form-control" placeholder="Nhập vào Ghi chú ">
+                            <textarea id="text-content" name="comment" class="form-control" rows="3" placeholder="Nhập vào ghi chú"></textarea>
                          </div>
                         <div class="form-group">
                             <label>Thể loại</label>
@@ -70,6 +78,7 @@
                   </tr>
                 </thead>
                 <tbody>
+                    @if(isset($data))
                     @foreach ($data as $key => $value)
                     <tr data-widget="expandable-table" aria-expanded="false">
                         <td>{{ $key + 1 }}</td>
@@ -84,6 +93,7 @@
                         </td>
                     </tr>
                     @endforeach
+                    @endif
                 </tbody>
               </table>
             </div>

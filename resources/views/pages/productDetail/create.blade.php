@@ -23,15 +23,15 @@
                          </div>
                          <div class="form-group">
                             <label>Ngày sản xuất</label>
-                            <input name="mfg_date" type="text" class="form-control" placeholder="Nhập vào ngày sản xuất ">
+                            <input name="mfg_date" type="date" class="form-control" placeholder="Nhập vào ngày sản xuất ">
                          </div>
                          <div class="form-group">
                             <label>Ngày hết hạn</label>
-                            <input name="exp_date" type="text" class="form-control" placeholder="Nhập vào ngày hết hạn">
+                            <input name="exp_date" type="date" class="form-control" placeholder="Nhập vào ngày hết hạn">
                          </div>
                          <div class="form-group">
                             <label>Giá</label>
-                            <input name="price" type="text" class="form-control" placeholder="Nhập vào giá sản phẩm ">
+                            <input name="price" type="number" class="form-control" placeholder="Nhập vào giá sản phẩm ">
                          </div>
 
                         <!-- /.card-body -->

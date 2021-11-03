@@ -23,7 +23,8 @@
                         <th class="text-center">Số điện thoại</th>
                         <th class="text-center">Ảnh</th>
                         <th class="text-center">Loại tài khoản</th>
-                        <th class="text-center">Action</th>
+                        <th class="text-center">Master admin</th>
+                        <th class="text-center">Hành động</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -35,8 +36,8 @@
                             <td>{{ $value->address }}</td>
                             <td>{{ $value->phone }}</td>
                             <td><img src="{{ $value->avatar }}" class="mw-100" alt="{{ $value->first_name }} {{ $value->last_name }}"></td>
-                            <td>{{ $value->is_admin  }}</td>
-                            <td>{{ $value->is_master  }}</td>
+                            <td>{{ $value->is_admin==1?"Admin":"User"  }}</td>
+                            <td>{{ $value->is_master==1?"Yes":"No"  }}</td>
                             <td class="text-center text-nowrap">
                                 <a class="btn btn-info" href="/user/edit/{{ $value->id }}">Edit</a>
                                 <a class="btn btn-danger" href="/user/delete/{{ $value->id }}">Delete</a>

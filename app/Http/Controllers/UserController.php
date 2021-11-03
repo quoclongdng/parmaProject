@@ -42,6 +42,8 @@ class UserController extends Controller
     {
         $data = $request->all();
 
+        $data["is_master"]=false;
+
         User::create($data);
 
         toastr()->success('Đã thêm mới dữ liệu thành công');

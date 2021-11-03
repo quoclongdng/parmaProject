@@ -31,7 +31,6 @@ class UpdateUserRequest extends FormRequest
             'password'   => 'required|min:8|max:30',
             're-password'=> 'required|min:8|max:30,same:password',
             'address'    => 'required|max:50',
-            'avatar'     => 'required',
             'phone'      => 'required|numeric|min:10',
             'is_admin'   => 'required|boolean',
             'is_master'  => 'required|boolean'

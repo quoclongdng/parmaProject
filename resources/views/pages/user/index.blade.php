@@ -46,6 +46,8 @@
                         @endforeach
                     </tbody>
                   </table>
+                  <hr>
+                      {{ $data->links() }}
                 </div>
                 <!-- /.card-body -->
               </div>

@@ -81,6 +81,7 @@
                             </tbody>
                         @endforeach
                   </table>
+                  {{ $data->links() }}
                 </div>
                 <!-- /.card-body -->
               </div>

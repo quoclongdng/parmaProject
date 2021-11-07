@@ -10,7 +10,7 @@ Route::get('/', function () {
 Route::post('/login', [\App\Http\Controllers\UserController::class, 'login']);
 
 Route::group(['middleware' => 'checklogin'], function () {
-// Route::group([], function () {
+    // Route::group([], function () {
 
     Route::get('/product-category/create', [\App\Http\Controllers\ProductCategoryController::class, 'create']);
     Route::post('/product-category/create', [\App\Http\Controllers\ProductCategoryController::class, 'store']);

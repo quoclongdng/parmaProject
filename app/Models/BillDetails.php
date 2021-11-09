@@ -16,4 +16,14 @@ class BillDetails extends Model
         'quantity',
     ];
 
+    public function bill()
+    {
+        return $this->belongsTo('\App\Models\Bill', 'bill_id', 'id');
+    }
+
+    public function product_detail()
+    {
+        return $this->belongsTo('\App\Models\ProductDetail', 'productdetail_id', 'id');
+    }
+
 }

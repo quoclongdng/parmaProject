@@ -26,7 +26,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $data = Customer::all();
+        $data = Customer::paginate(10);
 
         toastr()->info('Đã load data...');
 

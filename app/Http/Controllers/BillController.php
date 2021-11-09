@@ -29,7 +29,7 @@ class BillController extends Controller
      */
     public function create()
     {
-        $bill = Bill::all();
+        $bill = Bill::paginate(10);
 
         $customer = Customer::all();
 

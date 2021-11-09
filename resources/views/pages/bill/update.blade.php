@@ -9,7 +9,7 @@
         <div class="col-md-12">
             <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Chỉnh sửa Hóa Đơn Xuất Nhập</h3>
+                  <h3 class="card-title">Chỉnh sửa Hóa Đơn Xuất</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -36,7 +36,6 @@
                         <div class="form-group">
                             <label>Thể loại</label>
                             <select class="form-control">
-                                <option value=1 {{$data->type == 1 ? 'selected' : ''}}>Nhập</option>
                                 <option value=0 {{$data->type == 0 ? 'selected' : ''}}>Bán</option>
                             </select>
                          </div>

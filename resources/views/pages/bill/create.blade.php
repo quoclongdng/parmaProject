@@ -10,7 +10,7 @@
         <div class="col-md-12">
             <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Thêm Mới Hóa Đơn Xuất Nhập</h3>
+                  <h3 class="card-title">Thêm Mới Hóa Đơn Xuất</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -32,7 +32,6 @@
                         <div class="form-group">
                             <label>Thể loại</label>
                             <select name="type" class="form-control">
-                                <option value=1>Nhập</option>
                                 <option value=0>Bán</option>
                             </select>
                          </div>
@@ -50,7 +49,7 @@
     <div class="col-md-8">
         <div class="card card-success">
             <div class="card-header">
-              <h3 class="card-title">Danh Mục Hóa Đơn Xuất Nhập</h3>
+              <h3 class="card-title">Danh Mục Hóa Đơn Xuất</h3>
             </div>
             <!-- ./card-header -->
             <div class="card-body table-responsive">
@@ -74,7 +73,7 @@
                         <td>{{ $value->user_id }}</td>
                         <td>{{ $value->customer_id }}</td>
                         <td>{{ $value->comment }}</td>
-                        <td>{{ $value->type == 1 ? "Nhập" : "Bán" }}</td>
+                        <td>{{ $value->type == 0 ? "Bán" }}</td>
                         <td class="text-center text-nowrap">
                             <a class="btn btn-info" href="/bill/update/{{$value->id}}">Edit</a>
                             <a class="btn btn-danger" href="/bill/delete/{{$value->id}}">Delete</a>
@@ -84,6 +83,8 @@
                     @endif
                 </tbody>
               </table>
+              <br>
+              {{ $data->links() }}
             </div>
             <!-- /.card-body -->
           </div>

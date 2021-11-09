@@ -17,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data= User::all();
+        $data= User::paginate(10);
 
         return view('pages.user.index',compact("data"));
     }
@@ -41,6 +41,8 @@ class UserController extends Controller
     public function store(CreateUserRequest $request)
     {
         $data = $request->all();
+
+        $data["is_master"]=false;
 
         User::create($data);
 

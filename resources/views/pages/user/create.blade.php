@@ -67,13 +67,7 @@
                       </div>
                     </div>
                   </div>
-                    <div class="form-group">
-                        <label>Master Admin</label>
-                        <select name="is_master" id="is_master" class="form-control">
-                            <option id="a" value=0>false</option>
-                            <option  id="b" value=1>true</option>
-                        </select>
-                    </div>
+                    <input type="text" hidden name="is_master" value=0>
                   <div class="form-group">
                     <div class="input-group">
 	                    <input id="thumbnail" name="avatar" class="form-control" type="text">

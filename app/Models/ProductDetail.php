@@ -18,4 +18,9 @@ class ProductDetail extends Model
         'price',
         'is_sell',
     ];
+
+    public function product()
+    {
+        return $this->belongsTo('\App\Models\Product', 'product_id', 'id');
+    }
 }

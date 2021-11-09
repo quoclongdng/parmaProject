@@ -74,7 +74,7 @@
                     @foreach ($data as $key => $value)
                     <tr data-widget="expandable-table" aria-expanded="false">
                         <td>{{ $key + 1 }}</td>
-                        <td>{{ $value->product_id }}</td>
+                        <td>{{ $value->product->name }}</td>
                         <td>{{ $value->mfg_date }}</td>
                         <td>{{ $value->exp_date }}</td>
                         <td>{{ number_format($value->price, 0, ',', '.') }}</td>

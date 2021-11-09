@@ -7,6 +7,10 @@ Route::get('/', function () {
     return view('login');
 });
 
+Route::get('/register', function () {
+    return view('register');
+});
+
 Route::post('/login', [\App\Http\Controllers\UserController::class, 'login']);
 
 // Route::group(['middleware' => 'checklogin'], function () {
@@ -74,4 +78,8 @@ Route::group([], function () {
     Route::get('/productDetail/update/{id}', [\App\Http\Controllers\ProductDetailController::class, 'edit']);
     Route::post('/productDetail/update', [\App\Http\Controllers\ProductDetailController::class, 'update']);
     Route::get('/productDetail/delete/{id}', [\App\Http\Controllers\ProductDetailController::class, 'destroy']);
+});
+
+Route::group([], function () {
+    
 });

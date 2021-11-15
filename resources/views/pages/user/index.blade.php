@@ -35,7 +35,7 @@
                             <td>{{ $value->email }}</td>
                             <td>{{ $value->address }}</td>
                             <td>{{ $value->phone }}</td>
-                            <td><img src="{{ $value->avatar }}" class="mw-100" alt="{{ $value->first_name }} {{ $value->last_name }}"></td>
+                            <td><img src="{{ $value->avatar }}" style="width: 20%" alt="{{ $value->first_name }} {{ $value->last_name }}"></td>
                             <td>{{ $value->is_admin==1?"Admin":"User"  }}</td>
                             <td>{{ $value->is_master==1?"Yes":"No"  }}</td>
                             <td class="text-center text-nowrap">

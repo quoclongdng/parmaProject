@@ -20,11 +20,11 @@
                     </div>
                     <div class="form-group">
                         <label>Mô tả</label>
-                        <textarea id="text-description" name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả"></textarea>
+                        <textarea  name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Nội dung</label>
-                        <textarea id="text-content" name="content" class="form-control" rows="3" placeholder="Nhập vào nội dung"></textarea>
+                        <textarea id="text-description" name="content" class="form-control" rows="3" placeholder="Nhập vào nội dung"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Tình trạng</label>
@@ -41,10 +41,10 @@
                           @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label>User_id</label>
                         <input name="user_id" name="description" type="text" class="form-control" placeholder="Nhập user id">
-                    </div>
+                    </div> --}}
                     <div class="form-group">
                         <label>Keyword:</label>
                         <input name="keyword" type="text" class="form-control" placeholder="cách nhau bởi dấu ','">

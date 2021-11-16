@@ -8,6 +8,7 @@ use App\Http\Requests\Client\News\UpdateNewsRequest;
 use App\Models\News;
 use Illuminate\Http\Request;
 use App\Models\NewsCategory;
+use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
 {
@@ -44,8 +45,9 @@ class NewsController extends Controller
      */
     public function store(CreateNewsRequest $request)
     {
+        $user = Auth::guard('user')->user();
         $data = $request->all();
-
+        $data['user_id']    = $user->id;
         News::create($data);
 
         toastr()->success('Đã thêm mới dữ liệu thành công');

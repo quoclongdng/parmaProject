@@ -59,8 +59,14 @@ class UserController extends Controller
         $user = Auth::guard('user')->attempt($data);
 
         if($user){
-            return redirect('/news');
-
+            $user = Auth::guard('user')->user();
+            if($user->is_master){
+                return redirect('');
+            } else if($user->is_admin){
+                return redirect('');
+            } else {
+                return redirect('');
+            }
         } else {
             toastr()->error('Tài khoản hoặc mật khẩu không chính xác');
             return redirect('/');
@@ -125,5 +131,10 @@ class UserController extends Controller
         $data->delete();
 
         return redirect('/user');
+    }
+
+    public function logout()
+    {
+        Auth::guard('user')->logout();
     }
 }

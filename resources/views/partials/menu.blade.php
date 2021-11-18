@@ -22,7 +22,7 @@
             </p>
           </a>
         </li>
-
+        </li>
             {{-- User --}}
             <li class="nav-item">
                 <a href="#" class="nav-link">

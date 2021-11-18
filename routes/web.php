@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
+    return view('home');
+});
+
+Route::get('/login', function () {
     return view('login');
 });
 
@@ -12,9 +16,9 @@ Route::get('/register', function () {
 });
 
 Route::post('/login', [\App\Http\Controllers\UserController::class, 'login']);
+Route::get('/logout', [\App\Http\Controllers\UserController::class, 'logout']);
 
-// Route::group(['middleware' => 'checklogin'], function () {
-Route::group([], function () {
+Route::group(['middleware' => 'masterAdmin'], function () {
     Route::get('/product-category/create', [\App\Http\Controllers\ProductCategoryController::class, 'create']);
     Route::post('/product-category/create', [\App\Http\Controllers\ProductCategoryController::class, 'store']);
     Route::get('/product-category/edit/{id}', [\App\Http\Controllers\ProductCategoryController::class, 'edit']);
@@ -80,6 +84,20 @@ Route::group([], function () {
     Route::get('/productDetail/delete/{id}', [\App\Http\Controllers\ProductDetailController::class, 'destroy']);
 });
 
-Route::group([], function () {
-    
+Route::group(['middleware' => 'admin'], function () {
+    // product
+    Route::get('/product', [\App\Http\Controllers\ProductController::class, 'index']);
+    Route::get('/product/create', [\App\Http\Controllers\ProductController::class, 'create']);
+    Route::post('/product/create', [\App\Http\Controllers\ProductController::class, 'store']);
+    Route::get('/product/edit/{id}', [\App\Http\Controllers\ProductController::class, 'edit']);
+    Route::post('/product/update', [\App\Http\Controllers\ProductController::class, 'update']);
+    Route::get('/product/delete/{id}', [\App\Http\Controllers\ProductController::class, 'destroy']);
+});
+
+Route::group(['middleware' => 'user'], function () {
+    Route::get('/productDetail/create', [\App\Http\Controllers\ProductDetailController::class, 'create']);
+    Route::post('/productDetail/create', [\App\Http\Controllers\ProductDetailController::class, 'store']);
+    Route::get('/productDetail/update/{id}', [\App\Http\Controllers\ProductDetailController::class, 'edit']);
+    Route::post('/productDetail/update', [\App\Http\Controllers\ProductDetailController::class, 'update']);
+    Route::get('/productDetail/delete/{id}', [\App\Http\Controllers\ProductDetailController::class, 'destroy']);
 });

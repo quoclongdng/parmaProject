@@ -20,7 +20,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </a>
 
     <!-- Sidebar -->
-    @include('partials.menu')
+    @php
+        $user = Auth::guard('user')->user();
+    @endphp
+    @if(env('APP_ROLE') == false)
+        @include('partials.menu')
+    @elseif($user->is_master)
+        @include('partials.menu')
+    @elseif($user->is_admin)
+        @include('partials.menu_admin')
+    @else
+        @include('partials.menu_user')
+    @endif
     <!-- /.sidebar -->
   </aside>
 

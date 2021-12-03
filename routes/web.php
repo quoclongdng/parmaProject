@@ -4,7 +4,19 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('client.product');
+    return view('client.Shared.product');
+});
+Route::get('/product/index', function () {
+    return view('client.ProductDetail.thucPhamChucNang');
+});
+Route::get('/news/index', function () {
+    return view('client.news.index');
+});
+Route::get('/news/detail', function () {
+    return view('client.news.detail');
+});
+Route::get('/checkout/index', function () {
+    return view('client.checkout.index');
 });
 
 Route::get('/login', function () {

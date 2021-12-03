@@ -2,28 +2,24 @@
 <html lang="en">
 
 <head>
-    @include('client.head')
+    @include('client.Shared.head')
 </head>
 
 <body>
 
-    @include('client.menu')
+    @include('client.Shared.menu')
 
     <!-- ##### Right Side Cart End ##### -->
-
-    <!-- ##### Welcome Area Start ##### -->
-    @include('client.slide')
-    <!-- ##### Welcome Area End ##### -->
 
     <!-- ##### Top Catagory Area Start ##### -->
     @yield('content')
     <!-- ##### Brands Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
-    @include('client.bottom')
+    @include('client.Shared.bottom')
     <!-- ##### Footer Area End ##### -->
 
-    @include('client.foot')
+    @include('client.Shared.foot')
 
 </body>
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('home');
+    return view('client.product');
 });
 
 Route::get('/login', function () {
@@ -94,7 +94,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/product/delete/{id}', [\App\Http\Controllers\ProductController::class, 'destroy']);
 });
 
-Route::group(['middleware' => 'user'], function () {
+Route::group(['prefix' => '/user','middleware' => 'user'], function () {
     Route::get('/productDetail/create', [\App\Http\Controllers\ProductDetailController::class, 'create']);
     Route::post('/productDetail/create', [\App\Http\Controllers\ProductDetailController::class, 'store']);
     Route::get('/productDetail/update/{id}', [\App\Http\Controllers\ProductDetailController::class, 'edit']);

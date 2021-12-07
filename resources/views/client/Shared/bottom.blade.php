@@ -1,4 +1,4 @@
-<footer class="footer_area clearfix ">
+<footer class="footer_area clearfix " style="margin-top: 50px">
     <div class="container ">
         <div class="row ">
             <!-- Single Widget Area -->

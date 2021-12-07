@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Upload Avatar</label>
+                        <label>Upload Avatar (330*330)</label>
                         <div class="input-group">
                             <input id="thumbnail" name="avatar" class="form-control" type="text" name="filepath">
                             <span class="input-group-append">

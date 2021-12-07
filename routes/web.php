@@ -6,28 +6,27 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('client.Shared.product');
 });
-Route::get('/product/index', function () {
-    return view('client.ProductDetail.thucPhamChucNang');
-});
-Route::get('/news/index', function () {
-    return view('client.news.index');
-});
-Route::get('/news/detail', function () {
-    return view('client.news.detail');
-});
-Route::get('/checkout/index', function () {
-    return view('client.checkout.index');
+// Route::get('/product/index', function () {
+//     return view('client.ProductDetail.thucPhamChucNang');
+// });
+// Route::get('/news/index', function () {
+//     return view('client.news.index');
+// });
+// Route::get('/news/detail', function () {
+//     return view('client.news.detail');
+// });
+// Route::get('/checkout/index', function () {
+//     return view('client.checkout.index');
+// });
+
+Route::get('/contact/index', function () {
+    return view('client.contact.index');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login' , [\App\Http\Controllers\CustomerController::class , 'login']);
+Route::get('/register' , [\App\Http\Controllers\CustomerController::class , 'register']);
 
-Route::get('/register', function () {
-    return view('register');
-});
-
-Route::post('/login', [\App\Http\Controllers\UserController::class, 'login']);
+Route::post('/admin/login', [\App\Http\Controllers\UserController::class, 'login']);
 Route::get('/logout', [\App\Http\Controllers\UserController::class, 'logout']);
 
 Route::group(['middleware' => 'masterAdmin'], function () {
@@ -107,9 +106,21 @@ Route::group(['middleware' => 'admin'], function () {
 });
 
 Route::group(['prefix' => '/user','middleware' => 'user'], function () {
-    Route::get('/productDetail/create', [\App\Http\Controllers\ProductDetailController::class, 'create']);
-    Route::post('/productDetail/create', [\App\Http\Controllers\ProductDetailController::class, 'store']);
-    Route::get('/productDetail/update/{id}', [\App\Http\Controllers\ProductDetailController::class, 'edit']);
-    Route::post('/productDetail/update', [\App\Http\Controllers\ProductDetailController::class, 'update']);
-    Route::get('/productDetail/delete/{id}', [\App\Http\Controllers\ProductDetailController::class, 'destroy']);
+    // Route::get('/productDetail/create', [\App\Http\Controllers\ProductDetailController::class, 'create']);
+    // Route::post('/productDetail/create', [\App\Http\Controllers\ProductDetailController::class, 'store']);
+    // Route::get('/productDetail/update/{id}', [\App\Http\Controllers\ProductDetailController::class, 'edit']);
+    // Route::post('/productDetail/update', [\App\Http\Controllers\ProductDetailController::class, 'update']);
+    // Route::get('/productDetail/delete/{id}', [\App\Http\Controllers\ProductDetailController::class, 'destroy']);
+
+    Route::get('/product/index' , [\App\Http\Controllers\ProductDetailController::class , 'viewThucPhamChucNang']);
+
+    Route::get('/product/detail/{id}' , [\App\Http\Controllers\ProductDetailController::class , 'viewDetail']);
+
+    Route::get('/news/index' , [\App\Http\Controllers\ProductDetailController::class , 'viewNews']);
+
+    Route::get('/news/detail' , [\App\Http\Controllers\ProductDetailController::class , 'viewNewsDetail']);
+
+    Route::get('/checkout/index' , [\App\Http\Controllers\ProductDetailController::class , 'viewCheckout']);
+
+    Route::get('/contact/index' , [\App\Http\Controllers\ProductDetailController::class , 'viewContact']);
 });

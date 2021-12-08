@@ -12,7 +12,7 @@
     </div>
 
     <div class="contact-info">
-        <h2>VỀ CHÚNG TÔI</h2>
+        <h2 style="margin-top: 100px">VỀ CHÚNG TÔI</h2>
         <p>Được thành lập vào tháng 11/2011, Drug store là một trong những chuỗi nhà thuốc bán lẻ hiện đại đầu tiên tại thị trường Việt Nam, luôn luôn hướng đến mục tiêu nâng cao chất lượng chăm sóc sức khỏe cho từng khách hàng. Điều này, trước đây vốn
             chỉ nằm trong ý tưởng của ông Chris Blank – nhà sáng lập công ty, một dược sỹ người Mỹ làm việc nhiều năm tại Việt Nam. Với niềm đam mê và sự sáng tạo của mình, ông Chris Blank đã thành lập nên Drug store và mang đến những trải nghiệm
             tốt nhất cho khách hàng. Hiện nay Drug store đã có hệ thống nhà thuốc rải khắp các quận tại TP.HCM và nhiều tỉnh, thành phố lớn Hà Nội, Đà Nẵng, Cần Thơ, Thừa Thiên Huế, Bà Rịa – Vũng Tàu, Bình Dương, Long An, Đồng Nai, Tiền Giang… Chúng

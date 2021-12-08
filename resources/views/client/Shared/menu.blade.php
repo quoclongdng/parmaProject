@@ -17,7 +17,8 @@
 
                 <div class="classynav">
                     <ul>
-                        <li><a href="shop.html">Danh mục</a>
+                        <li><a href="/user/contact/index">Giới Thiệu</a></li>
+                        <li><a href="#">Danh Mục</a>
                             <div class="megamenu">
                                 <ul class="single-mega cn-col-4">
                                     <li class="title">Thực phẩm chức năng</li>
@@ -44,7 +45,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="/news/index">Tin tức</a></li>
+                        <li><a href="/user/news/index">Tin tức</a></li>
                     </ul>
                 </div>
                 <!-- Nav End -->

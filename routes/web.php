@@ -6,24 +6,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('client.Shared.product');
 });
-// Route::get('/product/index', function () {
-//     return view('client.ProductDetail.thucPhamChucNang');
-// });
-// Route::get('/news/index', function () {
-//     return view('client.news.index');
-// });
-// Route::get('/news/detail', function () {
-//     return view('client.news.detail');
-// });
-// Route::get('/checkout/index', function () {
-//     return view('client.checkout.index');
-// });
 
-Route::get('/contact/index', function () {
-    return view('client.contact.index');
-});
+
 
 Route::get('/login' , [\App\Http\Controllers\CustomerController::class , 'login']);
+Route::get('/register' , [\App\Http\Controllers\CustomerController::class , 'viewregister']);
 Route::get('/register' , [\App\Http\Controllers\CustomerController::class , 'register']);
 
 Route::post('/admin/login', [\App\Http\Controllers\UserController::class, 'login']);
@@ -125,3 +112,4 @@ Route::group(['prefix' => '/user','middleware' => 'user'], function () {
 
     Route::get('/contact/index' , [\App\Http\Controllers\ProductDetailController::class , 'viewContact']);
 });
+

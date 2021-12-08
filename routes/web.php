@@ -27,6 +27,7 @@ Route::get('/login' , [\App\Http\Controllers\CustomerController::class , 'login'
 Route::get('/register' , [\App\Http\Controllers\CustomerController::class , 'register']);
 
 Route::post('/admin/login', [\App\Http\Controllers\UserController::class, 'login']);
+Route::get('/admin/login' , [\App\Http\Controllers\UserController::class , 'loginAdmin']);
 Route::get('/logout', [\App\Http\Controllers\UserController::class, 'logout']);
 
 Route::group(['middleware' => 'masterAdmin'], function () {
@@ -118,7 +119,7 @@ Route::group(['prefix' => '/user','middleware' => 'user'], function () {
 
     Route::get('/news/index' , [\App\Http\Controllers\ProductDetailController::class , 'viewNews']);
 
-    Route::get('/news/detail' , [\App\Http\Controllers\ProductDetailController::class , 'viewNewsDetail']);
+    Route::get('/news/detail/{id}' , [\App\Http\Controllers\ProductDetailController::class , 'viewNewsDetail']);
 
     Route::get('/checkout/index' , [\App\Http\Controllers\ProductDetailController::class , 'viewCheckout']);
 

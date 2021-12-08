@@ -73,7 +73,7 @@
                         <td>{{ $value->user_id }}</td>
                         <td>{{ $value->customer_id }}</td>
                         <td>{{ $value->comment }}</td>
-                        <td>{{ $value->type == 0 ? "Bán" }}</td>
+                        <td>{{ $value->type == 0 ? "Bán" : "" }}</td>
                         <td class="text-center text-nowrap">
                             <a class="btn btn-info" href="/bill/update/{{$value->id}}">Edit</a>
                             <a class="btn btn-danger" href="/bill/delete/{{$value->id}}">Delete</a>

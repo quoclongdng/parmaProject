@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Client\ProductDetail\CreateProductDetailRequest;
 use App\Http\Requests\Client\ProductDetail\UpdateProductDetailRequest;
+use App\Models\News;
 use App\Models\Product;
 use App\Models\ProductDetail;
 use Illuminate\Http\Request;
@@ -107,12 +108,15 @@ class ProductDetailController extends Controller
 
     public function viewNews()
     {
-        return view('client.news.index');
+        $data = News::all();
+        return view('client.news.index' , compact('data'));
     }
 
-    public function viewNewsDetail()
+    public function viewNewsDetail($id)
     {
-        return view('client.news.detail');
+        $data = News::find($id);
+        $slide = News::all();
+        return view('client.news.detail' , compact('data', 'slide'));
     }
 
     public function viewCheckout()
@@ -128,6 +132,8 @@ class ProductDetailController extends Controller
     public function viewDetail($id)
     {
         $data = Product::find($id);
-        return view('client.ProductDetail.Detail' , compact('data'));
+
+        $slide = Product::all();
+        return view('client.ProductDetail.Detail' , compact('data', 'slide'));
     }
 }

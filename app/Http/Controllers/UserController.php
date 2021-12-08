@@ -38,6 +38,11 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function loginAdmin()
+    {
+        return view('login');
+    }
+
     public function store(CreateUserRequest $request)
     {
         $data = $request->all();

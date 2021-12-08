@@ -23,12 +23,12 @@
 
                     <div class="form-group">
                         <label>Mô Tả</label>
-                        <textarea id="text-description" name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả"></textarea>
+                        <textarea  name="description" class="form-control" rows="5" placeholder="Nhập vào mô tả"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label>Nội Dung</label>
-                        <textarea id="text-content" name="content" class="form-control" rows="3" placeholder="Nhập vào nội dung"></textarea>
+                        <textarea  name="content" class="form-control" rows="5" placeholder="Nhập vào nội dung"></textarea>
                     </div>
 
                      <div class="form-group">

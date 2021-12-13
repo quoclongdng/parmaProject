@@ -12,10 +12,10 @@
   <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
   <!-- icheck bootstrap -->
   <link rel="stylesheet" href="/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Theme style -->
-  @toastr_css
   <link rel="stylesheet" href="/assets/dist/css/adminlte.min.css">
-<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=xrZ8d3IuLLrrJwzZUaJL1uZbuNCIJgW8GUudRhi_WfgAxe7_HdBkatlcgM36Hf9nbNsutqj3vN_5snQSFc89rtyBGkZiaI7SS6a_gOhLMXI" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9hZG1pbmx0ZS5pby90aGVtZXMvdjMvcGFnZXMvZXhhbXBsZXMvbG9naW4uaHRtbA"/></head>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <!-- END: Custom CSS-->
+  @toastr_css
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
@@ -26,10 +26,9 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="/admin/login" method="post">
-        @csrf
+      <form id="login_form" >
         <div class="input-group mb-3">
-          <input type="email" class="form-control" name="email" placeholder="Email">
+          <input type="email" class="form-control" name="email" id="email" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -37,7 +36,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="password" placeholder="Password">
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -49,7 +48,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="button" id="login" class="btn btn-primary btn-block">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
@@ -72,5 +71,52 @@
 <script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/assets/dist/js/adminlte.min.js"></script>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
+<script>
+    @if(count($errors) > 0)
+        @foreach ($errors->all() as $error)
+            toastr.error("{{ $error }}");
+        @endforeach
+    @endif
+</script>
 </body>
+<script>
+    $(document).ready(function (e) {
+        $("#login").click(function (e) {
+            console.log("click");
+            var email = $("#email").val();
+            var password = $("#password").val()
+            var payload = {
+                'email'         : email,
+                'password'      : password,
+            };
+            $.ajax({
+                type: "post",
+                url: "/admin/login",
+                data: payload,
+                success: function ($res) {
+                    if($res){
+                        toastr.success("Đã Đăng Nhập Thành Công");
+                        $(window).attr('location','/product-category/create')
+                    }else{
+                        toastr.error("Tài khoản đang bị khoá");
+                        $(window).attr('location','/admin/login')
+                    }
+                },
+                error   : function($err){
+                        var listError = $err.responseJSON.errors;
+                        $.each(listError, function(key, value) {
+                            toastr.error(value[0]);
+                        });
+                    },
+            });
+        });
+    });
+</script>
 </html>

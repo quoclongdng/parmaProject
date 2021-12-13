@@ -18,13 +18,13 @@ class MasterAdmin
     public function handle(Request $request, Closure $next)
     {
         if(env('APP_ROLE')) {
-            $user = Auth::guard('user')->check();
-            $account = Auth::guard('user')->user();
-            if($user && $account->is_master){
+            $user = Auth::guard('useradmin')->check();
+            $account = Auth::guard('useradmin')->user();
+            if($user && $account->is_admin){
                 return $next($request);
             }
             toastr()->error('Bạn không đủ quyền truy cập chức năng này!');
-            return redirect('/');
+            return redirect('/admin/login');
         } else {
             return $next($request);
         }

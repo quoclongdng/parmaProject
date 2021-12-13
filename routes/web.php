@@ -3,21 +3,19 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('client.Shared.product');
-});
+Route::get('/' , [\App\Http\Controllers\CustomerController::class , 'homePage']);
 
-
-
-Route::get('/login' , [\App\Http\Controllers\CustomerController::class , 'login']);
+Route::get('/login' , [\App\Http\Controllers\CustomerController::class , 'viewLogin']);
+Route::post('/login' , [\App\Http\Controllers\CustomerController::class , 'Login']);
 Route::get('/register' , [\App\Http\Controllers\CustomerController::class , 'viewregister']);
-Route::get('/register' , [\App\Http\Controllers\CustomerController::class , 'register']);
+Route::post('/register' , [\App\Http\Controllers\CustomerController::class , 'register']);
+Route::get('/logout', [\App\Http\Controllers\CustomerController::class, 'logout']);
 
-Route::post('/admin/login', [\App\Http\Controllers\UserController::class, 'login']);
-Route::get('/admin/login' , [\App\Http\Controllers\UserController::class , 'loginAdmin']);
-Route::get('/logout', [\App\Http\Controllers\UserController::class, 'logout']);
+Route::get('/admin/login' , [\App\Http\Controllers\AdminUserController::class , 'loginAdmin']);
+Route::post('/admin/login', [\App\Http\Controllers\AdminUserController::class, 'login']);
+Route::get('/admin/logout', [\App\Http\Controllers\AdminUserController::class, 'logout']);
 
-Route::group(['middleware' => 'masterAdmin'], function () {
+Route::group(['prefix' => '/admin' , 'middleware' => 'adminLogin'], function(){
     Route::get('/product-category/create', [\App\Http\Controllers\ProductCategoryController::class, 'create']);
     Route::post('/product-category/create', [\App\Http\Controllers\ProductCategoryController::class, 'store']);
     Route::get('/product-category/edit/{id}', [\App\Http\Controllers\ProductCategoryController::class, 'edit']);
@@ -81,19 +79,12 @@ Route::group(['middleware' => 'masterAdmin'], function () {
     Route::get('/productDetail/update/{id}', [\App\Http\Controllers\ProductDetailController::class, 'edit']);
     Route::post('/productDetail/update', [\App\Http\Controllers\ProductDetailController::class, 'update']);
     Route::get('/productDetail/delete/{id}', [\App\Http\Controllers\ProductDetailController::class, 'destroy']);
+
 });
 
-Route::group(['middleware' => 'admin'], function () {
-    // product
-    Route::get('/product', [\App\Http\Controllers\ProductController::class, 'index']);
-    Route::get('/product/create', [\App\Http\Controllers\ProductController::class, 'create']);
-    Route::post('/product/create', [\App\Http\Controllers\ProductController::class, 'store']);
-    Route::get('/product/edit/{id}', [\App\Http\Controllers\ProductController::class, 'edit']);
-    Route::post('/product/update', [\App\Http\Controllers\ProductController::class, 'update']);
-    Route::get('/product/delete/{id}', [\App\Http\Controllers\ProductController::class, 'destroy']);
-});
 
-Route::group(['prefix' => '/user','middleware' => 'user'], function () {
+
+Route::group(['prefix' => '/user','middleware' => 'checkLogin'], function () {
     // Route::get('/productDetail/create', [\App\Http\Controllers\ProductDetailController::class, 'create']);
     // Route::post('/productDetail/create', [\App\Http\Controllers\ProductDetailController::class, 'store']);
     // Route::get('/productDetail/update/{id}', [\App\Http\Controllers\ProductDetailController::class, 'edit']);

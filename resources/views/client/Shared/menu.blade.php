@@ -3,7 +3,7 @@
 
         <nav class="classy-navbar" id="essenceNav">
 
-            <a class="nav-brand" href="index.html"><img src="/assets_homepage/img/core-img/logo.png" alt=""></a>
+            <a class="nav-brand" href="/"><img src="/assets_homepage/img/core-img/logo.png" alt=""></a>
 
             <div class="classy-navbar-toggler">
                 <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -54,18 +54,24 @@
 
         <!-- Header Meta Data -->
         <div class="header-meta d-flex clearfix justify-content-end">
-            <!-- Search Area -->
-            <div class="search-area">
-                <form action="#" method="post">
-                    <input type="search" name="search" id="headerSearch" placeholder="Type for search">
-                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                </form>
-            </div>
-            <!-- Favourite Area -->
+
 
             <!-- User Login Info -->
-            <div class="user-login-info">
-                <a href="#"><img src="/assets_homepage/img/core-img/user.svg" alt=""></a>
+            <div class="text-nowrap" >
+                <div class="row ">
+                    @if(Auth::guard('customer')->user())
+                        <div style="margin-right: 30px; margin-top: 20px; ">
+                            <button class="btn btn-outline-warning" style="width: 2.5cm" ><a href="/logout">LogOut</a></button>
+                        </div>
+                    @else
+                        <div class="mt-3">
+                            <button  class="btn btn-outline-success" style="width: 3cm"><a href="/login">LogIn</a></button>
+                        </div>
+                        <div class="ml-2 mr-4 mt-3">
+                            <button class="btn btn-outline-warning" style="width: 3cm"><a href="/register">Register</a></button>
+                        </div>
+                    @endif
+                </div>
             </div>
             <!-- Cart Area -->
             <div class="cart-area">

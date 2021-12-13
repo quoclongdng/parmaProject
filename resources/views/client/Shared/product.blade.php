@@ -52,20 +52,21 @@
         <div class="row">
             <div class="col-12">
                 <div class="popular-products-slides owl-carousel">
+                    @foreach ( $data as $key => $value )
                     <div class="single-product-wrapper border p-2 rounded ">
                         <div class="product-img">
-                            <img src="/assets_homepage/img/2.jpg" alt="">
-                            <img class="hover-img" src="/assets_homepage/img/2.jpg" alt="">
+                            <img src="{{$value->avatar}}" alt="">
+                            <img class="hover-img" src="{{$value->avatar}}" alt="">
                             <div class="product-favourite">
                                 <a href="#" class="fas fa-shopping-bag"></a>
                             </div>
                         </div>
                         <div class="product-description">
-                            <span>Drug store</span>
+                            <span>{{$value->categori_name}}</span>
                             <a href="single-product-details.html">
-                                <h6>Cồn 70 độ</h6>
+                                <h6>{{$value->name}}</h6>
                             </a>
-                            <p style="font-size: 20px;" class="product-price">$80.00/chai</p>
+                            <p style="font-size: 20px;" class="product-price">${{$value->price}}/chai</p>
                             <div class="hover-content">
                                 <div class="add-to-cart-btn">
                                     <a href="#" class="btn essence-btn">Buy now</a>
@@ -74,96 +75,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="single-product-wrapper border p-2 rounded">
-                        <div class="product-img">
-                            <img src="/assets_homepage/img/2.jpg" alt="">
-                            <img class="hover-img" src="/assets_homepage/img/2.jpg" alt="">
-                            <div class="product-favourite">
-                                <a href="#" class="fas fa-shopping-bag"></a>
-                            </div>
-                        </div>
-                        <div class="product-description">
-                            <span>Drug store</span>
-                            <a href="single-product-details.html">
-                                <h6>Cồn 70 độ</h6>
-                            </a>
-                            <p style="font-size: 20px;" class="product-price">$80.00/chai</p>
-                            <div class="hover-content">
-                                <div class="add-to-cart-btn">
-                                    <a href="#" class="btn essence-btn">Buy now</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="single-product-wrapper border p-2 rounded">
-                        <div class="product-img">
-                            <img src="/assets_homepage/img/2.jpg" alt="">
-                            <img class="hover-img" src="/assets_homepage/img/2.jpg" alt="">
-                            <div class="product-favourite">
-                                <a href="#" class="fas fa-shopping-bag"></a>
-                            </div>
-                        </div>
-                        <div class="product-description">
-                            <span>Drug store</span>
-                            <a href="single-product-details.html">
-                                <h6>Cồn 70 độ</h6>
-                            </a>
-                            <p style="font-size: 20px;" class="product-price">$80.00/chai</p>
-                            <div class="hover-content">
-                                <div class="add-to-cart-btn">
-                                    <a href="#" class="btn essence-btn">Buy now</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-product-wrapper border p-2 rounded">
-                        <div class="product-img">
-                            <img src="/assets_homepage/img/2.jpg" alt="">
-                            <img class="hover-img" src="/assets_homepage/img/2.jpg" alt="">
-                            <div class="product-favourite">
-                                <a href="#" class="fas fa-shopping-bag"></a>
-                            </div>
-                        </div>
-                        <div class="product-description">
-                            <span>Drug store</span>
-                            <a href="single-product-details.html">
-                                <h6>Cồn 70 độ</h6>
-                            </a>
-                            <p style="font-size: 20px;" class="product-price">$80.00/chai</p>
-                            <div class="hover-content">
-                                <div class="add-to-cart-btn">
-                                    <a href="#" class="btn essence-btn">Buy now</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-product-wrapper border p-2 rounded">
-                        <div class="product-img">
-                            <img src="/assets_homepage/img/2.jpg" alt="">
-                            <img class="hover-img" src="/assets_homepage/img/2.jpg" alt="">
-                            <div class="product-favourite">
-                                <a href="#" class="fas fa-shopping-bag"></a>
-                            </div>
-                        </div>
-                        <div class="product-description">
-                            <span>Drug store</span>
-                            <a href="single-product-details.html">
-                                <h6>Cồn 70 độ</h6>
-                            </a>
-                            <p style="font-size: 20px;" class="product-price">$80.00/chai</p>
-                            <div class="hover-content">
-                                <div class="add-to-cart-btn">
-                                    <a href="#" class="btn essence-btn">Buy now</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -185,118 +97,29 @@
         <div class="row">
             <div class="col-12">
                 <div class="popular-products-slides owl-carousel">
+                    @foreach ( $new as $key => $value )
                     <div class="single-product-wrapper border p-2 rounded">
                         <div class="product-img">
-                            <img src="/assets_homepage/img/2.jpg" alt="">
-                            <img class="hover-img" src="/assets_homepage/img/2.jpg" alt="">
+                            <img src="{{$value->avatar}}" alt="">
+                            <img class="hover-img" src="{{$value->avatar}}" alt="">
                             <div class="product-favourite">
                                 <a href="#" class="fas fa-shopping-bag"></a>
                             </div>
                         </div>
                         <div class="product-description">
-                            <span>Drug store</span>
                             <a href="single-product-details.html">
-                                <h6>Cồn 70 độ</h6>
+                                <h6>{{ $value->name}}</h6>
                             </a>
-                            <p style="font-size: 20px;" class="product-price">$80.00/chai</p>
+                            <p class="product-price">{{$value->description}}</p>
                             <div class="hover-content">
                                 <div class="add-to-cart-btn">
-                                    <a href="#" class="btn essence-btn">Buy now</a>
+                                    <a href="#" class="btn essence-btn">Go to</a>
 
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="single-product-wrapper border p-2 rounded">
-                        <div class="product-img">
-                            <img src="/assets_homepage/img/2.jpg" alt="">
-                            <img class="hover-img" src="/assets_homepage/img/2.jpg" alt="">
-                            <div class="product-favourite">
-                                <a href="#" class="fas fa-shopping-bag"></a>
-                            </div>
-                        </div>
-                        <div class="product-description">
-                            <span>Drug store</span>
-                            <a href="single-product-details.html">
-                                <h6>Cồn 70 độ</h6>
-                            </a>
-                            <p style="font-size: 20px;" class="product-price">$80.00/chai</p>
-                            <div class="hover-content">
-                                <div class="add-to-cart-btn">
-                                    <a href="#" class="btn essence-btn">Buy now</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="single-product-wrapper border p-2 rounded">
-                        <div class="product-img">
-                            <img src="/assets_homepage/img/2.jpg" alt="">
-                            <img class="hover-img" src="/assets_homepage/img/2.jpg" alt="">
-                            <div class="product-favourite">
-                                <a href="#" class="fas fa-shopping-bag"></a>
-                            </div>
-                        </div>
-                        <div class="product-description">
-                            <span>Drug store</span>
-                            <a href="single-product-details.html">
-                                <h6>Cồn 70 độ</h6>
-                            </a>
-                            <p style="font-size: 20px;" class="product-price">$80.00/chai</p>
-                            <div class="hover-content">
-                                <div class="add-to-cart-btn">
-                                    <a href="#" class="btn essence-btn">Buy now</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-product-wrapper border p-2 rounded">
-                        <div class="product-img">
-                            <img src="/assets_homepage/img/2.jpg" alt="">
-                            <img class="hover-img" src="/assets_homepage/img/2.jpg" alt="">
-                            <div class="product-favourite">
-                                <a href="#" class="fas fa-shopping-bag"></a>
-                            </div>
-                        </div>
-                        <div class="product-description">
-                            <span>Drug store</span>
-                            <a href="single-product-details.html">
-                                <h6>Cồn 70 độ</h6>
-                            </a>
-                            <p style="font-size: 20px;" class="product-price">$80.00/chai</p>
-                            <div class="hover-content">
-                                <div class="add-to-cart-btn">
-                                    <a href="#" class="btn essence-btn">Buy now</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-product-wrapper border p-2 rounded border p-2">
-                        <div class="product-img">
-                            <img src="/assets_homepage/img/2.jpg" alt="">
-                            <img class="hover-img" src="/assets_homepage/img/2.jpg" alt="">
-                            <div class="product-favourite">
-                                <a href="#" class="fas fa-shopping-bag"></a>
-                            </div>
-                        </div>
-                        <div class="product-description">
-                            <span>Drug store</span>
-                            <a href="single-product-details.html">
-                                <h6>Cồn 70 độ</h6>
-                            </a>
-                            <p style="font-size: 20px;" class="product-price">$80.00/chai</p>
-                            <div class="hover-content">
-                                <div class="add-to-cart-btn">
-                                    <a href="#" class="btn essence-btn">Buy now</a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

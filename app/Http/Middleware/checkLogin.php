@@ -17,11 +17,11 @@ class checkLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::guard('user')->check()){
+        if(Auth::guard('customer')->check()){
             return $next($request);
         }
         toastr()->error('Vui lòng đăng nhập hệ thống');
 
-        return redirect('/');
+        return redirect('/login');
     }
 }

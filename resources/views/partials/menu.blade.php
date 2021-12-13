@@ -34,13 +34,13 @@
                 </a>
                 <ul class="nav nav-treeview" style="display: none;">
                 <li class="nav-item">
-                    <a href="/user" class="nav-link">
+                    <a href="/admin/user" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Danh Sách Người Dùng</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/user/create" class="nav-link">
+                    <a href="/admin/user/create" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Tạo mới người dùng</p>
                     </a>
@@ -60,13 +60,13 @@
                 </a>
                 <ul class="nav nav-treeview" style="display: none;">
                     <li class="nav-item">
-                        <a href="/customer/create" class="nav-link">
+                        <a href="/admin/customer/create" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                         <p>Danh sách Khách Hàng</p>
                         </a>
                     </li>
                 <li class="nav-item">
-                    <a href="/customer/create" class="nav-link">
+                    <a href="/admin/customer/create" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                     <p>Tạo mới khách hàng</p>
                     </a>
@@ -86,13 +86,13 @@
             </a>
             <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="/product-category/create" class="nav-link">
+                <a href="/admin/product-category/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh mục sản phẩm</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/product-category/create" class="nav-link">
+                <a href="/admin/product-category/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tạo mới danh mục</p>
                 </a>
@@ -111,13 +111,13 @@
             </a>
             <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="/product" class="nav-link">
+                <a href="/admin/product" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh sách sản phẩm</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/product/create" class="nav-link">
+                <a href="/admin/product/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tạo mới danh sách</p>
                 </a>
@@ -137,13 +137,13 @@
             </a>
             <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="/productDetail/create" class="nav-link">
+                <a href="/admin/productDetail/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Chi Tiết Sản Phẩm</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/productDetail/create" class="nav-link">
+                <a href="/admin/productDetail/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tạo mới Hóa Đơn </p>
                 </a>
@@ -164,13 +164,13 @@
             </a>
             <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="/news" class="nav-link">
+                <a href="/admin/news" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh sách tin tức</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/news/create" class="nav-link">
+                <a href="/admin/news/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tạo mới tin tức</p>
                 </a>
@@ -189,13 +189,13 @@
             </a>
             <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="/news-category/create" class="nav-link">
+                <a href="/admin/news-category/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh Mục Tin Tức</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/news-category/create" class="nav-link">
+                <a href="/admin/news-category/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tạo mới danh mục</p>
                 </a>
@@ -215,13 +215,13 @@
             </a>
             <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="/bill/create" class="nav-link">
+                <a href="/admin/bill/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Hóa Đơn Nhập Xuất</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/bill/create" class="nav-link">
+                <a href="/admin/bill/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tạo mới hóa đơn</p>
                 </a>
@@ -241,13 +241,13 @@
             </a>
             <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="/bill-details/create" class="nav-link">
+                <a href="/admin/bill-details/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Chi Tiết Hóa Đơn</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/bill-details/create" class="nav-link">
+                <a href="/admin/bill-details/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tạo mới hóa đơn</p>
                 </a>

@@ -12,7 +12,7 @@
                   <h3 class="card-title">Thêm Mới Danh Mục</h3>
                 </div>
 
-                <form method="post" action="/product-category/create">
+                <form method="post" action="/admin/product-category/create">
                   @csrf
                   <div class="card-body">
                     <div class="form-group">
@@ -80,8 +80,8 @@
                             <td><img src="{{ $value->avatar }}" class="img-fluid mb-2" style="max-width: 200px;" alt="black sample"></td>
                             <td>{{ $value->created_at }}</td>
                             <td class="text-center text-nowrap">
-                                <a class="btn btn-info" href="/product-category/edit/{{$value->id}}">Edit</a>
-                                <a class="btn btn-danger" href="/product-category/delete/{{$value->id}}">Delete</a>
+                                <a class="btn btn-info" href="/admin/product-category/edit/{{$value->id}}">Edit</a>
+                                <a class="btn btn-danger" href="/admin/product-category/delete/{{$value->id}}">Delete</a>
                             </td>
                         </tr>
                         @endforeach

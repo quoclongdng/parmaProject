@@ -4,26 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Client\ProductCategory\CreateProductCategoryRequest;
 use App\Http\Requests\Client\ProductCategory\UpdateProductCategoryRequest;
+use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 class ProductCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $data = ProductCategory::all();
@@ -33,12 +19,6 @@ class ProductCategoryController extends Controller
         return view('pages.productCategory.create', compact('data'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(CreateProductCategoryRequest $request)
     {
         $data = $request->all();
@@ -49,26 +29,14 @@ class ProductCategoryController extends Controller
 
         toastr()->success('Đã thêm mới dữ liệu thành công');
 
-        return redirect('/product-category/create');
+        return redirect('/admin/product-category/create');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\ProductCategory  $productCategory
-     * @return \Illuminate\Http\Response
-     */
     public function show(ProductCategory $productCategory)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\ProductCategory  $productCategory
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $data = ProductCategory::find($id);
@@ -76,13 +44,6 @@ class ProductCategoryController extends Controller
         return view('pages.productCategory.edit', compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ProductCategory  $productCategory
-     * @return \Illuminate\Http\Response
-     */
     public function update(UpdateProductCategoryRequest $request)
     {
         $data = ProductCategory::find($request->id);
@@ -91,20 +52,30 @@ class ProductCategoryController extends Controller
 
         toastr()->success('Đã cập nhật dữ liệu thành công');
 
-        return redirect('/product-category/create');
+        return redirect('/admin/product-category/create');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\ProductCategory  $productCategory
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $data = ProductCategory::find($id);
-        $data->delete();
+        if($data){
+            $data->delete();
+            toastr()->success("Đã xoá thành công");
+            return redirect('/admin/product-category/create');
+        }else{
+            toastr()->error("Đã có lỗi xảy ra");
+        }
+    }
 
-        return redirect('/product-category/create');
+    public function viewCategories($slug)
+    {
+        $data = ProductCategory::where('slug' , $slug)->where("is_open" , 1)->first();
+
+        if($data){
+            $product = Product::join('product_categories' , 'products.productcategory_id' , 'product_categories.id')
+                        ->select('products.*', 'product_categories.name as name_product')->get();
+        }
+
+        return view('client.ProductDetail.thucPhamChucNang' , compact('product'));
     }
 }

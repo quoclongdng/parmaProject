@@ -103,7 +103,7 @@
                 success: function ($res) {
                     if($res){
                         toastr.success("Đã Đăng Nhập Thành Công");
-                        $(window).attr('location','/product-category/create')
+                        $(window).attr('location','/admin/home')
                     }else{
                         toastr.error("Tài khoản đang bị khoá");
                         $(window).attr('location','/admin/login')

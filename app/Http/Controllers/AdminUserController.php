@@ -39,4 +39,9 @@ class AdminUserController extends Controller
 
         return redirect('/admin/login');
     }
+
+    public function home()
+    {
+        return view('pages.index');
+    }
 }

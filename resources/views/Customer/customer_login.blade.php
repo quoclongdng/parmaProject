@@ -71,37 +71,4 @@
         @endif
     </script>
 </body>
-{{-- <script>
-    $(document).ready(function (e) {
-        $("#signin").click(function (e) {
-            console.log("click");
-            var email = $("#email").val();
-            var password = $("#password").val()
-            var payload = {
-                'email'         : email,
-                'password'      : password,
-            };
-            $.ajax({
-                type: "post",
-                url: "/login",
-                data: payload,
-                success: function ($res) {
-                    console.log($res);
-                    // if($res){
-                    //     toastr.success("Đã Đăng Nhập Thành Công");
-                    //     $(window).attr('location','/')
-                    // }else{
-                    //     toastr.error("Tài khoản đang bị khoá");
-                    // }
-                },
-                error   : function($err){
-                        var listError = $err.responseJSON.errors;
-                        $.each(listError, function(key, value) {
-                            toastr.error(value[0]);
-                        });
-                    },
-            });
-        });
-    });
-</script> --}}
 </html>

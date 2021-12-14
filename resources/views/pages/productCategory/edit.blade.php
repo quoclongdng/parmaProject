@@ -13,7 +13,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="post" action="/product-category/update">
+                <form method="post" action="/admin/product-category/update">
                   @csrf
                   <input type="hidden" name="id" value="{{$data->id}}">
                   <div class="card-body">
@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group">
                         <label>Tình Trạng</label>
-                        <select class="form-control">
+                        <select class="form-control" name="is_open">
                             <option value=1 {{$data->is_open == 1 ? 'selected' : ''}}>Hoạt động</option>
                             <option value=0 {{$data->is_open == 0 ? 'selected' : ''}}>Tạm dừng</option>
                         </select>
@@ -38,17 +38,17 @@
                     </div>
 
                     <div class="form-group">
-                      <label>Upload Avatar</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input">
-                          <label class="custom-file-label">Choose file</label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
-                        </div>
+                        <label>Upload Avatar</label>
+                        <div class="input-group">
+                          <input id="thumbnail" name="avatar" class="form-control" type="text" name="filepath" value="{{$data->avatar}}">
+                          <span class="input-group-append">
+                              <a data-input="thumbnail" data-preview="holder" class="btn btn-primary uploadimage">
+                                  Chọn Hình Ảnh
+                              </a>
+                          </span>
                       </div>
-                    </div>
+                      <img id="holder" style="margin-top:15px;max-height:100px;">
+                      </div>
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">

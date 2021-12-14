@@ -82,7 +82,7 @@
                         <div class="row">
 
                             <!-- Single Product -->
-                            @foreach ( $data as $key=>$value )
+                            @foreach ( $product as $key=>$value )
                             <div class="col-12 col-sm-6 col-lg-4">
                                 <a href="/user/product/detail/{{ $value->id}}">
                                     <div class="single-product-wrapper border p-2 rounded">
@@ -94,7 +94,7 @@
                                             </div>
                                         </div>
                                         <div class="product-description">
-                                            <span>{{ $value->productcategory_id }}</span>
+                                            <span>{{ $value->name_product }}</span>
                                                 <h4>{{ $value->name }}</h4>
                                             <p style="font-size: 20px;" class="product-price">${{ $value->price }}/chai</p>
                                             <div class="hover-content">

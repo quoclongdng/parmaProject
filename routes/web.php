@@ -15,7 +15,12 @@ Route::get('/admin/login' , [\App\Http\Controllers\AdminUserController::class , 
 Route::post('/admin/login', [\App\Http\Controllers\AdminUserController::class, 'login']);
 Route::get('/admin/logout', [\App\Http\Controllers\AdminUserController::class, 'logout']);
 
+Route::get('/category/{slug}' , [\App\Http\Controllers\ProductCategoryController::class , 'viewCategories']);
+
 Route::group(['prefix' => '/admin' , 'middleware' => 'adminLogin'], function(){
+
+    Route::get('/home' , [\App\Http\Controllers\AdminUserController::class , 'home']);
+
     Route::get('/product-category/create', [\App\Http\Controllers\ProductCategoryController::class, 'create']);
     Route::post('/product-category/create', [\App\Http\Controllers\ProductCategoryController::class, 'store']);
     Route::get('/product-category/edit/{id}', [\App\Http\Controllers\ProductCategoryController::class, 'edit']);

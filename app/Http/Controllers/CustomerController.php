@@ -25,6 +25,15 @@ class CustomerController extends Controller
         return view('pages.customer.create', compact('data'));
     }
 
+    public function list_customer()
+    {
+        $data = Customer::paginate(10);
+
+        toastr()->info('Đã load data...');
+
+        return view('pages.customer.list_customer', compact('data'));
+    }
+
 
 
     public function store(CreateCustomerRequest $request)

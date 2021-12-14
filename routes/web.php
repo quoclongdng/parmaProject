@@ -22,6 +22,7 @@ Route::group(['prefix' => '/admin' , 'middleware' => 'adminLogin'], function(){
     Route::get('/home' , [\App\Http\Controllers\AdminUserController::class , 'home']);
 
     Route::get('/product-category/create', [\App\Http\Controllers\ProductCategoryController::class, 'create']);
+    Route::get('/product-category/list', [\App\Http\Controllers\ProductCategoryController::class, 'list_catagory']);
     Route::post('/product-category/create', [\App\Http\Controllers\ProductCategoryController::class, 'store']);
     Route::get('/product-category/edit/{id}', [\App\Http\Controllers\ProductCategoryController::class, 'edit']);
     Route::post('/product-category/update', [\App\Http\Controllers\ProductCategoryController::class, 'update']);
@@ -44,6 +45,7 @@ Route::group(['prefix' => '/admin' , 'middleware' => 'adminLogin'], function(){
 
     // customer
     Route::get('/customer/create', [\App\Http\Controllers\CustomerController::class, 'create']);
+    Route::get('/customer/list', [\App\Http\Controllers\CustomerController::class, 'list_customer']);
     Route::post('/customer/create', [\App\Http\Controllers\CustomerController::class, 'store']);
     Route::get('/customer/edit/{id}', [\App\Http\Controllers\CustomerController::class, 'edit']);
     Route::post('/customer/update', [\App\Http\Controllers\CustomerController::class, 'update']);
@@ -80,10 +82,11 @@ Route::group(['prefix' => '/admin' , 'middleware' => 'adminLogin'], function(){
 
     // productDetails
     Route::get('/productDetail/create', [\App\Http\Controllers\ProductDetailController::class, 'create']);
+    Route::get('/productDetail/list', [\App\Http\Controllers\ProductDetailController::class, 'list_product']);
     Route::post('/productDetail/create', [\App\Http\Controllers\ProductDetailController::class, 'store']);
     Route::get('/productDetail/update/{id}', [\App\Http\Controllers\ProductDetailController::class, 'edit']);
     Route::post('/productDetail/update', [\App\Http\Controllers\ProductDetailController::class, 'update']);
-    Route::get('/productDetail/delete/{id}', [\App\Http\Controllers\ProductDetailController::class, 'destroy']);
+    Route::get('/productDetail/delete/list/{id}', [\App\Http\Controllers\ProductDetailController::class, 'destroy_table']);
 
 });
 

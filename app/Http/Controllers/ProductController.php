@@ -53,7 +53,7 @@ class ProductController extends Controller
 
         toastr()->success('Đã thêm mới dữ liệu thành công');
 
-        return redirect('/product/create');
+        return redirect('/admin/product/create');
     }
 
     /**
@@ -111,6 +111,6 @@ class ProductController extends Controller
 
         $data->delete();
 
-        return redirect('/product');
+        return redirect('/admin/product');
     }
 }

@@ -13,7 +13,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="post" action="/product/create">
+            <form method="post" action="/admin/product/create">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">

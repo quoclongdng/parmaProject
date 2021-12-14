@@ -19,6 +19,15 @@ class ProductCategoryController extends Controller
         return view('pages.productCategory.create', compact('data'));
     }
 
+    public function list_catagory()
+    {
+        $data = ProductCategory::all();
+
+        toastr()->info('Đã load data...');
+
+        return view('pages.productCategory.list_catagory', compact('data'));
+    }
+
     public function store(CreateProductCategoryRequest $request)
     {
         $data = $request->all();
@@ -70,12 +79,11 @@ class ProductCategoryController extends Controller
     public function viewCategories($slug)
     {
         $data = ProductCategory::where('slug' , $slug)->where("is_open" , 1)->first();
-
         if($data){
             $product = Product::join('product_categories' , 'products.productcategory_id' , 'product_categories.id')
+                            ->where('productcategory_id' , $data->id)
                         ->select('products.*', 'product_categories.name as name_product')->get();
         }
-
         return view('client.ProductDetail.thucPhamChucNang' , compact('product'));
     }
 }

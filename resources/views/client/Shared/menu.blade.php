@@ -22,23 +22,23 @@
                             <div class="megamenu">
                                 <ul class="single-mega cn-col-4">
                                     <li class="title">Thực phẩm chức năng</li>
-                                    <li><a href="/product/index">TPCN hỗ trợ tiêu hóa</a></li>
-                                    <li><a href="/product/index">TPCN hỗ trợ bệnh huyết áp</a></li>
-                                    <li><a href="/product/index">TPCN hỗ trợ giảm đái tháo đường</a></li>
-                                    <li><a href="/product/index">TPCN hỗ trợ bệnh xương khớp.</a></li>
+                                    <li><a href="/category/tpcn-ho-tro-tieu-hoa">TPCN hỗ trợ tiêu hóa</a></li>
+                                    <li><a href="/category/tpcn-ho-tro-benh-huyet-ap">TPCN hỗ trợ bệnh huyết áp</a></li>
+                                    <li><a href="/category/tpcn-ho-tro-giam-dai-thao-duong">TPCN hỗ trợ giảm đái tháo đường</a></li>
+                                    <li><a href="/category/tpcn-ho-tro-benh-xuong-khop">TPCN hỗ trợ bệnh xương khớp.</a></li>
                                 </ul>
                                 <ul class="single-mega cn-col-4">
                                     <li class="title">Dược phẩm</li>
                                     <li>
-                                        <a href="/product/index">Thuốc kháng sinh</a>
+                                        <a href="/category/thuoc-khang-sinh">Thuốc kháng sinh</a>
                                     </li>
-                                    <li><a href="/product/index">Thuốc kê đơn</a></li>
+                                    <li><a href="/category/thuoc-ke-don">Thuốc kê đơn</a></li>
                                 </ul>
                                 <ul class="single-mega cn-col-4">
                                     <li class="title">Chăn sóc sắc đẹp</li>
-                                    <li><a href="/product/index">Chăm sóc mặt</a></li>
-                                    <li><a href="/product/index">Sản phẩm chống nắng</a></li>
-                                    <li><a href="/product/index">Dụng cụ làm đẹp</a></li>
+                                    <li><a href="/category/cham-soc-mat">Chăm sóc mặt</a></li>
+                                    <li><a href="/category/san-pham-chong-nang">Sản phẩm chống nắng</a></li>
+                                    <li><a href="/category/dung-cu-lam-dep">Dụng cụ làm đẹp</a></li>
                                 </ul>
                                 <div class="single-mega cn-col-4">
                                     <img src="/assets_homepage/img/bg-img/bg-6.jpg" alt="">

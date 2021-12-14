@@ -13,13 +13,13 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="post" action="/productDetails/update">
+                <form method="post" action="/admin/productDetail/update">
                     @csrf
                     <input type="hidden" name="id" value="{{$data->id}}">
                     <div class="card-body">
                         <div class="form-group">
                             <label>Mã sản phẩm</label>
-                            <input value="{{$data->product_id}}" name="product_id" type="text" class="form-control" placeholder="Nhập vào Mã Hóa Đơn ">
+                            <input value="{{$data->name_product}}" name="product_id" type="text" class="form-control" placeholder="Nhập vào Mã Hóa Đơn ">
                          </div>
                          <div class="form-group">
                             <label>Ngày sản xuất</label>

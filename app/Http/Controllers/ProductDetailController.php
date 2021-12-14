@@ -8,39 +8,45 @@ use App\Models\News;
 use App\Models\Product;
 use App\Models\ProductDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductDetailController extends Controller
 {
 
-    // public function create()
-    // {
-    //     $data = ProductDetail::paginate(10);
+    public function create()
+    {
+        $data = ProductDetail::paginate(10);
 
-    //     $product = Product::all();
+        $product = Product::all();
 
-    //     toastr()->info('Đã load data...');
+        toastr()->info('Đã load data...');
 
-    //     return view('pages.productDetail.create', compact('data', 'product'));
-    // }
+        return view('pages.productDetail.create', compact('data', 'product'));
+    }
 
-    // /**
-    //  * Store a newly created resource in storage.
-    //  *
-    //  * @param  \Illuminate\Http\Request  $request
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function store(CreateProductDetailRequest $request)
-    // {
-    //     $data = $request->all();
+    public function list_product()
+    {
 
-    //     for($i = 0; $i < $request->qty; $i++){
-    //         ProductDetail::create($data);
-    //     }
+        $product = ProductDetail::join('products' , 'product_details.product_id' , 'products.id')
+                            ->select('product_details.*', 'products.name as name_product')->get();
 
-    //     toastr()->success('Đã thêm mới dữ liệu thành công');
+        toastr()->info('Đã load data...');
 
-    //     return redirect('/productDetail/create');
-    // }
+        return view('pages.productDetail.list_product', compact('product'));
+    }
+
+    public function store(CreateProductDetailRequest $request)
+    {
+        $data = $request->all();
+
+        for($i = 0; $i < $request->qty; $i++){
+            ProductDetail::create($data);
+        }
+
+        toastr()->success('Đã thêm mới dữ liệu thành công');
+
+        return redirect('/admin/productDetail/create');
+    }
 
     // /**
     //  * Display the specified resource.
@@ -59,12 +65,13 @@ class ProductDetailController extends Controller
     //  * @param  \App\Models\ProductDetail  $productDetail
     //  * @return \Illuminate\Http\Response
     //  */
-    // public function edit($id)
-    // {
-    //     $data = ProductDetail::find($id);
+    public function edit($id)
+    {
+        $data = ProductDetail::join('products' , 'product_details.product_id' , 'products.id')
+                ->select('product_details.*' , 'products.name as name_product')->find($id);
 
-    //     return view('pages.productDetail.update', compact('data'));
-    // }
+        return view('pages.productDetail.update', compact('data'));
+    }
 
     // /**
     //  * Update the specified resource in storage.
@@ -73,16 +80,16 @@ class ProductDetailController extends Controller
     //  * @param  \App\Models\ProductDetail  $productDetail
     //  * @return \Illuminate\Http\Response
     //  */
-    // public function update(UpdateProductDetailRequest $request)
-    // {
-    //     $data = ProductDetail::find($request->id);
+    public function update(UpdateProductDetailRequest $request)
+    {
+        $data = ProductDetail::find($request->id);
 
-    //     $data->update($request->all());
+        $data->update($request->all());
 
-    //     toastr()->success('Đã cập nhật dữ liệu thành công');
+        toastr()->success('Đã cập nhật dữ liệu thành công');
 
-    //     return redirect('/productDetail/create');
-    // }
+        return redirect('/admin/productDetail/create');
+    }
 
     // /**
     //  * Remove the specified resource from storage.
@@ -96,7 +103,7 @@ class ProductDetailController extends Controller
 
     //     $data->delete();
 
-    //     return redirect('/productDetail/create');
+    //     return redirect('/admin/productDetail/create');
     // }
 
 
@@ -135,5 +142,14 @@ class ProductDetailController extends Controller
 
         $slide = Product::all();
         return view('client.ProductDetail.Detail' , compact('data', 'slide'));
+    }
+
+    public function destroy_table($id)
+    {
+        $data = ProductDetail::find($id);
+
+        $data->delete();
+
+        return redirect('/admin/productDetail/list');
     }
 }

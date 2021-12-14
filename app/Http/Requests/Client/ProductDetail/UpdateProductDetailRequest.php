@@ -25,10 +25,10 @@ class UpdateProductDetailRequest extends FormRequest
     {
         return [
             'id'            => 'required|exists:product_details,id',
-            'product_id'       =>'required||unique:product_details,product_id,'. $this->id,
+            'product_id'       =>'required',
             'mfg_date'         =>'required',
-            'exp_date'         =>'require',
-            'price'            =>'require',
+            'exp_date'         =>'required',
+            'price'            =>'required',
         ];
     }
 }

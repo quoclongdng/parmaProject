@@ -14,7 +14,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="post" action="/productDetail/create">
+                <form method="post" action="/admin/productDetail/create">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
@@ -69,7 +69,7 @@
                     <th class="text-center">Giá</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-center">
                     @if(isset($data))
                     @foreach ($data as $key => $value)
                     <tr data-widget="expandable-table" aria-expanded="false">
@@ -78,10 +78,6 @@
                         <td>{{ $value->mfg_date }}</td>
                         <td>{{ $value->exp_date }}</td>
                         <td>{{ number_format($value->price, 0, ',', '.') }}</td>
-                        <td class="text-center text-nowrap">
-                            <a class="btn btn-info" href="/productDetail/update/{{$value->id}}">Edit</a>
-                            <a class="btn btn-danger" href="/productDetail/delete/{{$value->id}}">Delete</a>
-                        </td>
                     </tr>
                     @endforeach
                     @endif

@@ -96,11 +96,10 @@
                                         <div class="product-description">
                                             <span>{{ $value->name_product }}</span>
                                                 <h4>{{ $value->name }}</h4>
-                                            <p style="font-size: 20px;" class="product-price">${{ $value->price }}/chai</p>
+                                            <p style="font-size: 20px;" class="product-price">{{ number_format($value->price) }}VNĐ /chai</p>
                                             <div class="hover-content">
                                                 <div class="add-to-cart-btn">
                                                     <a href="#" class="btn essence-btn">Thêm giỏ hàng</a>
-
                                                 </div>
                                             </div>
                                         </div>

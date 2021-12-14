@@ -1,14 +1,4 @@
 <div class="sidebar">
-    <!-- Sidebar user panel (optional) -->
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      <div class="image">
-        <img src="/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-      </div>
-      <div class="info">
-        <a href="#" class="d-block">Alexander Pierce</a>
-      </div>
-    </div>
-
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -60,7 +50,7 @@
                 </a>
                 <ul class="nav nav-treeview" style="display: none;">
                     <li class="nav-item">
-                        <a href="/admin/customer/create" class="nav-link">
+                        <a href="/admin/customer/list" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                         <p>Danh sách Khách Hàng</p>
                         </a>
@@ -86,7 +76,7 @@
             </a>
             <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="/admin/product-category/create" class="nav-link">
+                <a href="/admin/product-category/list" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh mục sản phẩm</p>
                 </a>
@@ -137,7 +127,7 @@
             </a>
             <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="/admin/productDetail/create" class="nav-link">
+                <a href="/admin/productDetail/list" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Chi Tiết Sản Phẩm</p>
                 </a>
@@ -253,6 +243,14 @@
                 </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a href="/admin/logout" class="nav-link">
+                <i class="nav-icon fas fa-sign-out-alt"></i>
+              <p>
+                Đăng Xuất
+              </p>
+            </a>
           </li>
       </ul>
     </nav>

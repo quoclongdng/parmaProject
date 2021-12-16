@@ -53,7 +53,7 @@ class UserController extends Controller
 
         toastr()->success('Đã thêm mới dữ liệu thành công');
 
-        return redirect('/user/create');
+        return redirect('/admin/user/create');
 
     }
 

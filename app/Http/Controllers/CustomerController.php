@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Client\Customer\CreateCustomerRequest;
 use App\Http\Requests\Client\Customer\UpdateCustomerRequest;
+use App\Http\Requests\updateProfile;
 use App\Http\Requests\User\LoginRequest;
 use App\Http\Requests\User\RegiserRequest;
 use App\Models\Customer;
@@ -137,5 +138,25 @@ class CustomerController extends Controller
         Auth::guard('customer')->logout();
 
         return redirect('/');
+    }
+
+    public function profile($id)
+    {
+        $data = Customer::find($id);
+        // dd($data);
+        return view('client.profile.index', compact('data'));
+    }
+
+    public function updateProfile(updateProfile $request)
+    {
+        $data = Customer::find($request->id);
+
+        $all = $request->all();
+
+        $data->update($all);
+
+        toastr()->success("Đã Update thông tin thành công");
+
+        return redirect("/user/profile/".$request->id);
     }
 }

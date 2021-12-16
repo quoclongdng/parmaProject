@@ -9,11 +9,11 @@
         <div class="col-md-12">
             <div class="card card-success">
               <div class="card-header">
-                <h3 class="card-title">Thêm Mới Người Dùng</h3>
+                <h3 class="card-title">Thêm Mới Nhân Viên</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <form method="POST" action="/user/create">
+                <form method="POST" action="/admin/user/create">
                     @csrf
                   <div class="row">
                     <div class="col-sm-6">
@@ -52,17 +52,34 @@
                     <label class="col-form-label">Địa chỉ</label>
                     <input name="address" type="text" class="form-control " placeholder="Nhập Địa Chỉ">
                   </div>
-                  <div class="form-group">
-                    <label class="col-form-label">Số điện thoại</label>
-                    <input name="phone" type="text" class="form-control " placeholder="Nhập Số điện thoại">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Số Điện Thoại</label>
+                        <input name="phone" type="text" class="form-control" >
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Giới Tính</label>
+                        <select name="gender" id="gender" class="form-control">
+                            <option selected>Chọn Giới Tính</option>
+                            <option value=1>Nam</option>
+                            <option value=0>Nữ</option>
+                          </select>
+                      </div>
+                    </div>
                   </div>
                   <div class="row">
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>Loại Tài Khoản</label>
                         <select name="is_admin" id="is_admin" class="form-control">
-                          <option value=1>Admin</option>
-                          <option value=0>User</option>
+                          <option value=0>Admin</option>
+                          <option value=1>Quản Lý</option>
+                          <option value=2>Thu Ngân</option>
+                          <option value=3>Bán Hàng</option>
+                          <option value=4>Nhân Viên Sale</option>
                         </select>
                       </div>
                     </div>

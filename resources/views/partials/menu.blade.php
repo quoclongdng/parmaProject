@@ -18,7 +18,7 @@
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-user"></i>
                 <p>
-                    Danh Sách Người Dùng
+                    Quản Lý Nhân Viên
                     <i class="fas fa-angle-left right"></i>
                 </p>
                 </a>
@@ -26,13 +26,13 @@
                 <li class="nav-item">
                     <a href="/admin/user" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Danh Sách Người Dùng</p>
+                    <p>Danh Sách Nhân Viên</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/admin/user/create" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Tạo mới người dùng</p>
+                    <p>Tạo mới Nhân Viên</p>
                     </a>
                 </li>
                 </ul>

@@ -99,6 +99,9 @@ Route::group(['prefix' => '/user','middleware' => 'checkLogin'], function () {
     // Route::post('/productDetail/update', [\App\Http\Controllers\ProductDetailController::class, 'update']);
     // Route::get('/productDetail/delete/{id}', [\App\Http\Controllers\ProductDetailController::class, 'destroy']);
 
+    Route::get('/profile/{id}' , [\App\Http\Controllers\CustomerController::class , 'profile']);
+    Route::post('/profile/update' , [\App\Http\Controllers\CustomerController::class , 'updateProfile']);
+
     Route::get('/product/index' , [\App\Http\Controllers\ProductDetailController::class , 'viewThucPhamChucNang']);
 
     Route::get('/product/detail/{id}' , [\App\Http\Controllers\ProductDetailController::class , 'viewDetail']);

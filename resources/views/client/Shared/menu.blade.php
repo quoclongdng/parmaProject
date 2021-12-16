@@ -74,9 +74,14 @@
                 </div>
             </div>
             <!-- Cart Area -->
+            @if(Auth::guard('customer')->user())
             <div class="cart-area">
                 <a href="#" id="essenceCartBtn"><img src="/assets_homepage/img/core-img/bag.svg" alt=""> <span>3</span></a>
             </div>
+            <div class="cart-area">
+                <a href="/user/profile/{{Auth::guard('customer')->user()->id}}"><i class="fas fa-user fa-2x"></i></a>
+            </div>
+            @endif
         </div>
 
     </div>

@@ -14,7 +14,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="post" action="/bill/create">
+                <form method="post" action="/admin/bill/create">
                     @csrf
                     <div class="card-body">
                          <div class="form-group">
@@ -84,7 +84,7 @@
                 </tbody>
               </table>
               <br>
-              {{ $data->links() }}
+              {{-- {{ $data->links() }}  --}}
             </div>
             <!-- /.card-body -->
           </div>

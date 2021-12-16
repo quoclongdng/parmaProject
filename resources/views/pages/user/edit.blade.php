@@ -57,8 +57,11 @@
                         <div class="form-group">
                             <label>Loại Tài Khoản</label>
                             <select name="is_admin" class="form-control">
-                                <option value=1  {{$data->is_admin == 1 ? 'selected' : ''}}>Admin</option>
-                                <option value=0  {{$data->is_admin == 0 ? 'selected' : ''}}>User</option>
+                                <option value=1  {{$data->is_admin == 0 ? 'selected' : ''}}>Admin</option>
+                                <option value=0  {{$data->is_admin == 1 ? 'selected' : ''}}>Quản Lý</option>
+                                <option value=0  {{$data->is_admin == 2 ? 'selected' : ''}}>Thu Ngân</option>
+                                <option value=0  {{$data->is_admin == 3 ? 'selected' : ''}}>Bán Hàng</option>
+                                <option value=0  {{$data->is_admin == 4 ? 'selected' : ''}}>Nhân Viên Sale</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -81,7 +84,7 @@
                             </div>
                             <img id="holder" src="{{ $data->avatar }}" style="margin-top:15px;max-height:100px;">
                         </div>
-                        <a href="/user" class="btn btn-danger">Huỷ</a>
+                        <a href="/admin/user" class="btn btn-danger">Huỷ</a>
                         <button type="submit" class="btn btn-warning btn-lg float-right">Lưu</button>
 
                   </div>

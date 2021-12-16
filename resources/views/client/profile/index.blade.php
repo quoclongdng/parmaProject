@@ -1,94 +1,106 @@
 @extends('master-homepage')
-@section('content')
-<body>
-    <div class="breadcumb_area bg-img" style="background-image: url(img/bg-img/breadcumb.jpg);">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <div class="page-title text-center">
-                        <h2>Thông Tin Tài Khoản</h2>
+@section('title')
+<div class="row" style="margin-top: 50px">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/assets_homepage/css/profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
+
+    <div class="container emp-profile">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Breadcumb Area End ##### -->
-
-    <!-- ##### Checkout Area Start ##### -->
-    <div class="checkout_area section-padding-80">
-        <div class="container">
-            <div class="row">
-
-
-            </div>
-        </div>
-    </div>
-    <!-- ##### Checkout Area End ##### -->
-
-    <!-- ##### Footer Area Start ##### -->
-    <footer class="footer_area clearfix">
-        <div class="container">
-            <div class="row">
-                <!-- Single Widget Area -->
-                <div class="col-12 col-md-6">
-                    <div class="single_widget_area d-flex mb-30">
-                        <!-- Logo -->
-                        <div class="footer-logo mr-50">
-                            <a href="#"><img src="img/core-img/logo2.png" alt=""></a>
-                        </div>
-                        <!-- Footer Menu -->
-                        <div class="footer_menu">
-                            <ul>
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Widget Area -->
-                <div class="col-12 col-md-6">
-                    <div class="single_widget_area mb-30">
-                        <ul class="footer_widget_menu">
-                            <li><a href="#">Order Status</a></li>
-                            <li><a href="#">Payment Options</a></li>
-                            <li><a href="#">Shipping and Delivery</a></li>
-                            <li><a href="#">Guides</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Use</a></li>
+                <div class="col-md-6" style="margin-top: 25px">
+                    <div class="profile-head">
+                                <h2>
+                                    {{$data->name}}
+                                </h2>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true">About</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
-
-            <div class="row align-items-end">
-                <!-- Single Widget Area -->
-                <div class="col-12 col-md-6">
-                    <div class="single_widget_area">
-                        <div class="footer_heading mb-30">
-                            <h6>Subscribe</h6>
+            <div class="row">
+                <div class="col-md-4">
+                    <form action="/user/profile/update" method="post">
+                        @csrf
+                        <div >
+                            <h5 class="text-center mt-2">Chỉnh sửa thông tin</h5>
+                            <div class="mt-1 ml-3 ">
+                                <input type="hidden" name="id" value="{{$data->id}}">
+                                <div class="col-md-12">
+                                    <label for="">Full name</label>
+                                    <br>
+                                    <input name="name" type="text" value="{{$data->name}}">
+                                </div>
+                                <div class="col-md-12 mt-2">
+                                    <label for="">Email</label>
+                                    <br>
+                                    <input name="email" type="text" value="{{$data->email}}">
+                                </div>
+                                <div class="col-md-12 mt-2">
+                                    <label for="">Phone Number</label>
+                                    <br>
+                                    <input name="phone" type="text" value="{{$data->phone}}">
+                                </div >
+                                <div class="col-md-12 mt-2">
+                                    <label for="">Address</label>
+                                    <br>
+                                    <input name="address" type="text" value="{{$data->address}}">
+                                </div>
+                                <div class="col-md-12 mt-2">
+                                    <button type="submit" class="btn btn-primary" >Update</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="subscribtion_form">
-                            <form action="#" method="post">
-                                <input type="email" name="mail" class="mail" placeholder="Your email here">
-                                <button type="submit" class="submit"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-                            </form>
-                        </div>
-                    </div>
+                    </form>
                 </div>
-                <!-- Single Widget Area -->
-                <div class="col-12 col-md-6">
-                    <div class="single_widget_area">
-                        <div class="footer_social_area">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                <div class="col-md-8" style="font-size: 20px" >
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label style="font-family: 'Bakbak One', cursive;">Name</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{$data->name}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label style="font-family: 'Bakbak One', cursive;">Email</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{$data->email}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label style="font-family: 'Bakbak One', cursive;">Phone</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{$data->phone}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label style="font-family: 'Bakbak One', cursive;">Address</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{$data->address}}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
+    </div>
+</div>
 @endsection

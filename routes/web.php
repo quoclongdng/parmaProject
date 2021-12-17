@@ -17,7 +17,7 @@ Route::get('/admin/logout', [\App\Http\Controllers\AdminUserController::class, '
 
 Route::get('/category/{slug}' , [\App\Http\Controllers\ProductCategoryController::class , 'viewCategories']);
 
-Route::group(['prefix' => '/admin' , 'middleware' => 'adminLogin'  ], function(){
+Route::group(['prefix' => '/admin' , 'middleware' => 'adminLogin' ], function(){
 
     Route::get('/home' , [\App\Http\Controllers\AdminUserController::class , 'home']);
 

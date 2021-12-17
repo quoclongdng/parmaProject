@@ -27,6 +27,7 @@ class User extends Authenticatable
         'phone',
         'is_admin',
         'is_master',
+        'is_open',
         'gender',
         'token',
     ];

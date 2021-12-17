@@ -19,7 +19,7 @@ class adminLogin
     {
         if(Auth::guard('useradmin')->check()){
             return $next($request);
-        }else if(Auth::guard('users')->check()){
+        }elseif(Auth::guard('users')->check()){
             return $next($request);
         }
         toastr()->error('Vui lòng đăng nhập hệ thống');

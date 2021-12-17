@@ -21,14 +21,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Sidebar -->
     @php
-        $user = Auth::guard('useradmin')->user();
-        // $admin =  Auth::guard('useradmin')->user();
+        // $admin = Auth::guard('useradmin')->user();
+        $user =  Auth::guard('users')->user();
     @endphp
     @if(env('APP_ROLE') == false)
         @include('partials.menu')
     @elseif($user->is_master)
         @include('partials.menu')
-    @elseif($user->is_admin)
+    @elseif($user->is_admin == 0)
         @include('partials.menu_admin')
     @else
         @include('partials.menu_user')

@@ -24,11 +24,11 @@ class UpdateBillRequest extends FormRequest
     public function rules()
     {
         return [
-            'id'        => 'required|exists:bills,id',
-            'hash'      =>'required|unique:bills,hash,' . $this->id,
-            'user_id'   =>'required',
-            'comment'   =>'max:1000',
-            'type'      =>'require',
+            'id'        =>  'required|exists:hoa_dons,id',
+            'hash'      =>  'exists:hoa_dons,hash' . $this->id,
+            'user_id'   =>  'required',
+            'comment'   =>  'max:1000',
+            'type'      =>  'require',
         ];
     }
 

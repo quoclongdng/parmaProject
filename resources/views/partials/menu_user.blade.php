@@ -35,13 +35,13 @@
             </a>
             <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="/news" class="nav-link">
+                <a href="/admin/news" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh sách tin tức</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/news/create" class="nav-link">
+                <a href="/admin/news/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tạo mới tin tức</p>
                 </a>
@@ -60,13 +60,13 @@
             </a>
             <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="/news-category/create" class="nav-link">
+                <a href="/admin/news-category/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh Mục Tin Tức</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/news-category/create" class="nav-link">
+                <a href="/admin/news-category/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tạo mới danh mục</p>
                 </a>
@@ -86,13 +86,13 @@
             </a>
             <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="/bill-details/create" class="nav-link">
+                <a href="/admin/bill-details/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Chi Tiết Hóa Đơn</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/bill-details/create" class="nav-link">
+                <a href="/admin/bill-details/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tạo mới hóa đơn</p>
                 </a>

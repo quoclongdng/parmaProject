@@ -205,7 +205,7 @@
             </a>
             <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="/admin/bill/create" class="nav-link">
+                <a href="/admin/bill/list" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Hóa Đơn Nhập Xuất</p>
                 </a>
@@ -231,9 +231,9 @@
             </a>
             <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="/admin/bill-details/create" class="nav-link">
+                <a href="/admin/bill-details/list_bill" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Chi Tiết Hóa Đơn</p>
+                  <p>Danh Sách Hoá Đơn</p>
                 </a>
               </li>
               <li class="nav-item">

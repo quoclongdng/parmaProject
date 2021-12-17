@@ -17,6 +17,7 @@ class Product extends Model
         'avatar',
         'productcategory_id',
         'price',
+        'product_id',
     ];
 
     public function product_category()

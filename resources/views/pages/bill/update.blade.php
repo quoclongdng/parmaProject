@@ -13,21 +13,21 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="post" action="/bill/update">
+                <form method="post" action="/admin/bill/update">
                     @csrf
                     <input type="hidden" name="id" value="{{$data->id}}">
                     <div class="card-body">
                         <div class="form-group">
                             <label>Mã Hóa Đơn</label>
-                            <input value="{{$data->hash}}" name="hash" type="text" class="form-control" placeholder="Nhập vào Mã Hóa Đơn ">
+                            <input value="{{$data->hash}}" name="hash" type="text" class="form-control" placeholder="Nhập vào Mã Hóa Đơn " disabled>
                          </div>
                          <div class="form-group">
-                            <label>Mã id người dùng</label>
-                            <input value="{{$data->user_id}}" name="user_id" type="text" class="form-control" placeholder="Nhập vào Mã id người dùng">
+                            <label>Mã id Người Nhập</label>
+                            <input value="{{$data->user_id}}" name="user_id" type="text" class="form-control" placeholder="Nhập vào Mã id người dùng" >
                          </div>
                          <div class="form-group">
                             <label>Mã id khách hàng</label>
-                            <input value="{{$data->customer_id}}" name="customer_id" type="text" class="form-control" placeholder="Nhập vào Mã id khách hàng ">
+                            <input value="{{$data->customer_id}}" name="customer_id" type="text" class="form-control" placeholder="Nhập vào Mã id khách hàng" disabled>
                          </div>
                          <div class="form-group">
                             <label>Ghi chú</label>

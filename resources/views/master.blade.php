@@ -22,6 +22,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Sidebar -->
     @php
         $user = Auth::guard('useradmin')->user();
+        // $admin =  Auth::guard('useradmin')->user();
     @endphp
     @if(env('APP_ROLE') == false)
         @include('partials.menu')

@@ -13,7 +13,7 @@ class UpdateBillDetailsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,8 +25,8 @@ class UpdateBillDetailsRequest extends FormRequest
     {
         return [
             'id'            => 'required|exists:bill_details,id',
-            'bill_id'       => 'required',
-            'product_id'    => 'required',
+            // 'bill_id'       => 'required',
+            // 'product_id'    => 'required',
             'price'         => 'required',
             'quantity'      => 'required',
         ];

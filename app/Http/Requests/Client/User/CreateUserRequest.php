@@ -31,8 +31,9 @@ class CreateUserRequest extends FormRequest
             're-password'=> 'required|min:8|max:30,same:password',
             'address'    => 'required|max:50',
             'phone'      => 'required|numeric',
-            'is_admin'   => 'required|boolean',
-            'is_master'  => 'required|boolean'
+            'is_admin'   => 'required',
+            'is_master'  => 'required|boolean',
+            'gender'  => 'required|boolean',
         ];
     }
 

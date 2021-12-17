@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class adminLogin
+class userLogin
 {
     /**
      * Handle an incoming request.
@@ -17,9 +17,8 @@ class adminLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::guard('useradmin')->check()){
-            return $next($request);
-        }else if(Auth::guard('users')->check()){
+
+        if(Auth::guard('users')->check()){
             return $next($request);
         }
         toastr()->error('Vui lòng đăng nhập hệ thống');

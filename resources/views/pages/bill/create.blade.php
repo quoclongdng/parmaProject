@@ -58,15 +58,15 @@
                   <tr>
                     <th class="text-center">#</th>
                     <th class="text-center">Mã Hóa Đơn</th>
-                    <th class="text-center">Mã id người dùng</th>
+                    <th class="text-center">Mã id Nhân Viên</th>
                     <th class="text-center">Mã id khách hàng</th>
                     <th class="text-center">Ghi chú</th>
                     <th class="text-center">Thể loại</th>
                   </tr>
                 </thead>
-                <tbody>
-                    @if(isset($data))
-                    @foreach ($data as $key => $value)
+                <tbody class="text-center">
+                    @if(isset($bill))
+                    @foreach ($bill as $key => $value)
                     <tr data-widget="expandable-table" aria-expanded="false">
                         <td>{{ $key + 1 }}</td>
                         <td>{{ $value->hash }}</td>
@@ -74,10 +74,10 @@
                         <td>{{ $value->customer_id }}</td>
                         <td>{{ $value->comment }}</td>
                         <td>{{ $value->type == 0 ? "Bán" : "" }}</td>
-                        <td class="text-center text-nowrap">
-                            <a class="btn btn-info" href="/bill/update/{{$value->id}}">Edit</a>
-                            <a class="btn btn-danger" href="/bill/delete/{{$value->id}}">Delete</a>
-                        </td>
+                        {{-- <td class="text-center text-nowrap">
+                            <a class="btn btn-info" href="/admin/bill/update/{{$value->id}}">Edit</a>
+                            <a class="btn btn-danger" href="/admin/bill/delete/{{$value->id}}">Delete</a>
+                        </td> --}}
                     </tr>
                     @endforeach
                     @endif

@@ -17,7 +17,7 @@ Route::get('/admin/logout', [\App\Http\Controllers\AdminUserController::class, '
 
 Route::get('/category/{slug}' , [\App\Http\Controllers\ProductCategoryController::class , 'viewCategories']);
 
-Route::group(['prefix' => '/admin' , 'middleware' => 'adminLogin'], function(){
+Route::group(['prefix' => '/admin' , 'middleware' => 'adminLogin'  ], function(){
 
     Route::get('/home' , [\App\Http\Controllers\AdminUserController::class , 'home']);
 
@@ -52,7 +52,8 @@ Route::group(['prefix' => '/admin' , 'middleware' => 'adminLogin'], function(){
     Route::get('/customer/delete/{id}', [\App\Http\Controllers\CustomerController::class, 'destroy']);
 
     // bill detail
-    Route::get('/bill-details/create/{hash}', [\App\Http\Controllers\BillDetailsController::class, 'create']);
+    Route::get('/bill-details/create', [\App\Http\Controllers\BillDetailsController::class, 'create']);
+    Route::get('/bill-details/list_bill', [\App\Http\Controllers\BillDetailsController::class, 'list_bill']);
     Route::post('/bill-details/create', [\App\Http\Controllers\BillDetailsController::class, 'store']);
     Route::get('/bill-details/edit/{id}', [\App\Http\Controllers\BillDetailsController::class, 'edit']);
     Route::post('/bill-details/update', [\App\Http\Controllers\BillDetailsController::class, 'update']);
@@ -75,6 +76,7 @@ Route::group(['prefix' => '/admin' , 'middleware' => 'adminLogin'], function(){
     Route::get('/user/delete/{id}', [\App\Http\Controllers\UserController::class, 'destroy']);
 
     Route::get('/bill/create', [\App\Http\Controllers\BillController::class, 'create']);
+    Route::get('/bill/list', [\App\Http\Controllers\BillController::class, 'list']);
     Route::post('/bill/create', [\App\Http\Controllers\BillController::class, 'store']);
     Route::get('/bill/update/{id}', [\App\Http\Controllers\BillController::class, 'edit']);
     Route::post('/bill/update', [\App\Http\Controllers\BillController::class, 'update']);

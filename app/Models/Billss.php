@@ -9,7 +9,7 @@ class Bill extends Model
 {
     use HasFactory;
 
-    protected $table = 'bills';
+    protected $table = 'billss';
 
     protected $fillable = [
         'hash',

@@ -75,6 +75,7 @@
                       <div class="form-group">
                         <label>Loại Tài Khoản</label>
                         <select name="is_admin" id="is_admin" class="form-control">
+                          <option selected >Lựa chọn</option>
                           <option value=0>Admin</option>
                           <option value=1>Quản Lý</option>
                           <option value=2>Thu Ngân</option>

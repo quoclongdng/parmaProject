@@ -16,11 +16,20 @@
                 <form method="post" action="/admin/bill-details/create">
                   @csrf
                   <div class="card-body">
-                    @foreach ( $bill as $key_bill => $value_bill )
+
+                    <div class="form-group">
+                        <label>Tên Khách Hàng</label>
+                        <select name="bill_id" class="custom-select">
+                            @foreach ($bill as $key => $value_bill)
+                                <option value={{$value_bill->id}}> {{$value_bill->nameCustomer}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    {{-- @foreach ( $bill as $key_bill => $value_bill )
                         <div class="form-group">
                         <input type="hidden" name="bill_id" id="" value="{{ $value_bill->id }}">
                         </div>
-                    @endforeach
+                    @endforeach --}}
 
                     <div class="form-group">
                         <label>Mã Sản Phẩm</label>
@@ -30,6 +39,7 @@
                             @endforeach
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label>Số Lượng</label>
                         <input name="quantity" type="number" class="form-control" placeholder="Nhập vào số lượng">
@@ -54,6 +64,7 @@
                     <thead>
                       <tr>
                         <th class="text-center">#</th>
+                        <th class="text-center">Tên Khách Hàng</th>
                         <th class="text-center">Mã Hóa Đơn</th>
                         <th class="text-center">Tên Sản Phẩm</th>
                         <th class="text-center">Giá</th>
@@ -65,6 +76,7 @@
                         @foreach ($data as $key => $value_data)
                         <tr data-widget="expandable-table" aria-expanded="false">
                             <td>{{$key + 1}}</td>
+                            <td>{{$value_data->nameCustomer_bill}}</td>
                             <td>{{$value_data->maHoaDon}}</td>
                             <td>{{$value_data->nameProduct}}</td>
                             <td>{{$value_data->price * $value_data->quantity }}</td>

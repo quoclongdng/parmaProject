@@ -47,7 +47,7 @@ class BillController extends Controller
      */
     public function store(CreateBillRequest $request)
     {
-        $user = Auth::guard('useradmin')->user();
+        $user = Auth::guard('users')->user();
         // dd($user->id);
         $data = $request->all();
         $data['hash']   = Str::uuid();

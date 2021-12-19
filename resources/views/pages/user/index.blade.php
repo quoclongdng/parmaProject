@@ -33,21 +33,23 @@
                             $arr = ['Admin' , 'Quản Lý' , 'Thu Ngân' , 'Bán Hàng' , 'Thu Ngân' ]
                         @endphp
                         @foreach ($data as $key => $value)
-                        <tr data-widget="expandable-table" aria-expanded="false">
-                            <td>{{ $key + 1 }}</td>
-                            <td>{{ $value->first_name }} {{ $value->last_name }}</td>
-                            <td>{{ $value->email }}</td>
-                            <td>{{ $value->address }}</td>
-                            <td>{{ $value->phone }}</td>
-                            <td><img src="{{ $value->avatar }}" style="width: 20%" alt="{{ $value->first_name }} {{ $value->last_name }}"></td>
-                            <td>{{ $value->gender == 1 ? 'Nam' : 'Nữ' }}</td>
-                            <td>{{ $arr[$value->is_admin]}}</td>
-                            <td>{{ $value->is_master==1?"Yes":"No"  }}</td>
-                            <td class="text-center text-nowrap">
-                                <a class="btn btn-info" href="/admin/user/edit/{{ $value->id }}">Edit</a>
-                                <a class="btn btn-danger" href="/admin/user/delete/{{ $value->id }}">Delete</a>
-                            </td>
-                        </tr>
+                        @if ($value->is_master == 0)
+                            <tr data-widget="expandable-table" aria-expanded="false">
+                                <td>{{ $key + 1 }}</td>
+                                <td>{{ $value->first_name }} {{ $value->last_name }}</td>
+                                <td>{{ $value->email }}</td>
+                                <td>{{ $value->address }}</td>
+                                <td>{{ $value->phone }}</td>
+                                <td><img src="{{ $value->avatar }}" style="width: 20%" alt="{{ $value->first_name }} {{ $value->last_name }}"></td>
+                                <td>{{ $value->gender == 1 ? 'Nam' : 'Nữ' }}</td>
+                                <td>{{ $arr[$value->is_admin]}}</td>
+                                <td>{{ $value->is_master==1?"Yes":"No"  }}</td>
+                                <td class="text-center text-nowrap">
+                                    <a class="btn btn-info" href="/admin/user/edit/{{ $value->id }}">Edit</a>
+                                    <a class="btn btn-danger" href="/admin/user/delete/{{ $value->id }}">Delete</a>
+                                </td>
+                            </tr>
+                        @endif
                         @endforeach
                     </tbody>
                   </table>

@@ -98,52 +98,22 @@
             <!-- Cart List Area -->
             <div class="cart-list">
                 <!-- Single Cart Item -->
-                <div class="single-cart-item">
-                    <a href="#" class="product-image">
-                        <img src="/assets_homepage/img/product-img/product-1.jpg" class="cart-thumb" alt="">
-                        <!-- Cart Item Desc -->
-                        <div class="cart-item-desc">
-                            <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-                            <span class="badge">Mango</span>
-                            <h6>Button Through Strap Mini Dress</h6>
-                            <p class="size">Size: S</p>
-                            <p class="color">Color: Red</p>
-                            <p class="price">$45.00</p>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Cart Item -->
-                <div class="single-cart-item">
-                    <a href="#" class="product-image">
-                        <img src="/assets_homepage/img/product-img/product-2.jpg" class="cart-thumb" alt="">
-                        <!-- Cart Item Desc -->
-                        <div class="cart-item-desc">
-                            <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-                            <span class="badge">Mango</span>
-                            <h6>Button Through Strap Mini Dress</h6>
-                            <p class="size">Size: S</p>
-                            <p class="color">Color: Red</p>
-                            <p class="price">$45.00</p>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Cart Item -->
-                <div class="single-cart-item">
-                    <a href="#" class="product-image">
-                        <img src="/assets_homepage/img/product-img/product-3.jpg" class="cart-thumb" alt="">
-                        <!-- Cart Item Desc -->
-                        <div class="cart-item-desc">
-                            <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-                            <span class="badge">Mango</span>
-                            <h6>Button Through Strap Mini Dress</h6>
-                            <p class="size">Size: S</p>
-                            <p class="color">Color: Red</p>
-                            <p class="price">$45.00</p>
-                        </div>
-                    </a>
-                </div>
+                {{-- @foreach ($data as $key=>$value)
+                    <div class="single-cart-item">
+                        <a href="#" class="product-image">
+                            <img src="/assets_homepage/img/product-img/product-1.jpg" class="cart-thumb" alt="">
+                            <!-- Cart Item Desc -->
+                            <div class="cart-item-desc">
+                                <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
+                                <span class="badge">Mango</span>
+                                <h6>Button Through Strap Mini Dress</h6>
+                                <p class="size">Size: S</p>
+                                <p class="color">Color: Red</p>
+                                <p class="price">$45.00</p>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach --}}
             </div>
 
             <!-- Cart Summary -->

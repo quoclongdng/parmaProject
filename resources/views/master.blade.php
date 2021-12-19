@@ -26,7 +26,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     @endphp
     @if(env('APP_ROLE') == false)
         @include('partials.menu')
-    @elseif($user->is_master)
+    @elseif($user->is_master )
         @include('partials.menu')
     @elseif($user->is_admin == 0)
         @include('partials.menu_admin')

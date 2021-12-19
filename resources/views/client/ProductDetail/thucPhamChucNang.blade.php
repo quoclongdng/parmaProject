@@ -82,37 +82,34 @@
                         <div class="row">
 
                             <!-- Single Product -->
+                            {{-- <form action="/user/bill/add" method="post" >
+                                @csrf --}}
                             @foreach ( $product as $key=>$value )
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <a href="/user/product/detail/{{ $value->id}}">
-                                    <div class="single-product-wrapper border p-2 rounded">
-                                        <div class="product-img">
-                                            <img src="{{ $value->avatar }}" alt="">
-                                            <img class="hover-img" src="{{ $value->avatar }}" alt="">
-                                            <div class="product-favourite">
-                                                <a href="#" class="fas fa-shopping-bag"></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-description">
-                                            <span>{{ $value->name_product }}</span>
-                                                <h4>{{ $value->name }}</h4>
-                                            <p style="font-size: 20px;" class="product-price">{{ number_format($value->price) }}VNĐ /chai</p>
-                                            <div class="hover-content">
-                                                <div class="add-to-cart-btn">
-                                                    <a href="#" class="btn essence-btn">Thêm giỏ hàng</a>
+                                <div class="col-12 col-sm-6 col-lg-4">
+                                    <a href="/user/product/detail/{{ $value->id}}">
+                                        <div class="single-product-wrapper border p-2 rounded">
+                                            <div class="product-img">
+                                                <img src="{{ $value->avatar }}" alt="">
+                                                <img class="hover-img" src="{{ $value->avatar }}" alt="">
+                                                <div class="product-favourite">
+                                                    <a href="#" class="fas fa-shopping-bag"></a>
                                                 </div>
                                             </div>
+                                            <div class="product-description">
+                                                <span>{{ $value->name_product }}</span>
+                                                    <h4>{{ $value->name }}</h4>
+                                                <p style="font-size: 20px;" class="product-price">{{ number_format($value->price) }}VNĐ /chai</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                            </div>
+                                    </a>
+                                </div>
                             @endforeach
-
+                            {{-- </form> --}}
 
                         </div>
                     </div>
                     <!-- Pagination -->
-                    <nav aria-label="navigation">
+                    {{-- <nav aria-label="navigation">
                         <ul class="pagination mt-50 mb-70">
                             <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -122,7 +119,7 @@
                             <li class="page-item"><a class="page-link" href="#">21</a></li>
                             <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
                         </ul>
-                    </nav>
+                    </nav> --}}
                 </div>
             </div>
         </div>

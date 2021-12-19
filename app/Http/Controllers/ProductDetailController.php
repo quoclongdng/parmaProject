@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Client\ProductDetail\CreateProductDetailRequest;
 use App\Http\Requests\Client\ProductDetail\UpdateProductDetailRequest;
+use App\Models\BillDetails;
 use App\Models\News;
 use App\Models\Product;
 use App\Models\ProductDetail;
@@ -152,4 +153,14 @@ class ProductDetailController extends Controller
 
         return redirect('/admin/productDetail/list');
     }
+
+    public function productBill()
+    {
+        $data = BillDetails::join('bills' , 'bill_details.bill_id' , 'bills.id')
+                ->select('bill_details.*' , 'bills.user_id')->get();
+        dd($data->toArray());
+        return view('client.Shared.menu' , compact('data'));
+    }
+
+
 }

@@ -10,34 +10,23 @@ use App\Models\hoaDon;
 use App\Models\Product;
 use Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class BillDetailsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        $bill = hoaDon::all();
+        $bill = hoaDon::join('customers' , 'hoa_dons.customer_id' , 'customers.id' )
+                ->select('hoa_dons.*' , 'customers.name as nameCustomer')->get();
         $product = Product::all();
 
         $data = BillDetails::join('products' , 'bill_details.product_id' , 'products.id')
                 ->join('hoa_dons' ,  'bill_details.bill_id' , 'hoa_dons.id')
-                ->select('bill_details.*' , 'products.name as nameProduct' , 'hoa_dons.hash as maHoaDon')
+                ->join('customers' , 'hoa_dons.customer_id' , 'customers.id' )
+                ->select('bill_details.*' , 'products.name as nameProduct' , 'hoa_dons.hash as maHoaDon' , 'customers.name as nameCustomer_bill')
                 ->get();
-        // dd($data->toArray());
+        // dd($data->toArray(), $bill->toArray());
         toastr()->info('Đã load data...');
 
         return view('pages.billDetails.create', compact('data', 'bill', 'product'));
@@ -51,7 +40,8 @@ class BillDetailsController extends Controller
 
         $data = BillDetails::join('products' , 'bill_details.product_id' , 'products.id')
                 ->join('hoa_dons' ,  'bill_details.bill_id' , 'hoa_dons.id')
-                ->select('bill_details.*' , 'products.name as nameProduct' , 'hoa_dons.hash as maHoaDon')
+                ->join('customers' , 'hoa_dons.customer_id' , 'customers.id' )
+                ->select('bill_details.*' , 'products.name as nameProduct' , 'hoa_dons.hash as maHoaDon' , 'customers.name as nameCustomer_bill')
                 ->get();
         // dd($data->toArray());
         toastr()->info('Đã load data...');
@@ -133,9 +123,14 @@ class BillDetailsController extends Controller
     public function destroy($id)
     {
         $data = BillDetails::find($id);
-
+        // dd($data->toArray());
         $data->delete();
+        toastr()->success("Đã Xoá Thành Công");
+        return redirect('/admin/bill-details/list_bill');
+    }
 
-        return redirect('/bill-details/create');
+    public function addBill(Request $request)
+    {
+        dd($request->toArray());
     }
 }

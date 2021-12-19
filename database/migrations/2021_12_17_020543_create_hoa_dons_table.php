@@ -16,9 +16,9 @@ class CreateHoaDonsTable extends Migration
         Schema::create('hoa_dons', function (Blueprint $table) {
             $table->id();
             $table->string('hash');
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable();
             $table->string('comment');
-            $table->integer('type');
+            $table->integer('type')->default(0);
             $table->integer('customer_id');
             $table->timestamps();
         });

@@ -102,6 +102,7 @@ Route::group(['prefix' => '/user','middleware' => 'checkLogin'], function () {
     // Route::get('/productDetail/delete/{id}', [\App\Http\Controllers\ProductDetailController::class, 'destroy']);
 
     Route::get('/profile/{id}' , [\App\Http\Controllers\CustomerController::class , 'profile']);
+
     Route::post('/profile/update' , [\App\Http\Controllers\CustomerController::class , 'updateProfile']);
 
     Route::get('/product/index' , [\App\Http\Controllers\ProductDetailController::class , 'viewThucPhamChucNang']);
@@ -115,5 +116,9 @@ Route::group(['prefix' => '/user','middleware' => 'checkLogin'], function () {
     Route::get('/checkout/index' , [\App\Http\Controllers\ProductDetailController::class , 'viewCheckout']);
 
     Route::get('/contact/index' , [\App\Http\Controllers\ProductDetailController::class , 'viewContact']);
+
+    Route::get('/product/bill' , [\App\Http\Controllers\ProductDetailController::class , 'productBill']);
+
+    Route::post('/bill/add' , [\App\Http\Controllers\BillDetailsController::class , 'addBill']);
 });
 

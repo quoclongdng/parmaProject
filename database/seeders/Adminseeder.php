@@ -14,12 +14,12 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('admin_users')->delete();
+        DB::table('users')->delete();
 
-        DB::table('admin_users')->truncate();
+        DB::table('users')->truncate();
 
-        DB::table('admin_users')->insert([
-            ['email' => 'admin@master.com', 'password' => bcrypt('123123123'), 'full_name' => 'Admin Master', 'is_admin' => 1],
+        DB::table('users')->insert([
+            ['email' => 'admin@master.com', 'password' => bcrypt('123123123'), 'first_name' => 'Admin' , 'last_name' => 'Master' , 'is_admin' => 1 , 'is_master' => 1 , 'gender' => 1],
         ]);
     }
 }

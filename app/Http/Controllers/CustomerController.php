@@ -9,13 +9,14 @@ use App\Http\Requests\User\LoginRequest;
 use App\Http\Requests\User\RegiserRequest;
 use App\Models\BillDetails;
 use App\Models\Customer;
+use App\Models\hoaDon;
 use App\Models\News;
 use App\Models\Product;
 use App\Models\ProductDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Str;
 class CustomerController extends Controller
 {
 
@@ -42,12 +43,12 @@ class CustomerController extends Controller
     public function store(CreateCustomerRequest $request)
     {
         $data = $request->all();
-
+        // dd($d);
         Customer::create($data);
 
         toastr()->success('Đã thêm mới dữ liệu thành công');
 
-        return redirect('/customer/create');
+        return redirect('/admin/customer/create');
     }
 
 
@@ -81,8 +82,8 @@ class CustomerController extends Controller
         $data = Customer::find($id);
 
         $data->delete();
-
-        return redirect('/customer/create');
+        toastr()->success('Đã xoá khách hàng thành công');
+        return redirect('/admin/customer/list');
     }
 
     public function homePage()
@@ -111,6 +112,7 @@ class CustomerController extends Controller
         $data =  $request->all();
 
         Customer::create($data);
+
         toastr()->success("Bạn đã đăng kí thành công");
         return redirect('/login');
     }
@@ -123,6 +125,23 @@ class CustomerController extends Controller
         if($checklogin == true){
             $user = Auth::guard('customer')->user();
             if($user->is_active == 1){
+                $count = hoaDon::select(DB::raw('count(id) as total'))
+                        ->groupBy('customer_id')->first();
+
+                // dd($count->total);
+                if($count->total > 0){
+                    $count->delete();
+                    $data['hash']           = Str::uuid();
+                    $data['customer_id']    = $user->id ;
+
+                    hoaDon::create($data);
+                }else{
+                    $data['hash']           = Str::uuid();
+                    $data['customer_id']    = $user->id ;
+
+                    hoaDon::create($data);
+                }
+
                 toastr()->success('Đã Đăng Nhập Thành Công');
                 return redirect('/');
             }else{

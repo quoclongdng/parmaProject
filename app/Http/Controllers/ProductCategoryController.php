@@ -12,7 +12,7 @@ class ProductCategoryController extends Controller
 {
     public function create()
     {
-        $data = ProductCategory::all();
+        $data = ProductCategory::orderByDesc('id')->get();
 
         toastr()->info('Đã load data...');
 
@@ -21,7 +21,7 @@ class ProductCategoryController extends Controller
 
     public function list_catagory()
     {
-        $data = ProductCategory::all();
+        $data = ProductCategory::orderByDesc('id')->get();
 
         toastr()->info('Đã load data...');
 
@@ -67,10 +67,11 @@ class ProductCategoryController extends Controller
     public function destroy($id)
     {
         $data = ProductCategory::find($id);
+        // dd($data);
         if($data){
             $data->delete();
             toastr()->success("Đã xoá thành công");
-            return redirect('/admin/product-category/create');
+            return redirect('/admin/product-category/list');
         }else{
             toastr()->error("Đã có lỗi xảy ra");
         }

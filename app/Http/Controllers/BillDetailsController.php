@@ -136,17 +136,10 @@ class BillDetailsController extends Controller
     {
         // dd($request->toArray());
         $data = Product::find($request->id);
-        // dd($data);
-        // $bill['hash']        = Str::uuid();
-        // $bill['comment']     = $data->description;
-        // $bill['type']        = 1 ;
-        // $bill['customer_id'] = Auth::guard('customer')->user()->id;
-
-        // hoaDon::create($bill);
-
-        $hoadon = hoaDon::find(Auth::guard('customer')->user()->id);
-
-        $bill_detail['bill_id']         = $hoadon->id;
+        $customerID = Auth::guard('customer')->user()->id;
+        // $hoadon = hoaDon::where('customer_id' , $customerID)->get();
+        // dd($hoadon);
+        $bill_detail['bill_id']         = $customerID;
         $bill_detail['product_id']      = $request->id;
         $bill_detail['price']           = $data->price;
         $bill_detail['quantity']        = $request->quantity;

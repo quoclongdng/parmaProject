@@ -109,6 +109,6 @@ class NewsController extends Controller
         $data = News::find($id);
         $data->delete();
 
-        return redirect('/news');
+        return redirect('/admin/news');
     }
 }

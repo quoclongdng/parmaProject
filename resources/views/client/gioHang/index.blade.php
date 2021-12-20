@@ -24,7 +24,9 @@
                                     <p style="font-size: 20px;" class="product-price">{{ number_format($value->price) }}VNĐ /chai</p>
                                     <span style="font-size: 15px">Số Lượng : {{$value->quantity}}</span>
                                 </div>
-                                <button class="btn btn-danger mt-3"><a href="/user/gio-hang/delete/{{$value->id}}"><i class="fas fa-trash-alt" style="color: white"></i></a></button>
+                                <a href="/user/gio-hang/delete/{{$value->id}}">
+                                    <button class="btn btn-danger mt-3"><i class="fas fa-trash-alt" style="color: white"></i></button>
+                                </a>
                             </div>
                         </a>
                     </div>
@@ -58,6 +60,7 @@
                         </div>
                         <span class="text-muted">{{number_format($total_money)}} VNĐ</span>
                       </li>
+                      @if($total_money >100000)
                       <li class="list-group-item d-flex justify-content-between bg-light">
                         <div class="text-success">
                           <h6 class="my-0">Khuyến Mãi</h6>
@@ -65,6 +68,7 @@
                         </div>
                         <span class="text-success">-$5</span>
                       </li>
+                      @endif
                       <li class="list-group-item d-flex justify-content-between">
                         <span>Tổng Tiền (VNĐ)</span>
                         <strong style="margin-left: 30px">{{number_format($sum_price)}} VNĐ</strong>
@@ -84,7 +88,7 @@
                             <button type="submit" class="btn btn-secondary">Free Ship</button>
                             </div>
                         </div> --}}
-                        @if($sum_price == 0 || $customer_total->amount < $sum_price)
+                        @if($sum_price == 0 || $customer_total->amount < $sum_price || $customer_total == 0  )
                             <button class="btn btn-info col-12 mt-4" disabled>Thanh Toán</button>
                         @else
                             <button class="btn btn-info col-12 mt-4" ><span style="color: white; font-size: 20px"> Thanh Toán </span></button>

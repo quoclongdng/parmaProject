@@ -111,6 +111,7 @@ class BillController extends Controller
 
     public function gioHang()
     {
+
         $customerID = Auth::guard('customer')->user()->id;
 
         // dd($customerID);
@@ -162,7 +163,6 @@ class BillController extends Controller
 
             $SoDu = $SoDu - $TongTien;
             $data = Customer::find(Auth::guard('customer')->user()->id);
-            // dd($data);
             $data['amount'] = $SoDu;
             $data->update();
 
@@ -171,8 +171,16 @@ class BillController extends Controller
                 $dataBill = BillDetails::find($value->id);
                 $dataBill->delete();
             }
+            $dataHoaDon = hoaDon::where('customer_id' , $ID_Cus )->first();
+            $deleteHoaDon = hoaDon::find($dataHoaDon->id);
+            $deleteHoaDon->delete();
             toastr()->success('Đã thanh toán thành công');
-            return redirect('/');
+            $data_total['hash']           = Str::uuid();
+            $data_total['customer_id']    = $ID_Cus ;
+
+            hoaDon::create($data_total);
+            return redirect('/user/gio-hang');
+
         }
     }
 

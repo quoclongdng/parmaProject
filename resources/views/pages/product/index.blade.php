@@ -35,7 +35,7 @@
                             <td>{!! $value->description !!}</td>
                             <td>{!! $value->content !!}</td>
                             <td><img src="{{ $value->avatar }}" class="img-fluid mb-2" style="max-width: 200px;" alt="black sample"></td>
-                            <td>{{ $value->product_category->name }}</td>
+                            <td>{{ $value->name }}</td>
                             <td>{{ $value->price }}</td>
                             <td>{{ $value->created_at }}</td>
                             <td class="text-center text-nowrap">

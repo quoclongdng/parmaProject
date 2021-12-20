@@ -29,8 +29,8 @@
                 <div>
                     <em>keyword: <span>{{ $value->keyword }}</span></em>
                 </div>
-                <a  href="/news/edit/{{ $value->id }}" class="btn btn-default">Sửa</a>
-                <a href="/news/delete/{{ $value->id }}" class="btn btn-danger">Xoá</a>
+                <a  href="/admin/news/edit/{{ $value->id }}" class="btn btn-default">Sửa</a>
+                <a href="/admin/news/delete/{{ $value->id }}" class="btn btn-danger">Xoá</a>
               </div>
             </div>
         </div>

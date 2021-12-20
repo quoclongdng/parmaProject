@@ -207,7 +207,7 @@
               <li class="nav-item">
                 <a href="/admin/bill/list" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Hóa Đơn Nhập Xuất</p>
+                  <p>Hoá Đơn Khách Hàng</p>
                 </a>
               </li>
               <li class="nav-item">

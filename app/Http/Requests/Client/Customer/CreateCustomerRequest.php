@@ -26,6 +26,7 @@ class CreateCustomerRequest extends FormRequest
         return [
             'name'          => 'required|max:50|min:6|unique:customers,name',
             'phone'         => 'required',
+            'password'      => 'required',
             'address'       => 'required|max:50',
             'email'         => 'required|email|unique:customers,email',
             'description'   => 'max:1000',

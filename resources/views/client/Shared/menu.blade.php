@@ -76,6 +76,9 @@
             <!-- Cart Area -->
             @if(Auth::guard('customer')->user())
             <div class="cart-area">
+                <a href="/user/bank "><i class="fas fa-hand-holding-usd fa-2x"></i></a>
+            </div>
+            <div class="cart-area">
                 <a href="/user/gio-hang "><i class="fas fa-shopping-cart fa-2x"></i></a>
             </div>
             <div class="cart-area">

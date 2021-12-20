@@ -6,14 +6,14 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="card card-primary">
                 <div class="card-header">
                   <h3 class="card-title">Thêm Mới Danh Sách Khách Hàng</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="post" action="/customer/create">
+                <form method="post" action="/admin/customer/create">
                   @csrf
                   <div class="card-body">
                     <div class="form-group">
@@ -23,6 +23,10 @@
                     <div class="form-group">
                         <label>Điện thoại</label>
                         <input name="phone" type="text" class="form-control" placeholder="Nhập vào số điện thoại">
+                    </div>
+                    <div class="form-group">
+                        <label>Mật Khẩu</label>
+                        <input name="password" type="password" class="form-control" placeholder="Nhập mật khẩu">
                     </div>
                     <div class="form-group">
                         <label>Địa Chỉ</label>
@@ -45,7 +49,7 @@
             </div>
         </div>
 
-        <div class="col-md-7">
+        <div class="col-md-8">
             <div class="card card-danger">
                 <div class="card-header">
                   <h3 class="card-title">Danh Sách Khách Hàng</h3>
@@ -61,7 +65,6 @@
                         <th class="text-center">Địa Chỉ</th>
                         <th class="text-center">Email</th>
                         <th class="text-center">Mô Tả</th>
-                        <th class="text-center">Action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -73,10 +76,10 @@
                                 <td>{{$value->address}}</td>
                                 <td>{{$value->email}}</td>
                                 <td>{!!$value->description!!}</td>
-                                <td class="text-center text-nowrap">
+                                {{-- <td class="text-center text-nowrap">
                                     <a class="btn btn-info" href="/customer/edit/{{$value->id}}">Sửa</a>
                                     <a class="btn btn-danger" href="/customer/delete/{{$value->id}}">Xóa</a>
-                                </td>
+                                </td> --}}
                             </tr>
                             </tbody>
                         @endforeach

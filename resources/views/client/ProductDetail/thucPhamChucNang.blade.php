@@ -97,7 +97,9 @@
                                                         <h4>{{ $value->name }}</h4>
                                                     <p style="font-size: 20px;" class="product-price">{{ number_format($value->price) }}VNĐ /chai</p>
                                                 </div>
-                                                <button class="btn btn-danger"><a href="/user/product/detail/{{$value->id}}"><span style="color: white ; font-size: 20px"> Xem Chi Tiết Sản Phẩm</span></a></button>
+                                                <a href="/user/product/detail/{{$value->id}}">
+                                                    <button class="btn btn-danger"><span style="color: white ; font-size: 20px"> Xem Chi Tiết Sản Phẩm</span></button>
+                                                </a>
                                             </div>
                                         </a>
                                     </div>

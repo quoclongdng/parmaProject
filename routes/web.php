@@ -128,6 +128,8 @@ Route::group(['prefix' => '/user','middleware' => 'checkLogin'], function () {
     Route::post('/thanh-toan' ,[\App\Http\Controllers\BillController::class , 'thanhToan']);
 
     Route::get('/bank' , [\App\Http\Controllers\bankController::class , 'index']);
+
+    Route::post('/bank' , [\App\Http\Controllers\bankController::class , 'bank']);
     // Route::get('/cout-don-hang' ,[\App\Http\Controllers\BillController::class , 'coutDonHang']);
 });
 

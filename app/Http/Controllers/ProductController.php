@@ -18,7 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = Product::all();
+        $data = Product::orderByDesc('id')->get();
 
         toastr()->info('Đã load data...');
 

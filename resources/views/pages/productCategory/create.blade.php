@@ -67,11 +67,15 @@
                         <th class="text-center">Tình Trạng</th>
                         <th class="text-center">Ảnh</th>
                         <th class="text-center">Ngày Tạo</th>
-                        <th class="text-center">Action</th>
+                        {{-- <th class="text-center">Action</th> --}}
                       </tr>
                     </thead>
                     <tbody>
+
                         @foreach ($data as $key => $value)
+                        {{-- @php
+                            dd($value->name);
+                        @endphp --}}
                         <tr data-widget="expandable-table" aria-expanded="false">
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $value->name }}</td>
@@ -79,10 +83,10 @@
                             <td>{{ $value->is_open == 1 ? "Hoạt động" : "Tạm dừng" }}</td>
                             <td><img src="{{ $value->avatar }}" class="img-fluid mb-2" style="max-width: 200px;" alt="black sample"></td>
                             <td>{{ $value->created_at }}</td>
-                            <td class="text-center text-nowrap">
+                            {{-- <td class="text-center text-nowrap">
                                 <a class="btn btn-info" href="/admin/product-category/edit/{{$value->id}}">Edit</a>
                                 <a class="btn btn-danger" href="/admin/product-category/delete/{{$value->id}}">Delete</a>
-                            </td>
+                            </td> --}}
                         </tr>
                         @endforeach
                     </tbody>

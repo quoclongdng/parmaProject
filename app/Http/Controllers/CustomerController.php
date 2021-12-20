@@ -7,12 +7,14 @@ use App\Http\Requests\Client\Customer\UpdateCustomerRequest;
 use App\Http\Requests\updateProfile;
 use App\Http\Requests\User\LoginRequest;
 use App\Http\Requests\User\RegiserRequest;
+use App\Models\BillDetails;
 use App\Models\Customer;
 use App\Models\News;
 use App\Models\Product;
 use App\Models\ProductDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CustomerController extends Controller
 {
@@ -90,7 +92,7 @@ class CustomerController extends Controller
                         ->get();
 
         $new = News::all();
-        return view('client.Shared.product' , compact('data' , 'new'));
+        return view('client.Shared.product' , compact('data' , 'new' ));
     }
 
     public function viewregister()

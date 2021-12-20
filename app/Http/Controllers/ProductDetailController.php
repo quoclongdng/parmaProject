@@ -139,7 +139,9 @@ class ProductDetailController extends Controller
 
     public function viewDetail($id)
     {
-        $data = Product::find($id);
+        $data = Product::join('product_categories' , 'products.productcategory_id' , 'product_categories.id')
+                        ->select('products.*', 'product_categories.name as nameProduct')
+                        ->find($id);
 
         $slide = Product::all();
         return view('client.ProductDetail.Detail' , compact('data', 'slide'));

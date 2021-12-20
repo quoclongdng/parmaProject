@@ -120,5 +120,13 @@ Route::group(['prefix' => '/user','middleware' => 'checkLogin'], function () {
     Route::get('/product/bill' , [\App\Http\Controllers\ProductDetailController::class , 'productBill']);
 
     Route::post('/bill/add' , [\App\Http\Controllers\BillDetailsController::class , 'addBill']);
+
+    Route::get('/gio-hang' ,[\App\Http\Controllers\BillController::class , 'gioHang']);
+
+    Route::get('/gio-hang/delete/{id}' ,[\App\Http\Controllers\BillController::class , 'deleteDonHang']);
+
+    Route::post('/thanh-toan' ,[\App\Http\Controllers\BillController::class , 'thanhToan']);
+
+    // Route::get('/cout-don-hang' ,[\App\Http\Controllers\BillController::class , 'coutDonHang']);
 });
 

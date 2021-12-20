@@ -10,40 +10,44 @@
     </div>
     <!-- Single Product Description -->
     <div class="single_product_desc clearfix" style="margin-top: 100px">
-        <span>{{$data->productcategory_id}}</span>
-        <h2>{{$data->name}}</h2>
-        <p class="product-price"> {{$data->price}} VND</p>
-        <p class="product-desc">{{ $data->content }}</p>
+        <form action="/user/bill/add" method="post">
+            @csrf
+            <input type="hidden" name="id" value="{{$data->id}}" >
+            <span>{{$data->nameProduct}}</span>
+            <h2>{{$data->name}}</h2>
+            <p class="product-price"> {{$data->price}} VND</p>
+            <p class="product-desc">{{ $data->content }}</p>
 
-        <!-- Form -->
-        <div class="cart-form clearfix">
-            <!-- Select Box -->
-            <div class="select-box d-flex mt-50 mb-30">
-                <select name="select" id="productSize" class="mr-5">
-                    <option value="value">1</option>
-                    <option value="value">2</option>
-                    <option value="value">3</option>
-                    <option value="value">4</option>
-                    <option value="value">5</option>
-                    <option value="value">6</option>
-                    <option value="value">7</option>
-                    <option value="value">8</option>
-                    <option value="value">9</option>
-                    <option value="value">10</option>
-                </select>
-            </div>
-            <!-- Cart & Favourite Box -->
-            <div class="cart-fav-box d-flex align-items-center">
-                <!-- Cart -->
-                <button class="btn essence-btn">Buy Now</button>
-                <!-- Favourite -->
-                <div class="product-favourite ml-4">
-                    <button class="btn essence-btn">
-                        <a class="fas fa-shopping-cart"> Add to cart</a>
-                </button>
+            <!-- Form -->
+            <div class="cart-form clearfix">
+                <!-- Select Box -->
+                <div class="select-box d-flex mt-50 mb-30">
+                    <select name="quantity" id="quantity" class="mr-5">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <!-- Cart & Favourite Box -->
+                <div class="cart-fav-box d-flex align-items-center">
+                    <!-- Cart -->
+                    <button class="btn essence-btn">Buy Now</button>
+                    <!-- Favourite -->
+                    <div class="product-favourite ml-4">
+                        <button class="btn essence-btn" type="submit">
+                            <a class="fas fa-shopping-cart" > Add to cart</a>
+                    </button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
     @endisset
 

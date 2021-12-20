@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Client\BillDetails\CreateBillDetailsRequest;
 use App\Http\Requests\Client\BillDetails\UpdateBillDetailsRequest;
+use App\Http\Requests\gioHang;
 use App\Models\Bill;
 use App\Models\BillDetails;
 use App\Models\hoaDon;
 use App\Models\Product;
 use Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Str;
 
 class BillDetailsController extends Controller
 {
@@ -129,8 +132,30 @@ class BillDetailsController extends Controller
         return redirect('/admin/bill-details/list_bill');
     }
 
-    public function addBill(Request $request)
+    public function addBill(gioHang $request)
     {
-        dd($request->toArray());
+        // dd($request->toArray());
+        $data = Product::find($request->id);
+        // dd($data);
+        // $bill['hash']        = Str::uuid();
+        // $bill['comment']     = $data->description;
+        // $bill['type']        = 1 ;
+        // $bill['customer_id'] = Auth::guard('customer')->user()->id;
+
+        // hoaDon::create($bill);
+
+        $hoadon = hoaDon::find(Auth::guard('customer')->user()->id);
+
+        $bill_detail['bill_id']         = $hoadon->id;
+        $bill_detail['product_id']      = $request->id;
+        $bill_detail['price']           = $data->price;
+        $bill_detail['quantity']        = $request->quantity;
+
+        // dd($bill_detail);
+        BillDetails::create($bill_detail);
+        toastr()->success("Đã thêm vào giỏ hàng");
+
+        return redirect('/user/product/detail/' . $request->id);
+
     }
 }

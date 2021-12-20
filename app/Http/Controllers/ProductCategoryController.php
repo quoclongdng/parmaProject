@@ -80,10 +80,10 @@ class ProductCategoryController extends Controller
     {
         $data = ProductCategory::where('slug' , $slug)->where("is_open" , 1)->first();
         if($data){
-            $product = Product::join('product_categories' , 'products.productcategory_id' , 'product_categories.id')
+            $data = Product::join('product_categories' , 'products.productcategory_id' , 'product_categories.id')
                             ->where('productcategory_id' , $data->id)
                         ->select('products.*', 'product_categories.name as name_product')->get();
         }
-        return view('client.ProductDetail.thucPhamChucNang' , compact('product'));
+        return view('client.ProductDetail.thucPhamChucNang' , compact('data'));
     }
 }

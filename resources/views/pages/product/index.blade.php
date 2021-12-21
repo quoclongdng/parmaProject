@@ -39,8 +39,8 @@
                             <td>{{ $value->price }}</td>
                             <td>{{ $value->created_at }}</td>
                             <td class="text-center text-nowrap">
-                                <a class="btn btn-info" href="/product/edit/{{$value->id}}">Edit</a>
-                                <a class="btn btn-danger" href="/product/delete/{{$value->id}}">Delete</a>
+                                <a class="btn btn-info" href="/admin/product/edit/{{$value->id}}">Edit</a>
+                                <a class="btn btn-danger" href="/admin/product/delete/{{$value->id}}">Delete</a>
                             </td>
                         </tr>
                         @endforeach

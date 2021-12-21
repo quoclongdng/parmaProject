@@ -130,11 +130,18 @@ class CustomerController extends Controller
 
                 // dd($count->total);
                 if($count->total > 0){
-                    $count->delete();
+
+                    $maHoaDon = hoaDon::where('customer_id' , $user->id)->get();
+                    foreach ($maHoaDon as $key => $value) {
+                        $value->delete();
+                    }
+                    // $maHoaDon_2 = hoaDon::where('customer_id' , $user->id)->get();
+                    // dd($maHoaDon_2);
                     $data['hash']           = Str::uuid();
                     $data['customer_id']    = $user->id ;
 
                     hoaDon::create($data);
+
                 }else{
                     $data['hash']           = Str::uuid();
                     $data['customer_id']    = $user->id ;

@@ -77,7 +77,9 @@ class ProductController extends Controller
     {
         $data = Product::find($id);
 
-        return view('pages.product.edit', compact('data'));
+        $product_category = ProductCategory::all();
+        // dd($data);
+        return view('pages.product.edit', compact('data' , 'product_category'));
 
     }
 
@@ -96,7 +98,7 @@ class ProductController extends Controller
 
         toastr()->success('Đã cập nhật dữ liệu thành công');
 
-        return redirect('/product');
+        return redirect('/admin/product');
     }
 
     /**
@@ -109,8 +111,15 @@ class ProductController extends Controller
     {
         $data = Product::find($id);
 
-        $data->delete();
+        if($data){
+            $data->delete();
 
-        return redirect('/admin/product');
+            toastr()->success("Đã Xoá Thành công");
+
+            return redirect('/admin/product');
+        }else{
+            toastr()->error("Đã Có Lỗi Xảy Ra !!!");
+        }
+
     }
 }

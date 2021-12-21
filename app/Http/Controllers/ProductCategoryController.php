@@ -85,6 +85,7 @@ class ProductCategoryController extends Controller
                             ->where('productcategory_id' , $data->id)
                         ->select('products.*', 'product_categories.name as name_product')->get();
         }
+        // dd($data);
         return view('client.ProductDetail.thucPhamChucNang' , compact('data'));
     }
 }

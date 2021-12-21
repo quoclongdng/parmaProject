@@ -13,7 +13,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="post" action="/product/update">
+            <form method="post" action="/admin/product/update">
                 @csrf
                 <input type="hidden" name="id" value="{{$data->id}}">
                 <div class="card-body">
@@ -40,7 +40,7 @@
                     <div class="form-group">
                         <label>Upload Avatar</label>
                         <div class="input-group">
-                            <input id="thumbnail" name="avatar" class="form-control" type="text" name="filepath">
+                            <input id="thumbnail" name="avatar" class="form-control" value="{{$data->avatar}}" type="text" name="filepath">
                             <span class="input-group-append">
                                 <a data-input="thumbnail" data-preview="holder" class="btn btn-primary uploadimage">
                                     Chọn Hình Ảnh
@@ -51,8 +51,14 @@
                     </div>
 
                     <div class="form-group">
+                        {{-- <label>Mã Danh Mục Sản Phẩm</label> --}}
+                        {{-- <input name="productcategory_id" type="text" class="form-control" placeholder="Nhập vào ID danh mục sản phẩm" value="{{$data->productcategory_id}}"> --}}
                         <label>Mã Danh Mục Sản Phẩm</label>
-                        <input name="productcategory_id" type="text" class="form-control" placeholder="Nhập vào ID danh mục sản phẩm" value="{{$data->productcategory_id}}">
+                        <select name="productcategory_id" class="custom-select">
+                            @foreach ($product_category as $key => $value)
+                                <option value={{$value->id}}> {{ $value->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                 </div>

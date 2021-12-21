@@ -73,9 +73,6 @@
                     <tbody>
 
                         @foreach ($data as $key => $value)
-                        {{-- @php
-                            dd($value->name);
-                        @endphp --}}
                         <tr data-widget="expandable-table" aria-expanded="false">
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $value->name }}</td>

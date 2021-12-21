@@ -196,13 +196,24 @@ class CustomerController extends Controller
 
     public function re_Password(rePassword $request)
     {
-        $data = $request->all();
-        dd(Auth::guard('customer')->user()->password);
-        if ($data['password'] == Auth::guard('customer')->user()->password) {
-            toastr()->success("Hợp lệ");
+        $data = $request->only('password');
+
+        $data['email'] = Auth::guard('customer')->user()->email;
+
+        // dd($data);
+        $checklogin = Auth::guard('customer')->attempt($data);
+
+        if ($checklogin) {
+            $data = Customer::find(Auth::guard('customer')->user()->id);
+
+            $data['password'] =  $request->new_password;
+
+            $data->update();
+
+            toastr()->success("Thay đổi mật khẩu thành công");
             return redirect('/user/reset-password');
         } else {
-            toastr()->error("Mật khẩu ngu");
+            toastr()->error("Mật khẩu nhập không chính xác");
             return redirect('/user/reset-password');
         }
     }

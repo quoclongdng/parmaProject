@@ -23,8 +23,9 @@
                             <li class="nav-item">
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true">About</a>
                             </li>
-                            <button
-                            class="btn btn-success" style="margin-left: 55% ; margin-bottom: 5px">Thay Đổi Mật Khẩu</button>
+                            <a href="/user/reset-password" style="margin-left: 55%">
+                                <button class="btn btn-success" style=" margin-bottom: 5px">Thay Đổi Mật Khẩu</button>
+                            </a>
                         </ul>
 
                     </div>

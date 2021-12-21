@@ -24,7 +24,7 @@
                             <label for="inputPasswordNew">Nhập Mật Khẩu mới</label>
                             <input type="password" name="new_password" class="form-control"  required>
                             <span class="form-text small text-muted">
-                                    The password must be 8-20 characters, and must <em><b> not</b></em> contain spaces.
+                                    The password must be 6-30 characters, and must <em><b> not</b></em> contain spaces.
                                 </span>
                         </div>
                         <div class="form-group">

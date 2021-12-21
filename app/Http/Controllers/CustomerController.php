@@ -128,8 +128,8 @@ class CustomerController extends Controller
                 $count = hoaDon::select(DB::raw('count(id) as total'))
                         ->groupBy('customer_id')->first();
 
-                // dd($count->total);
-                if($count->total > 0){
+                // dd($count);
+                if(!empty($count)){
 
                     $maHoaDon = hoaDon::where('customer_id' , $user->id)->get();
                     foreach ($maHoaDon as $key => $value) {

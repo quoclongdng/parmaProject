@@ -100,7 +100,7 @@ class BillController extends Controller
 
         $data->delete();
 
-        return redirect('/admin/bill/create');
+        return redirect('/admin/bill/list');
     }
 
     public function list()
@@ -123,6 +123,8 @@ class BillController extends Controller
                     ->where('customer_id' , $customerID)->get();
         // dd($data->toArray());
         $customer_total  = Customer::find($customerID);
+
+        // dd($customer_total);
 
         $count = BillDetails::where('bill_id' , $customerID )
                     ->select(DB::raw('count(id) as total'))

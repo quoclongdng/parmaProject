@@ -88,7 +88,7 @@
                             <button type="submit" class="btn btn-secondary">Free Ship</button>
                             </div>
                         </div> --}}
-                        @if($sum_price == 0 || $customer_total->amount < $sum_price || $customer_total == 0  )
+                        @if($sum_price == 0 || $customer_total->amount < $sum_price || $customer_total->amount == 0  )
                             <button class="btn btn-info col-12 mt-4" disabled>Thanh Toán</button>
                         @else
                             <button class="btn btn-info col-12 mt-4" ><span style="color: white; font-size: 20px"> Thanh Toán </span></button>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>Sign In Form by Colorlib</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="/assets_login/fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="signin-form">
-                        <h2 class="form-title">Sign up</h2>
+                        <h2 class="form-title">Sign In</h2>
                         <form  class="register-form" action="/login" method="post" id="login-form">
                             @csrf
                             <div class="form-group">

@@ -48,7 +48,7 @@
                       </li>
                       <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
-                          <h6 class="my-0">Số Lượng Đơn hàng</h6>
+                          <h6 class="my-0">Số Lượng Sản Phẩm</h6>
                         </div>
                         @foreach ( $count as $value)
                             <span class="text-muted">{{$value->total}}</span>

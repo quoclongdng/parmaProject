@@ -17,5 +17,6 @@
     @include('client.Shared.foot')
 
 </body>
+@yield('js')
 
 </html>

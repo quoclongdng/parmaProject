@@ -20,20 +20,19 @@ class BillDetailsController extends Controller
 
     public function create()
     {
-        $bill = hoaDon::join('customers' , 'hoa_dons.customer_id' , 'customers.id' )
-                ->select('hoa_dons.*' , 'customers.name as nameCustomer')->get();
+        $bill = hoaDon::join('customers', 'hoa_dons.customer_id', 'customers.id')
+            ->select('hoa_dons.*', 'customers.name as nameCustomer')->get();
         $product = Product::all();
 
-        $data = BillDetails::join('products' , 'bill_details.product_id' , 'products.id')
-                ->join('hoa_dons' ,  'bill_details.bill_id' , 'hoa_dons.id')
-                ->join('customers' , 'hoa_dons.customer_id' , 'customers.id' )
-                ->select('bill_details.*' , 'products.name as nameProduct' , 'hoa_dons.hash as maHoaDon' , 'customers.name as nameCustomer_bill')
-                ->get();
+        $data = BillDetails::join('products', 'bill_details.product_id', 'products.id')
+            ->join('hoa_dons',  'bill_details.bill_id', 'hoa_dons.id')
+            ->join('customers', 'hoa_dons.customer_id', 'customers.id')
+            ->select('bill_details.*', 'products.name as nameProduct', 'hoa_dons.hash as maHoaDon', 'customers.name as nameCustomer_bill')
+            ->get();
         // dd($data->toArray(), $bill->toArray());
         toastr()->info('Đã load data...');
 
         return view('pages.billDetails.create', compact('data', 'bill', 'product'));
-
     }
 
     public function list_bill()
@@ -41,11 +40,11 @@ class BillDetailsController extends Controller
         $bill = hoaDon::all();
         $product = Product::all();
 
-        $data = BillDetails::join('products' , 'bill_details.product_id' , 'products.id')
-                ->join('hoa_dons' ,  'bill_details.bill_id' , 'hoa_dons.id')
-                ->join('customers' , 'hoa_dons.customer_id' , 'customers.id' )
-                ->select('bill_details.*' , 'products.name as nameProduct' , 'hoa_dons.hash as maHoaDon' , 'customers.name as nameCustomer_bill')
-                ->get();
+        $data = BillDetails::join('products', 'bill_details.product_id', 'products.id')
+            ->join('hoa_dons',  'bill_details.bill_id', 'hoa_dons.id')
+            ->join('customers', 'hoa_dons.customer_id', 'customers.id')
+            ->select('bill_details.*', 'products.name as nameProduct', 'hoa_dons.hash as maHoaDon', 'customers.name as nameCustomer_bill')
+            ->get();
         // dd($data->toArray());
         toastr()->info('Đã load data...');
 
@@ -149,6 +148,24 @@ class BillDetailsController extends Controller
         toastr()->success("Đã thêm vào giỏ hàng");
 
         return redirect('/user/product/detail/' . $request->id);
+    }
 
+    public function addBill2(gioHang $request)
+    {
+        // dd($request->toArray());
+        $data = Product::find($request->id);
+        $customerID = Auth::guard('customer')->user()->id;
+        // $hoadon = hoaDon::where('customer_id' , $customerID)->get();
+        // dd($hoadon);
+        $bill_detail['bill_id']         = $customerID;
+        $bill_detail['product_id']      = $request->id;
+        $bill_detail['price']           = $data->price;
+        $bill_detail['quantity']        = $request->quantity;
+
+        // dd($bill_detail);
+        BillDetails::create($bill_detail);
+        toastr()->success("Đã thêm vào giỏ hàng");
+
+        return redirect('/user/product');
     }
 }

@@ -125,6 +125,8 @@ Route::group(['prefix' => '/user', 'middleware' => 'checkLogin'], function () {
 
     Route::post('/bill/add', [\App\Http\Controllers\BillDetailsController::class, 'addBill']);
 
+    Route::post('/bill/add2', [\App\Http\Controllers\BillDetailsController::class, 'addBill2']);
+
     Route::get('/gio-hang', [\App\Http\Controllers\BillController::class, 'gioHang']);
 
     Route::get('/gio-hang/delete/{id}', [\App\Http\Controllers\BillController::class, 'deleteDonHang']);
@@ -135,4 +137,6 @@ Route::group(['prefix' => '/user', 'middleware' => 'checkLogin'], function () {
 
     Route::post('/bank', [\App\Http\Controllers\bankController::class, 'bank']);
     // Route::get('/cout-don-hang' ,[\App\Http\Controllers\BillController::class , 'coutDonHang']);
+    Route::get('/product', [\App\Http\Controllers\CustomerController::class, 'index']);
+    Route::post('/product/search', [\App\Http\Controllers\CustomerController::class, 'search']);
 });

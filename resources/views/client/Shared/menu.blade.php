@@ -36,7 +36,7 @@
                                 </ul>
                                 <ul class="single-mega cn-col-4">
                                     <li class="title">Chăn sóc sắc đẹp</li>
-                                    <li><a href="/category/cham-soc-mat">Chăm sóc mặt</a></li>
+                                    {{-- <li><a href="/category/cham-soc-mat">Chăm sóc mặt</a></li> --}}
                                     <li><a href="/category/san-pham-chong-nang">Sản phẩm chống nắng</a></li>
                                     <li><a href="/category/dung-cu-lam-dep">Dụng cụ làm đẹp</a></li>
                                 </ul>
@@ -46,6 +46,7 @@
                             </div>
                         </li>
                         <li><a href="/user/news/index">Tin tức</a></li>
+                        <li><a href="/user/product">Sản phẩm</a></li>
                     </ul>
                 </div>
                 <!-- Nav End -->

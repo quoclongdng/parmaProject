@@ -25,7 +25,7 @@ class UpdateProductCategoryRequest extends FormRequest
     {
         return [
             'id'            => 'required|exists:product_categories,id',
-            'name'          => 'required|max:50|min:6|unique:product_categories,name,' . $this->id,
+            'name'          => 'required|max:50|min:6' . $this->id,
             'is_open'       => 'required|boolean',
             'description'   => 'max:1000',
             'avatar'        => 'required',

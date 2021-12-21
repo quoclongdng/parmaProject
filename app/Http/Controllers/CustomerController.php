@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Client\Customer\CreateCustomerRequest;
 use App\Http\Requests\Client\Customer\UpdateCustomerRequest;
+use App\Http\Requests\Client\Product\SearchProductRequest;
 use App\Http\Requests\rePassword;
 use App\Http\Requests\updateProfile;
 use App\Http\Requests\User\LoginRequest;
@@ -216,5 +217,26 @@ class CustomerController extends Controller
             toastr()->error("Mật khẩu nhập không chính xác");
             return redirect('/user/reset-password');
         }
+    }
+
+    public function index()
+    {
+        $data = Product::all();
+
+        return view('client.product.index', compact('data'));
+    }
+
+    public function search(SearchProductRequest $request)
+    {
+        $search = $request->search;
+
+        $data = Product::where('name', 'like', '%' . $search . '%')
+            ->orWhere('description', 'like', '%' . $search . '%')
+            ->orWhere('content', 'like', '%' . $search . '%')
+            ->orWhere('price', 'like', '%' . $search . '%')
+            ->orWhere('productcategory_id', 'like', '%' . $search . '%')
+            ->get();
+
+        return view('client.product.index', compact('data'));
     }
 }

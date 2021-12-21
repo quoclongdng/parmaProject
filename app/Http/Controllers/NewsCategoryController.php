@@ -104,6 +104,6 @@ class NewsCategoryController extends Controller
 
         toastr()->success('Đã xóa dữ liệu thành công');
 
-        return redirect('/news-category/create');
+        return redirect('/admin/news-category/list');
     }
 }

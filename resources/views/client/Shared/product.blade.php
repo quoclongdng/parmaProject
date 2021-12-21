@@ -56,8 +56,8 @@
                     <div class="single-product-wrapper border p-2 rounded ">
                             <a href="/user/product/detail/{{$value->id}}">
                             <div class="product-img">
-                                <img src="{{$value->avatar}}" alt="">
-                                <img class="hover-img" src="{{$value->avatar}}" alt="">
+                                <img src="{{$value->avatar}}" style="object-fit: cover; width:300px; height:300px" alt="">
+                                <img class="hover-img" src="{{$value->avatar}}" style="object-fit: cover; width:300px; height:300px" alt="">
                                 <div class="product-favourite">
                                     <a href="#" class="fas fa-shopping-bag"></a>
                                 </div>

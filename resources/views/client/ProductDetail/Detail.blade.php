@@ -74,7 +74,7 @@
                     @foreach ( $slide as $key=>$value )
                     <div class="single-product-wrapper border p-2 rounded ">
                         <div class="product-img">
-                            <img src="{{ $value->avatar}}" alt="">
+                            <img src="{{ $value->avatar}}"  alt="">
                             <img class="hover-img" src="{{ $value->avatar}}" alt="">
                             <div class="product-favourite">
                                 <a href="#" class="fas fa-shopping-bag"></a>
@@ -89,7 +89,6 @@
                             <div class="hover-content">
                                 <div class="add-to-cart-btn">
                                     <a href="#" class="btn essence-btn">Buy now</a>
-
                                 </div>
                             </div>
                         </div>

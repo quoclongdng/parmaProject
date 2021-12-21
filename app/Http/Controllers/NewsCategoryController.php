@@ -10,21 +10,15 @@ use Illuminate\Support\Str;
 
 class NewsCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+
+    public function list()
     {
-        //
+        $data = NewsCategory::all();
+
+        return view('pages.newsCategory.list', compact('data'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $data = NewsCategory::all();
@@ -44,13 +38,13 @@ class NewsCategoryController extends Controller
     {
         $data = $request->all();
 
-        $data['slug'] =Str::slug($request->name);
+        $data['slug'] = Str::slug($request->name);
 
         NewsCategory::create($data);
 
         toastr()->success('Đã thêm mới dữ liệu thành công');
 
-        return redirect('/news-category/create');
+        return redirect('/admin/news-category/create');
     }
 
     /**
@@ -75,8 +69,6 @@ class NewsCategoryController extends Controller
         $data = NewsCategory::find($id);
 
         return view('pages.newsCategory.edit', compact('data'));
-
-
     }
 
     /**
@@ -94,7 +86,7 @@ class NewsCategoryController extends Controller
 
         toastr()->success('Đã cập nhật dữ liệu thành công');
 
-        return redirect('/news-category/create');
+        return redirect('/admin/news-category/create');
     }
 
 

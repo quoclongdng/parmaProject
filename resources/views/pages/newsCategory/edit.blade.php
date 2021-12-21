@@ -13,7 +13,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form method="post" action="/news-category/update">
+                    <form method="post" action="/admin/news-category/update">
                         @csrf
                         <input type="hidden" name="id" value="{{$data->id}}">
                         <div class="card-body">
@@ -24,7 +24,7 @@
 
                              <div class="form-group">
                                 <label>Tình Trạng</label>
-                                <select class="form-control">
+                                <select name="is_open" class="form-control">
                                     <option value=1 {{$data->is_open == 1 ? 'selected' : ''}}>Hoạt động</option>
                                     <option value=0 {{$data->is_open == 0 ? 'selected' : ''}}>Tạm dừng</option>
                                 </select>

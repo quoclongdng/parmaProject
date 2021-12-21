@@ -13,7 +13,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="POST" action="/news/update">
+                <form method="POST" action="/admin/news/update">
                     @csrf
                   <div class="card-body">
                       <input type="text" name="id" hidden value="{{ $data->id }}">
@@ -23,11 +23,11 @@
                     </div>
                     <div class="form-group">
                         <label>Mô tả</label>
-                        <textarea id="text-description" name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả">{{ $data->description }}</textarea>
+                        <textarea name="description" class="form-control" rows="3" placeholder="Nhập vào mô tả">{{ $data->description }}</textarea>
                     </div>
                     <div class="form-group">
                         <label>Nội dung</label>
-                        <textarea id="text-content" name="content" class="form-control" rows="3" placeholder="Nhập vào nội dung">{{ $data->content }}</textarea>
+                        <textarea  name="content" class="form-control" rows="3" placeholder="Nhập vào nội dung">{{ $data->content }}</textarea>
                     </div>
                     <div class="form-group">
                         <label>Danh mục</label>
@@ -51,7 +51,7 @@
                         <input name="keyword" value="{{ $data->keyword }}" type="text" class="form-control" placeholder="cách nhau bởi dấu ','">
                     </div>
                     <div class="input-group">
-                        <input id="thumbnail" name="avatar" class="form-control" type="text" >
+                        <input id="thumbnail" value="{{ $data->avatar }}" name="avatar" class="form-control" type="text" >
                         <span class="input-group-append">
                             <a data-input="thumbnail" data-preview="holder" class="btn btn-primary uploadimage">
                                 Chọn Hình Ảnh

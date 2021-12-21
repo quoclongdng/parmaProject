@@ -24,18 +24,19 @@ class UpdateNewsRequest extends FormRequest
     public function rules()
     {
         return [
-            'id'=>'required|exists:news,id',
-            'name'=>'required|max:50|min:6|unique:news,name',
-            'avatar'=>'required',
-            'description'=>'required|max:1000|min:20',
-            'keyword'=>'required',
-            'content'=>'required|min:100',
-            'is_open'=>'required',
-            'newcategory_id'=>'required'
+            'id' => 'required|exists:news,id',
+            'name' => 'required|max:50|min:6',
+            'avatar' => 'required',
+            'description' => 'required|max:1000|min:20',
+            'keyword' => 'required',
+            'content' => 'required|min:100',
+            'is_open' => 'required',
+            'newcategory_id' => 'required'
         ];
     }
 
-    public function attribute(){
+    public function attribute()
+    {
         return [
             'name' => 'Tên tin tức',
             'avatar' => 'Hình ảnh',
@@ -46,6 +47,5 @@ class UpdateNewsRequest extends FormRequest
             'user_id' => 'Mã người dùng',
             'newcategory_id' => 'Mã tin tức'
         ];
-
     }
 }

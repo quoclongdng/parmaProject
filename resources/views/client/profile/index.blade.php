@@ -23,7 +23,10 @@
                             <li class="nav-item">
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true">About</a>
                             </li>
+                            <button
+                            class="btn btn-success" style="margin-left: 55% ; margin-bottom: 5px">Thay Đổi Mật Khẩu</button>
                         </ul>
+
                     </div>
                 </div>
             </div>
@@ -43,7 +46,7 @@
                                 <div class="col-md-12 mt-2">
                                     <label for="">Email</label>
                                     <br>
-                                    <input name="email" type="text" value="{{$data->email}}">
+                                    <input name="email" type="text" value="{{$data->email}}" disabled >
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <label for="">Phone Number</label>
@@ -56,7 +59,7 @@
                                     <input name="address" type="text" value="{{$data->address}}">
                                 </div>
                                 <div class="col-md-12 mt-2">
-                                    <button type="submit" class="btn btn-primary" >Update</button>
+                                        <button type="submit" class="btn btn-primary" >Update</button>
                                 </div>
                             </div>
                         </div>

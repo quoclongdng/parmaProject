@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Client\Customer\CreateCustomerRequest;
 use App\Http\Requests\Client\Customer\UpdateCustomerRequest;
+use App\Http\Requests\rePassword;
 use App\Http\Requests\updateProfile;
 use App\Http\Requests\User\LoginRequest;
 use App\Http\Requests\User\RegiserRequest;
@@ -17,6 +18,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+
 class CustomerController extends Controller
 {
 
@@ -89,11 +91,11 @@ class CustomerController extends Controller
     public function homePage()
     {
         $data = Product::join('product_categories', 'products.productcategory_id', 'product_categories.id')
-                        ->select('products.*', 'product_categories.name as categori_name')
-                        ->get();
+            ->select('products.*', 'product_categories.name as categori_name')
+            ->get();
 
         $new = News::all();
-        return view('client.Shared.product' , compact('data' , 'new' ));
+        return view('client.Shared.product', compact('data', 'new'));
     }
 
     public function viewregister()
@@ -119,43 +121,42 @@ class CustomerController extends Controller
 
     public function Login(LoginRequest $request)
     {
-        $data =  $request->only('email' , 'password');
+        $data =  $request->only('email', 'password');
 
         $checklogin = Auth::guard('customer')->attempt($data);
-        if($checklogin == true){
+        if ($checklogin == true) {
             $user = Auth::guard('customer')->user();
-            if($user->is_active == 1){
+            if ($user->is_active == 1) {
                 $count = hoaDon::select(DB::raw('count(id) as total'))
-                        ->groupBy('customer_id')->first();
+                    ->groupBy('customer_id')->first();
 
                 // dd($count);
-                if(!empty($count)){
+                if (!empty($count)) {
 
-                    $maHoaDon = hoaDon::where('customer_id' , $user->id)->get();
+                    $maHoaDon = hoaDon::where('customer_id', $user->id)->get();
                     foreach ($maHoaDon as $key => $value) {
                         $value->delete();
                     }
                     // $maHoaDon_2 = hoaDon::where('customer_id' , $user->id)->get();
                     // dd($maHoaDon_2);
                     $data['hash']           = Str::uuid();
-                    $data['customer_id']    = $user->id ;
+                    $data['customer_id']    = $user->id;
 
                     hoaDon::create($data);
-
-                }else{
+                } else {
                     $data['hash']           = Str::uuid();
-                    $data['customer_id']    = $user->id ;
+                    $data['customer_id']    = $user->id;
 
                     hoaDon::create($data);
                 }
 
                 toastr()->success('Đã Đăng Nhập Thành Công');
                 return redirect('/');
-            }else{
+            } else {
                 toastr()->warning('Tài khoản hiện đang tạm khoá');
                 return redirect('/login');
             }
-        }else{
+        } else {
             toastr()->error("Email hoặc mật khẩu không chính xác");
             return redirect('/login');
         }
@@ -185,6 +186,24 @@ class CustomerController extends Controller
 
         toastr()->success("Đã Update thông tin thành công");
 
-        return redirect("/user/profile/".$request->id);
+        return redirect("/user/profile/" . $request->id);
+    }
+
+    public function viewrePassword()
+    {
+        return view('client.profile.reset');
+    }
+
+    public function re_Password(rePassword $request)
+    {
+        $data = $request->all();
+        dd(Auth::guard('customer')->user()->password);
+        if ($data['password'] == Auth::guard('customer')->user()->password) {
+            toastr()->success("Hợp lệ");
+            return redirect('/user/reset-password');
+        } else {
+            toastr()->error("Mật khẩu ngu");
+            return redirect('/user/reset-password');
+        }
     }
 }

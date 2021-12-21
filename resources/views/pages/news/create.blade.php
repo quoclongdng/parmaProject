@@ -11,7 +11,7 @@
                 <div class="card-header">
                   <h3 class="card-title">Thêm Mới Tin Tức</h3>
                 </div>
-                <form method="POST" action="/news/create">
+                <form method="POST" action="/admin/news/create">
                     @csrf
                   <div class="card-body">
                     <div class="form-group">
@@ -24,7 +24,7 @@
                     </div>
                     <div class="form-group">
                         <label>Nội dung</label>
-                        <textarea id="text-description" name="content" class="form-control" rows="3" placeholder="Nhập vào nội dung"></textarea>
+                        <textarea  name="content" class="form-control" rows="5" placeholder="Nhập vào nội dung"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Tình trạng</label>

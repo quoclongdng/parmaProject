@@ -17,9 +17,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data= User::orderByDesc('created_at')->get();
+        $data = User::orderByDesc('created_at')->get();
 
-        return view('pages.user.index',compact("data"));
+        return view('pages.user.index', compact("data"));
     }
 
     /**
@@ -47,14 +47,13 @@ class UserController extends Controller
     {
         $data = $request->all();
 
-        $data["is_master"]=false;
+        $data["is_master"] = false;
 
         User::create($data);
 
         toastr()->success('Đã thêm mới dữ liệu thành công');
 
         return redirect('/admin/user/create');
-
     }
 
     public function login(LoginRequest $request)
@@ -63,11 +62,11 @@ class UserController extends Controller
 
         $user = Auth::guard('user')->attempt($data);
 
-        if($user){
+        if ($user) {
             $user = Auth::guard('user')->user();
-            if($user->is_master){
+            if ($user->is_master) {
                 return redirect('');
-            } else if($user->is_admin){
+            } else if ($user->is_admin) {
                 return redirect('');
             } else {
                 return redirect('');
@@ -86,7 +85,6 @@ class UserController extends Controller
      */
     public function show()
     {
-
     }
 
     /**
@@ -101,7 +99,6 @@ class UserController extends Controller
         $data = User::find($id);
 
         return view('pages.user.edit', compact('data'));
-
     }
 
     /**
@@ -135,7 +132,9 @@ class UserController extends Controller
         $data = User::find($id);
         $data->delete();
 
-        return redirect('/user');
+        toastr()->success("Đã Xoá Thành Công");
+
+        return redirect('/admin/user');
     }
 
     public function logout()

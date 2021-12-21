@@ -28,8 +28,8 @@ class ProductDetailController extends Controller
     public function list_product()
     {
 
-        $product = ProductDetail::join('products' , 'product_details.product_id' , 'products.id')
-                            ->select('product_details.*', 'products.name as name_product')->get();
+        $product = ProductDetail::join('products', 'product_details.product_id', 'products.id')
+            ->select('product_details.*', 'products.name as name_product')->orderByDesc('id')->get();
 
         toastr()->info('Đã load data...');
 
@@ -40,7 +40,7 @@ class ProductDetailController extends Controller
     {
         $data = $request->all();
 
-        for($i = 0; $i < $request->qty; $i++){
+        for ($i = 0; $i < $request->qty; $i++) {
             ProductDetail::create($data);
         }
 
@@ -68,8 +68,8 @@ class ProductDetailController extends Controller
     //  */
     public function edit($id)
     {
-        $data = ProductDetail::join('products' , 'product_details.product_id' , 'products.id')
-                ->select('product_details.*' , 'products.name as name_product')->find($id);
+        $data = ProductDetail::join('products', 'product_details.product_id', 'products.id')
+            ->select('product_details.*', 'products.name as name_product')->find($id);
 
         return view('pages.productDetail.update', compact('data'));
     }
@@ -111,20 +111,20 @@ class ProductDetailController extends Controller
     public function viewThucPhamChucNang()
     {
         $data = Product::all();
-        return view('client.ProductDetail.thucPhamChucNang' , compact('data'));
+        return view('client.ProductDetail.thucPhamChucNang', compact('data'));
     }
 
     public function viewNews()
     {
         $data = News::all();
-        return view('client.news.index' , compact('data'));
+        return view('client.news.index', compact('data'));
     }
 
     public function viewNewsDetail($id)
     {
         $data = News::find($id);
         $slide = News::all();
-        return view('client.news.detail' , compact('data', 'slide'));
+        return view('client.news.detail', compact('data', 'slide'));
     }
 
     public function viewCheckout()
@@ -139,12 +139,12 @@ class ProductDetailController extends Controller
 
     public function viewDetail($id)
     {
-        $data = Product::join('product_categories' , 'products.productcategory_id' , 'product_categories.id')
-                        ->select('products.*', 'product_categories.name as nameProduct')
-                        ->find($id);
+        $data = Product::join('product_categories', 'products.productcategory_id', 'product_categories.id')
+            ->select('products.*', 'product_categories.name as nameProduct')
+            ->find($id);
 
         $slide = Product::all();
-        return view('client.ProductDetail.Detail' , compact('data', 'slide'));
+        return view('client.ProductDetail.Detail', compact('data', 'slide'));
     }
 
     public function destroy_table($id)
@@ -158,11 +158,9 @@ class ProductDetailController extends Controller
 
     public function productBill()
     {
-        $data = BillDetails::join('bills' , 'bill_details.bill_id' , 'bills.id')
-                ->select('bill_details.*' , 'bills.user_id')->get();
+        $data = BillDetails::join('bills', 'bill_details.bill_id', 'bills.id')
+            ->select('bill_details.*', 'bills.user_id')->get();
         dd($data->toArray());
-        return view('client.Shared.menu' , compact('data'));
+        return view('client.Shared.menu', compact('data'));
     }
-
-
 }

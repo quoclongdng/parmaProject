@@ -14,7 +14,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form method="post" action="/news-category/create">
+                    <form method="post" action="/admin/news-category/create">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
@@ -54,7 +54,6 @@
                         <th class="text-center">Tên Tin Tức</th>
                         <th class="text-center">Tình Trạng</th>
                         <th class="text-center">Ngày Tạo</th>
-                        <th class="text-center">Action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -64,10 +63,7 @@
                             <td>{{ $value->name }}</td>
                             <td>{{ $value->is_open == 1 ? "Hoạt động" : "Tạm dừng" }}</td>
                             <td>{{ $value->created_at }}</td>
-                            <td class="text-center text-nowrap">
-                                <a class="btn btn-info" href="/news-category/edit/{{$value->id}}">Edit</a>
-                                <a class="btn btn-danger" href="/news-category/delete/{{$value->id}}">Delete</a>
-                            </td>
+
                         </tr>
                         @endforeach
                     </tbody>

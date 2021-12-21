@@ -54,27 +54,24 @@
                 <div class="popular-products-slides owl-carousel">
                     @foreach ( $data as $key => $value )
                     <div class="single-product-wrapper border p-2 rounded ">
-                        <div class="product-img">
-                            <img src="{{$value->avatar}}" alt="">
-                            <img class="hover-img" src="{{$value->avatar}}" alt="">
-                            <div class="product-favourite">
-                                <a href="#" class="fas fa-shopping-bag"></a>
+                            <a href="/user/product/detail/{{$value->id}}">
+                            <div class="product-img">
+                                <img src="{{$value->avatar}}" alt="">
+                                <img class="hover-img" src="{{$value->avatar}}" alt="">
+                                <div class="product-favourite">
+                                    <a href="#" class="fas fa-shopping-bag"></a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="product-description">
-                            <span>{{$value->categori_name}}</span>
-                            <a href="single-product-details.html">
-                                <h6>{{$value->name}}</h6>
-                            </a>
-                            <p style="font-size: 20px;" class="product-price">${{$value->price}}/chai</p>
-                            <div class="hover-content">
-                                <div class="add-to-cart-btn">
-                                    <a href="#" class="btn essence-btn">Buy now</a>
+                            <div class="product-description">
+                                <span>{{$value->categori_name}}</span>
+                                    <h6>{{$value->name}}</h6>
+                                <p style="font-size: 20px;" class="product-price">${{$value->price}}/chai</p>
+                                <div class="hover-content">
 
                                 </div>
                             </div>
+                        </a>
                         </div>
-                    </div>
                     @endforeach
                 </div>
             </div>
@@ -87,7 +84,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-heading text-center">
-                    <h2>Sản phẩm đang hot</h2>
+                    <h2>Tin Mới</h2>
                 </div>
             </div>
         </div>
@@ -107,13 +104,13 @@
                             </div>
                         </div>
                         <div class="product-description">
-                            <a href="single-product-details.html">
+                            <a href="">
                                 <h6>{{ $value->name}}</h6>
                             </a>
                             <p class="product-price">{{$value->description}}</p>
                             <div class="hover-content">
                                 <div class="add-to-cart-btn">
-                                    <a href="#" class="btn essence-btn">Go to</a>
+                                    <a href="/user/news/detail/{{$value->id}}" class="btn essence-btn">Go to</a>
 
                                 </div>
                             </div>

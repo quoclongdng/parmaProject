@@ -51,7 +51,7 @@
             </a>
             <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="/admin/news-category/create" class="nav-link">
+                <a href="/admin/news-category/list" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh Mục Tin Tức</p>
                 </a>

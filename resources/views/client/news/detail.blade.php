@@ -10,7 +10,7 @@
             <div class="single-blog--text">
                 <h2>{{ $data->name}}</h2>
                 <span>
-                    {{$data->description}}
+                    <b>{{$data->description}}</b>
                 </span>
 
                 <p>

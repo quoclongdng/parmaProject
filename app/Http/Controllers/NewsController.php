@@ -19,8 +19,10 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $data = News::all();
-
+        $data = News::join('users', 'news.user_id', 'users.id')
+            ->select('news.*', 'users.first_name as firstname', 'users.last_name as lastname')
+            ->get();
+        // dd($data);
 
         return view('pages.news.index', compact('data'));
     }
@@ -34,7 +36,7 @@ class NewsController extends Controller
     {
         $newsCategory = NewsCategory::all();
         // dd($newsCategory);
-        return view('pages.news.create',compact('newsCategory'));
+        return view('pages.news.create', compact('newsCategory'));
     }
 
     /**
@@ -45,14 +47,14 @@ class NewsController extends Controller
      */
     public function store(CreateNewsRequest $request)
     {
-        $user = Auth::guard('user')->user();
+        $user = Auth::guard('users')->user();
         $data = $request->all();
         $data['user_id']    = $user->id;
         News::create($data);
 
         toastr()->success('Đã thêm mới dữ liệu thành công');
 
-        return redirect('/news/create');
+        return redirect('/admin/news/create');
     }
 
     /**
@@ -75,9 +77,10 @@ class NewsController extends Controller
     public function edit($id)
     {
         $newsCategory = NewsCategory::all();
+
         $data = News::find($id);
 
-        return view('pages.news.edit', compact(['data','newsCategory']));
+        return view('pages.news.edit', compact(['data', 'newsCategory']));
     }
 
     /**
@@ -95,7 +98,7 @@ class NewsController extends Controller
 
         toastr()->success('Đã cập nhật dữ liệu thành công');
 
-        return redirect('/news');
+        return redirect('/admin/news');
     }
 
     /**
@@ -108,6 +111,7 @@ class NewsController extends Controller
     {
         $data = News::find($id);
         $data->delete();
+        toastr()->success("Đã Xoá Thành Công");
 
         return redirect('/admin/news');
     }

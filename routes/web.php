@@ -3,23 +3,23 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/' , [\App\Http\Controllers\CustomerController::class , 'homePage']);
+Route::get('/', [\App\Http\Controllers\CustomerController::class, 'homePage']);
 
-Route::get('/login' , [\App\Http\Controllers\CustomerController::class , 'viewLogin']);
-Route::post('/login' , [\App\Http\Controllers\CustomerController::class , 'Login']);
-Route::get('/register' , [\App\Http\Controllers\CustomerController::class , 'viewregister']);
-Route::post('/register' , [\App\Http\Controllers\CustomerController::class , 'register']);
+Route::get('/login', [\App\Http\Controllers\CustomerController::class, 'viewLogin']);
+Route::post('/login', [\App\Http\Controllers\CustomerController::class, 'Login']);
+Route::get('/register', [\App\Http\Controllers\CustomerController::class, 'viewregister']);
+Route::post('/register', [\App\Http\Controllers\CustomerController::class, 'register']);
 Route::get('/logout', [\App\Http\Controllers\CustomerController::class, 'logout']);
 
-Route::get('/admin/login' , [\App\Http\Controllers\AdminUserController::class , 'loginAdmin']);
+Route::get('/admin/login', [\App\Http\Controllers\AdminUserController::class, 'loginAdmin']);
 Route::post('/admin/login', [\App\Http\Controllers\AdminUserController::class, 'login']);
 Route::get('/admin/logout', [\App\Http\Controllers\AdminUserController::class, 'logout']);
 
-Route::get('/category/{slug}' , [\App\Http\Controllers\ProductCategoryController::class , 'viewCategories']);
+Route::get('/category/{slug}', [\App\Http\Controllers\ProductCategoryController::class, 'viewCategories']);
 
-Route::group(['prefix' => '/admin' , 'middleware' => 'adminLogin' ], function(){
+Route::group(['prefix' => '/admin', 'middleware' => 'adminLogin'], function () {
 
-    Route::get('/home' , [\App\Http\Controllers\AdminUserController::class , 'home']);
+    Route::get('/home', [\App\Http\Controllers\AdminUserController::class, 'home']);
 
     Route::get('/product-category/create', [\App\Http\Controllers\ProductCategoryController::class, 'create']);
     Route::get('/product-category/list', [\App\Http\Controllers\ProductCategoryController::class, 'list_catagory']);
@@ -38,6 +38,7 @@ Route::group(['prefix' => '/admin' , 'middleware' => 'adminLogin' ], function(){
 
     // newCategory
     Route::get('/news-category/create', [\App\Http\Controllers\NewsCategoryController::class, 'create']);
+    Route::get('/news-category/list', [\App\Http\Controllers\NewsCategoryController::class, 'list']);
     Route::post('/news-category/create', [\App\Http\Controllers\NewsCategoryController::class, 'store']);
     Route::get('/news-category/edit/{id}', [\App\Http\Controllers\NewsCategoryController::class, 'edit']);
     Route::post('/news-category/update', [\App\Http\Controllers\NewsCategoryController::class, 'update']);
@@ -89,47 +90,49 @@ Route::group(['prefix' => '/admin' , 'middleware' => 'adminLogin' ], function(){
     Route::get('/productDetail/update/{id}', [\App\Http\Controllers\ProductDetailController::class, 'edit']);
     Route::post('/productDetail/update', [\App\Http\Controllers\ProductDetailController::class, 'update']);
     Route::get('/productDetail/delete/list/{id}', [\App\Http\Controllers\ProductDetailController::class, 'destroy_table']);
-
 });
 
 
 
-Route::group(['prefix' => '/user','middleware' => 'checkLogin'], function () {
+Route::group(['prefix' => '/user', 'middleware' => 'checkLogin'], function () {
     // Route::get('/productDetail/create', [\App\Http\Controllers\ProductDetailController::class, 'create']);
     // Route::post('/productDetail/create', [\App\Http\Controllers\ProductDetailController::class, 'store']);
     // Route::get('/productDetail/update/{id}', [\App\Http\Controllers\ProductDetailController::class, 'edit']);
     // Route::post('/productDetail/update', [\App\Http\Controllers\ProductDetailController::class, 'update']);
     // Route::get('/productDetail/delete/{id}', [\App\Http\Controllers\ProductDetailController::class, 'destroy']);
 
-    Route::get('/profile/{id}' , [\App\Http\Controllers\CustomerController::class , 'profile']);
+    Route::get('/profile/{id}', [\App\Http\Controllers\CustomerController::class, 'profile']);
 
-    Route::post('/profile/update' , [\App\Http\Controllers\CustomerController::class , 'updateProfile']);
+    Route::get('/reset-password', [\App\Http\Controllers\CustomerController::class, 'viewrePassword']);
 
-    Route::get('/product/index' , [\App\Http\Controllers\ProductDetailController::class , 'viewThucPhamChucNang']);
+    Route::post('/reset-password', [\App\Http\Controllers\CustomerController::class, 're_Password']);
 
-    Route::get('/product/detail/{id}' , [\App\Http\Controllers\ProductDetailController::class , 'viewDetail']);
+    Route::post('/profile/update', [\App\Http\Controllers\CustomerController::class, 'updateProfile']);
 
-    Route::get('/news/index' , [\App\Http\Controllers\ProductDetailController::class , 'viewNews']);
+    Route::get('/product/index', [\App\Http\Controllers\ProductDetailController::class, 'viewThucPhamChucNang']);
 
-    Route::get('/news/detail/{id}' , [\App\Http\Controllers\ProductDetailController::class , 'viewNewsDetail']);
+    Route::get('/product/detail/{id}', [\App\Http\Controllers\ProductDetailController::class, 'viewDetail']);
 
-    Route::get('/checkout/index' , [\App\Http\Controllers\ProductDetailController::class , 'viewCheckout']);
+    Route::get('/news/index', [\App\Http\Controllers\ProductDetailController::class, 'viewNews']);
 
-    Route::get('/contact/index' , [\App\Http\Controllers\ProductDetailController::class , 'viewContact']);
+    Route::get('/news/detail/{id}', [\App\Http\Controllers\ProductDetailController::class, 'viewNewsDetail']);
 
-    Route::get('/product/bill' , [\App\Http\Controllers\ProductDetailController::class , 'productBill']);
+    Route::get('/checkout/index', [\App\Http\Controllers\ProductDetailController::class, 'viewCheckout']);
 
-    Route::post('/bill/add' , [\App\Http\Controllers\BillDetailsController::class , 'addBill']);
+    Route::get('/contact/index', [\App\Http\Controllers\ProductDetailController::class, 'viewContact']);
 
-    Route::get('/gio-hang' ,[\App\Http\Controllers\BillController::class , 'gioHang']);
+    Route::get('/product/bill', [\App\Http\Controllers\ProductDetailController::class, 'productBill']);
 
-    Route::get('/gio-hang/delete/{id}' ,[\App\Http\Controllers\BillController::class , 'deleteDonHang']);
+    Route::post('/bill/add', [\App\Http\Controllers\BillDetailsController::class, 'addBill']);
 
-    Route::post('/thanh-toan' ,[\App\Http\Controllers\BillController::class , 'thanhToan']);
+    Route::get('/gio-hang', [\App\Http\Controllers\BillController::class, 'gioHang']);
 
-    Route::get('/bank' , [\App\Http\Controllers\bankController::class , 'index']);
+    Route::get('/gio-hang/delete/{id}', [\App\Http\Controllers\BillController::class, 'deleteDonHang']);
 
-    Route::post('/bank' , [\App\Http\Controllers\bankController::class , 'bank']);
+    Route::post('/thanh-toan', [\App\Http\Controllers\BillController::class, 'thanhToan']);
+
+    Route::get('/bank', [\App\Http\Controllers\bankController::class, 'index']);
+
+    Route::post('/bank', [\App\Http\Controllers\bankController::class, 'bank']);
     // Route::get('/cout-don-hang' ,[\App\Http\Controllers\BillController::class , 'coutDonHang']);
 });
-

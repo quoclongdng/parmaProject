@@ -53,17 +53,25 @@
                                                     <h4>{{ $value->description }}</h4>
                                                     <p style="font-size: 20px;" class="product-price">{{ number_format($value->price) }}VNĐ /chai</p>
                                                 </div>
-                                                <a href="/user/product/detail/{{$value->id}}">
-                                                    <button class="btn btn-danger mt-4"><span style="color: white ; font-size: 20px"> Xem Chi Tiết Sản Phẩm</span></button>
-                                                </a>
-                                                <form action="/user/bill/add2" method="post">
-                                                    @csrf
-                                                 <input type="hidden" name="id" value="{{$value->id}}" >
-                                                 <div class="select-box d-flex mt-1">
-                                                    <input type="hidden" name="quantity" id="quantity" value="1" >
-                                                <button class="btn btn-primary" type="submit"><span style="color: white ; font-size: 20px"> Thêm vào giỏ hàng</span></button>
+                                                <div>
+                                                    <div class="row"    >
+                                                        <div class="col-md-12">
+                                                            <a href="/user/product/detail/{{$value->id}}">
+                                                                <button class="btn btn-danger mt-4" style="width: 100%"><span style="color: white ; font-size: 15px;" > Xem Chi Tiết Sản Phẩm</span></button>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <form action="/user/bill/add2" method="post">
+                                                                @csrf
+                                                                <input type="hidden" name="id" value="{{$value->id}}" >
+                                                                <div class="select-box d-flex mt-1">
+                                                                    <input type="hidden" name="quantity" id="quantity" value="1" >
+                                                                <button class="btn btn-primary" type="submit" style="width: 100%"><span style="color: white ; font-size: 15px; "> Thêm vào giỏ hàng</span></button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                </form>
                                             </div>
                                         </a>
                                     </div>

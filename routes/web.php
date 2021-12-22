@@ -136,7 +136,8 @@ Route::group(['prefix' => '/user', 'middleware' => 'checkLogin'], function () {
     Route::get('/bank', [\App\Http\Controllers\bankController::class, 'index']);
 
     Route::post('/bank', [\App\Http\Controllers\bankController::class, 'bank']);
-    // Route::get('/cout-don-hang' ,[\App\Http\Controllers\BillController::class , 'coutDonHang']);
+
     Route::get('/product', [\App\Http\Controllers\CustomerController::class, 'index']);
+
     Route::post('/product/search', [\App\Http\Controllers\CustomerController::class, 'search']);
 });

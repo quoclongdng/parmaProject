@@ -51,10 +51,7 @@
         <div class="row mt-5 ">
             <div class="col-md-12 text-center ">
                 <p>
-                    Copyright &copy;
-                    <script>
-                        document.write(new Date().getFullYear());
-                    </script> All rights reserved | Made with <i class="fa fa-heart-o " aria-hidden="true "></i> by <a href="https://colorlib.com " target="_blank ">Colorlib</a>, distributed by <a href="https://themewagon.com/ " target="_blank ">ThemeWagon</a>
+                    <span>Desgin by TEAM </span>
                 </p>
             </div>
         </div>

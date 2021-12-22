@@ -3,7 +3,7 @@
 
         <nav class="classy-navbar" id="essenceNav">
 
-            <a class="nav-brand" href="/"><img src="/assets_homepage/img/core-img/logo.png" alt=""></a>
+            <a class="nav-brand" href="/"><img src="/logo.png" style="width: 80px;height: 50px;" ></a>
 
             <div class="classy-navbar-toggler">
                 <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -41,7 +41,7 @@
                                     <li><a href="/category/dung-cu-lam-dep">Dụng cụ làm đẹp</a></li>
                                 </ul>
                                 <div class="single-mega cn-col-4">
-                                    <img src="/assets_homepage/img/bg-img/bg-6.jpg" alt="">
+                                    <img src="/anh_menu.jpg" alt="">
                                 </div>
                             </div>
                         </li>

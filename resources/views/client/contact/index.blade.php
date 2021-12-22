@@ -1,6 +1,144 @@
 @extends('master-homepage')
+@section('css')
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+@endsection
+
 @section('content')
-<div class="contact-area d-flex align-items-center">
+
+<section class="content" >
+
+    <div>
+        <h2 style="margin-left: 30px ; font-family: 'Anton', sans-serif;">Thông Tin Thành Viên Nhóm</h2>
+    </div>
+
+    <div class="card card-solid">
+      <div class="card-body pb-0">
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-6 d-flex align-items-stretch flex-column">
+            <div class="card bg-light d-flex flex-fill">
+              <div class="card-header text-muted border-bottom-0">
+                Nhóm Trưởng
+              </div>
+              <div class="card-body pt-0">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="lead"><b>Đặng Ngọc Khải</b></h2>
+                    <p class="text-muted text-sm"><b>About: </b> K23 TPM10 - Trường Đại Học Duy Tân </p>
+                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                      <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                      <li class="small mt-2"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                    </ul>
+                  </div>
+                  <div class="col-5 text-center">
+                    <img src="/avatar/khai.png" alt="user-avatar" style="border-radius: 50% ; margin-top: 15px">
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="text-right">
+                  <a href="#" class="btn btn-sm btn-primary">
+                    <i class="fab fa-facebook"></i> Facebook
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-6 d-flex align-items-stretch flex-column">
+            <div class="card bg-light d-flex flex-fill">
+              <div class="card-header text-muted border-bottom-0">
+                Thành Viên
+              </div>
+              <div class="card-body pt-0">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="lead"><b>Nicole Pearson</b></h2>
+                    <p class="text-muted text-sm"><b>About: </b> K23 TPM10 - Trường Đại Học Duy Tân </p>
+                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                      <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                      <li class="small mt-2"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                    </ul>
+                  </div>
+                  <div class="col-5 text-center">
+                    <img src="/avatar/khoa.png" alt="user-avatar" style="border-radius: 50% ; margin-top: 15px">
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="text-right">
+                  <a href="#" class="btn btn-sm btn-primary">
+                    <i class="fab fa-facebook"></i> Facebook
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-6 mt-3 d-flex align-items-stretch flex-column">
+            <div class="card bg-light d-flex flex-fill">
+              <div class="card-header text-muted border-bottom-0">
+                Thành Viên
+              </div>
+              <div class="card-body pt-0">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="lead"><b>Nicole Pearson</b></h2>
+                    <p class="text-muted text-sm"><b>About: </b> K23 TPM10 - Trường Đại Học Duy Tân </p>
+                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                      <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                      <li class="small mt-2"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                    </ul>
+                  </div>
+                  <div class="col-5 text-center">
+                    <img src="/avatar/hop.png" alt="user-avatar" style="border-radius: 50% ; margin-top: 15px">
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="text-right">
+                  <a href="#" class="btn btn-sm btn-primary">
+                    <i class="fab fa-facebook"></i> Facebook
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-6 mt-3 d-flex align-items-stretch flex-column">
+            <div class="card bg-light d-flex flex-fill">
+              <div class="card-header text-muted border-bottom-0">
+                Thành Viên
+              </div>
+              <div class="card-body pt-0">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="lead"><b>Nicole Pearson</b></h2>
+                    <p class="text-muted text-sm"><b>About: </b> K23 TPM10 - Trường Đại Học Duy Tân </p>
+                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                      <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                      <li class="small mt-2"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                    </ul>
+                  </div>
+                  <div class="col-5 text-center">
+                    <img src="/avatar/tuan.png" alt="user-avatar" style="border-radius: 50% ; margin-top: 15px">
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="text-right">
+                  <a href="#" class="btn btn-sm btn-primary">
+                    <i class="fab fa-facebook"></i> Facebook
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.card -->
+
+  </section>
+
+
+{{-- <div class="contact-area d-flex align-items-center">
 
     <div class="google-map">
         <div class="row mb-4">
@@ -39,7 +177,7 @@
         </div>
 
     </div>
-</div>
+</div> --}}
 
 
 @endsection

@@ -15,7 +15,7 @@
             <input type="hidden" name="id" value="{{$data->id}}" >
             <span>{{$data->nameProduct}}</span>
             <h2>{{$data->name}}</h2>
-            <p class="product-price"> {{$data->price}} VND</p>
+            <p class="product-price"> {{number_format($data->price)}} VND</p>
             <p class="product-desc">{{ $data->content }}</p>
 
             <!-- Form -->
@@ -37,9 +37,6 @@
                 </div>
                 <!-- Cart & Favourite Box -->
                 <div class="cart-fav-box d-flex align-items-center">
-                    <!-- Cart -->
-                    <button class="btn essence-btn">Buy Now</button>
-                    <!-- Favourite -->
                     <div class="product-favourite ml-4">
                         <button class="btn essence-btn" type="submit">
                             <a class="fas fa-shopping-cart" > Add to cart</a>

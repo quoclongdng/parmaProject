@@ -6,36 +6,6 @@
         </div>
     </div>
 </section>
-<div class="top_catagory_area section-padding-80 clearfix">
-    <div class="container">
-        <div class="row justify-content-center">
-            <!-- Single Catagory -->
-            <div class="col-12 col-sm-6 col-md-4">
-                <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(img/1.jpg);">
-                    <div class="catagory-content">
-                        <a style="font-size: 20px;" href="#">Dược phẩm</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Catagory -->
-            <div class="col-12 col-sm-6 col-md-4">
-                <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(img/1.jpg);">
-                    <div class="catagory-content">
-                        <a style="font-size: 20px;" href="#">Thực phẩm chức năng</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Catagory -->
-            <div class="col-12 col-sm-6 col-md-4">
-                <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(img/1.jpg);">
-                    <div class="catagory-content">
-                        <a style="font-size: 20px;" href="#">Sản phẩm làm đẹp</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <section class="new_arrivals_area section-padding-80 clearfix">
     <div class="container">
@@ -126,20 +96,14 @@
 
 <div class="brands-area d-flex align-items-center justify-content-between ">
     <!-- Brand Logo -->
-    <div class="single-brands-logo border">
-        <div class="bg-img background-overlay" style="background-image: url(img/1.jpg);"></div>
+    <div class="single-brands-logo">
         <h4> Miễn phí vận chuyển</h4>
-        <span>áp dụng cho đơn hàng trên 300.000vnđ</span>
+        <span>Áp dụng cho đơn hàng trên 300.000vnđ</span>
     </div>
     <!-- Brand Logo -->
     <div class="single-brands-logo ">
         <h4>Thuốc tốt giá rẻ</h4>
         <span>Nếu không rẻ, hoàn tiền chênh lệch</span>
-    </div>
-    <!-- Brand Logo -->
-    <div class="single-brands-logo ">
-        <h4>Nhà thuốc gần bạn</h4>
-        <span>Tìm ngay nhà thuốc nơi gần bạn sống và ghé thăm</span>
     </div>
     <!-- Brand Logo -->
     <div class="single-brands-logo ">

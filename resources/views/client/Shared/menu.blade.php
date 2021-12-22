@@ -62,14 +62,14 @@
                 <div class="row ">
                     @if(Auth::guard('customer')->user())
                         <div style="margin-right: 30px; margin-top: 20px; ">
-                            <button class="btn btn-outline-warning" style="width: 2.5cm" ><a href="/logout">LogOut</a></button>
+                            <a href="/logout"><button class="btn btn-outline-warning" style="width: 2.5cm" >LogOut</button></a>
                         </div>
                     @else
                         <div class="mt-3">
-                            <button  class="btn btn-outline-success" style="width: 3cm"><a href="/login">LogIn</a></button>
+                            <a href="/login"><button  class="btn btn-outline-success" style="width: 3cm">LogIn</button></a>
                         </div>
                         <div class="ml-2 mr-4 mt-3">
-                            <button class="btn btn-outline-warning" style="width: 3cm"><a href="/register">Register</a></button>
+                            <a href="/register"><button class="btn btn-outline-warning" style="width: 3cm">Register</button></a>
                         </div>
                     @endif
                 </div>

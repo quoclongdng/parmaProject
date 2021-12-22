@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                        <img src="/avatar.png" alt="">
                     </div>
                 </div>
                 <div class="col-md-6" style="margin-top: 25px">
@@ -39,34 +39,70 @@
                             <h5 class="text-center mt-2">Chỉnh sửa thông tin</h5>
                             <div class="mt-1 ml-3 ">
                                 <input type="hidden" name="id" value="{{$data->id}}">
-                                <div class="col-md-12">
-                                    <label for="">Full name</label>
-                                    <br>
-                                    <input name="name" type="text" value="{{$data->name}}">
-                                </div>
-                                <div class="col-md-12 mt-2">
-                                    <label for="">Email</label>
-                                    <br>
-                                    <input name="email" type="text" value="{{$data->email}}" disabled >
-                                </div>
-                                <div class="col-md-12 mt-2">
-                                    <label for="">Phone Number</label>
-                                    <br>
-                                    <input name="phone" type="text" value="{{$data->phone}}">
-                                </div >
-                                <div class="col-md-12 mt-2">
-                                    <label for="">Address</label>
-                                    <br>
-                                    <input name="address" type="text" value="{{$data->address}}">
-                                </div>
-                                <div class="col-md-12 mt-2">
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput">Full name</label>
+                                        <input name="name" type="text" value="{{$data->name}}" class="form-control"  placeholder="Nhap ten cua ban">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput2">Email</label>
+                                        <input input name="email" type="text" value="{{$data->email}}" disabled class="form-control" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput">Phone Number</label>
+                                        <input name="phone" type="text" value="{{$data->phone}}" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput2">Address</label>
+                                        <input name="address" type="text" value="{{$data->address}}" class="form-control"  placeholder="Nhap dia chi cua ban">
+                                    </div>
+                                    <div class="col-md-12 mt-2">
                                         <button type="submit" class="btn btn-primary" >Update</button>
-                                </div>
+                                    </div>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="col-md-8" style="font-size: 20px" >
+                <div class="col-md-8">
+                    <div class="card" style="width: 100%;">
+                        <div class="card-body">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label style="font-family: 'Bakbak One', cursive;">Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{$data->name}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label style="font-family: 'Bakbak One', cursive;">Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{$data->email}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label style="font-family: 'Bakbak One', cursive;">Phone</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{$data->phone}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label style="font-family: 'Bakbak One', cursive;">Address</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{$data->address}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- <div class="col-md-8" style="font-size: 20px" >
                     <div class="tab-content profile-tab" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="row">
@@ -103,7 +139,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
     </div>
 </div>

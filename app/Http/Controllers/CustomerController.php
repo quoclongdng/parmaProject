@@ -239,4 +239,30 @@ class CustomerController extends Controller
 
         return view('client.product.index', compact('data'));
     }
+
+
+    public function viewForgotPassword()
+    {
+        return view('Customer.forgot_password');
+    }
+
+
+    public function ForgotPassword(Request $request)
+    {
+        $data = Customer::where('email', $request->email)->first();
+
+        if (!empty($data)) {
+            $data['password'] = $request->password;
+
+            $data->update();
+
+            toastr()->success("Đã Thay Đổi Mật Khẩu");
+
+            return redirect('/login');
+        } else {
+            toastr()->error("Email không tồn tại trong hệ thống");
+
+            return redirect('/forgot-password');
+        }
+    }
 }

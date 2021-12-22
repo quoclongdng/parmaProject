@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Client\Product\CreateProductRequest;
+use App\Http\Requests\Client\Product\SearchProductRequest;
 use App\Http\Requests\Client\Product\UpdateProductRequest;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -47,7 +48,7 @@ class ProductController extends Controller
     {
         $data = $request->all();
 
-        $data['slug'] =Str::slug($request->name);
+        $data['slug'] = Str::slug($request->name);
 
         Product::create($data);
 
@@ -79,8 +80,7 @@ class ProductController extends Controller
 
         $product_category = ProductCategory::all();
         // dd($data);
-        return view('pages.product.edit', compact('data' , 'product_category'));
-
+        return view('pages.product.edit', compact('data', 'product_category'));
     }
 
     /**
@@ -111,15 +111,28 @@ class ProductController extends Controller
     {
         $data = Product::find($id);
 
-        if($data){
+        if ($data) {
             $data->delete();
 
             toastr()->success("Đã Xoá Thành công");
 
             return redirect('/admin/product');
-        }else{
+        } else {
             toastr()->error("Đã Có Lỗi Xảy Ra !!!");
         }
+    }
 
+    public function search(SearchProductRequest $request)
+    {
+        $search = $request->search;
+
+        $data = Product::where('name', 'like', '%' . $search . '%')
+            ->orWhere('description', 'like', '%' . $search . '%')
+            ->orWhere('content', 'like', '%' . $search . '%')
+            ->orWhere('price', 'like', '%' . $search . '%')
+            ->orWhere('productcategory_id', 'like', '%' . $search . '%')
+            ->get();
+
+        return view('pages.product.index', compact('data'));
     }
 }

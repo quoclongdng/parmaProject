@@ -35,7 +35,6 @@
                                 <option value=0>Bán</option>
                             </select>
                          </div>
-
                         <!-- /.card-body -->
                          <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Thêm Mới Hóa Đơn Xuất Nhập</button>

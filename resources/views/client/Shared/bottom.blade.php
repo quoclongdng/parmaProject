@@ -7,7 +7,7 @@
                     <!-- Logo -->
                     <!-- Footer Menu -->
                     <div class="footer_menu" style="color: white;">
-                        Tại Pharmacity, mỗi dược sỹ luôn tận tâm phục vụ và được đào tạo để hoàn thành xuất sắc những sứ mệnh được giao.
+                        Tại DrugStore, mỗi dược sỹ luôn tận tâm phục vụ và được đào tạo để hoàn thành xuất sắc những sứ mệnh được giao.
                     </div>
                 </div>
             </div>

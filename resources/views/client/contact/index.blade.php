@@ -25,8 +25,8 @@
                     <h2 class="lead"><b>Đặng Ngọc Khải</b></h2>
                     <p class="text-muted text-sm"><b>About: </b> K23 TPM10 - Trường Đại Học Duy Tân </p>
                     <ul class="ml-4 mb-0 fa-ul text-muted">
-                      <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                      <li class="small mt-2"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                      <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Đà Nẵng</li>
+                      <li class="small mt-2"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone +84: 934747602</li>
                     </ul>
                   </div>
                   <div class="col-5 text-center">
@@ -51,11 +51,11 @@
               <div class="card-body pt-0">
                 <div class="row">
                   <div class="col-7">
-                    <h2 class="lead"><b>Nicole Pearson</b></h2>
-                    <p class="text-muted text-sm"><b>About: </b> K23 TPM10 - Trường Đại Học Duy Tân </p>
+                    <h2 class="lead"><b>Nguyễn Hữu Khoa</b></h2>
+                    <p class="text-muted text-sm"><b>About: </b> K23 TPM1 - Trường Đại Học Duy Tân </p>
                     <ul class="ml-4 mb-0 fa-ul text-muted">
-                      <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                      <li class="small mt-2"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                      <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Đà Nẵng</li>
+                      <li class="small mt-2"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone +84: 705253605</li>
                     </ul>
                   </div>
                   <div class="col-5 text-center">
@@ -80,11 +80,11 @@
               <div class="card-body pt-0">
                 <div class="row">
                   <div class="col-7">
-                    <h2 class="lead"><b>Nicole Pearson</b></h2>
-                    <p class="text-muted text-sm"><b>About: </b> K23 TPM10 - Trường Đại Học Duy Tân </p>
+                    <h2 class="lead"><b>Nguyễn Văn Hợp</b></h2>
+                    <p class="text-muted text-sm"><b>About: </b> K23 TPM9 -     Trường Đại Học Duy Tân </p>
                     <ul class="ml-4 mb-0 fa-ul text-muted">
-                      <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                      <li class="small mt-2"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                      <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Quảng Trị</li>
+                      <li class="small mt-2"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone +84: 376206224</li>
                     </ul>
                   </div>
                   <div class="col-5 text-center">
@@ -109,11 +109,11 @@
               <div class="card-body pt-0">
                 <div class="row">
                   <div class="col-7">
-                    <h2 class="lead"><b>Nicole Pearson</b></h2>
+                    <h2 class="lead"><b>Phạm Văn Tuân</b></h2>
                     <p class="text-muted text-sm"><b>About: </b> K23 TPM10 - Trường Đại Học Duy Tân </p>
                     <ul class="ml-4 mb-0 fa-ul text-muted">
-                      <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                      <li class="small mt-2"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                      <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Quảng Trị</li>
+                      <li class="small mt-2"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone +84: 877013523</li>
                     </ul>
                   </div>
                   <div class="col-5 text-center">

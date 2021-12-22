@@ -42,6 +42,7 @@
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" id="signin" class="form-submit" value="Login"/>
+                                <a href="/forgot-password" style="margin-left: 70px; color: blue">Forgot Password</a>
                             </div>
                         </form>
                     </div>

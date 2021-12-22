@@ -135,7 +135,7 @@
               <li class="nav-item">
                 <a href="/admin/productDetail/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Tạo mới Hóa Đơn </p>
+                  <p>Tạo mới Sản Phẩm </p>
                 </a>
               </li>
             </ul>

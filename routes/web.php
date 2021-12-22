@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\CustomerController::class, 'homePage']);
 
 Route::get('/login', [\App\Http\Controllers\CustomerController::class, 'viewLogin']);
+Route::get('/forgot-password', [\App\Http\Controllers\CustomerController::class, 'viewForgotPassword']);
+
+Route::post('/forgot-password', [\App\Http\Controllers\CustomerController::class, 'ForgotPassword']);
+
 Route::post('/login', [\App\Http\Controllers\CustomerController::class, 'Login']);
 Route::get('/register', [\App\Http\Controllers\CustomerController::class, 'viewregister']);
 Route::post('/register', [\App\Http\Controllers\CustomerController::class, 'register']);
@@ -35,6 +39,7 @@ Route::group(['prefix' => '/admin', 'middleware' => 'adminLogin'], function () {
     Route::get('/product/edit/{id}', [\App\Http\Controllers\ProductController::class, 'edit']);
     Route::post('/product/update', [\App\Http\Controllers\ProductController::class, 'update']);
     Route::get('/product/delete/{id}', [\App\Http\Controllers\ProductController::class, 'destroy']);
+    Route::post('/product/search', [\App\Http\Controllers\ProductController::class, 'search']);
 
     // newCategory
     Route::get('/news-category/create', [\App\Http\Controllers\NewsCategoryController::class, 'create']);

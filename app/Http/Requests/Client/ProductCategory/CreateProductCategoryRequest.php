@@ -24,7 +24,7 @@ class CreateProductCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'          => 'required|max:50|min:6',
+            'name'          => 'required|max:500|min:6',
             'is_open'       => 'required|boolean',
             'description'   => 'max:1000',
             'avatar'        => 'required',
